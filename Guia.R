@@ -98,3 +98,71 @@ names(arreglo_etiquetas) # Devuelve un vector de cadenas de caracteres con los n
 # --- Acceso a los elementos de un vector ---
 # Un indice puede ser un entero o un caracter dentro de corchetes
 # Cuando se utiliza un índice lógico, se obtienen los elementos correspondientes a las posiciones donde está el valor booleano TRUE.
+arreglo <- c(1,2,3,4)
+arreglo[arreglo > 2]
+
+# --- Pertenencia de un elemento en un vector ---
+arreglo <- c(1,2,3,4)
+2 %in% arreglo
+
+# --- Modificación de los elementos de un vector ---
+arreglo <- c(1,2,3,4)
+arreglo[1] <- 0
+arreglo
+
+# --- Añadir elementos a un vector ---
+arreglo <- c(1,2,3,4)
+arreglo <- c(arreglo, 5)
+arreglo
+arreglo <- append(arreglo, 0, after = 1)
+arreglo
+
+# --- Eliminar / Omitir elementos de un vector ---
+arreglo <- c(1,2,3,4)
+arreglo <- arreglo[-1]
+arreglo
+rm(arreglo) # Eliminar un vector
+arreglo
+
+# --- Operaciones aritméticas con vectores ---
+# Si los vectores tienen distinto tamaño, el tamaño del vector más pequeño
+# se equipara al tamaño del mayor, reutilizando sus elementos,
+# empezando por el primero.
+arreglo <- c(1,2,3)
+arreglo2 <- c(3,4)
+arreglo + arreglo2
+
+# --- Listas ---
+# Las listas son colecciones ordenadas de elementos que pueden ser de distintos tipos.
+
+#--- Creacion de Lista ---
+list(1,"a,",2,"b",3,"c")
+
+# Al igual que con los vectores, es posible asignar un nombre a cada uno de los elementos de una lista.
+list(el1=1,el2="a",el3=2,el4="b",el5=3,el6="c")
+
+# elementos de la lista
+length(list(1,2,3))
+
+# Acceso a los elementos de una lista
+lista <- list(el1=1,el2="a",el3=2,el4="b",el5=3,el6="c")
+lista[1] # Obtiene el elemento 1
+lista["el1"] # Obtiene el elemento el1
+lista[lista >= 1] # Indice logico
+
+# --- Modificación de los elementos de una lista ---
+lista <- list(el1=1,el2="a",el3=2,el4="b",el5=3,el6="c")
+lista$el1 <- 0
+lista
+
+lista[[1]] <- 1 # por indice
+lista
+
+# --- Añadir elementos a una lista ---
+lista <- list("nombre" = "Maria", "edad" = 22)
+lista$email <- "maria@gmail.com"
+lista
+lista <- append(lista, list("amigos" = 10))
+lista
+
+# --- Matrices ---
