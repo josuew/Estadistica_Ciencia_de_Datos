@@ -166,3 +166,14 @@ lista <- append(lista, list("amigos" = 10))
 lista
 
 # --- Matrices ---
+# matrix(x, nrow = m, ncol = n): Devuelve la matriz con los elementos del vector x
+# organizados en n filas y m columnas. Habitualmente basta con especificar el
+# número de filas o el número de columnas.
+matrix(data = c(1,2), nrow = 2, ncol = 2) # Los elementos se almacenan en columnas por defecto
+
+matrix(data = c(1,2), nrow = 2, ncol = 2, byrow = TRUE) # Los elementos se almacenan en filas
+
+# Es posible poner nombres a las filas y a las columnas de una matriz añadiendo el parámetro
+# dimnames y pasándole una lista de dos vectores de cadenas con los nombres de las filas
+# y las columnas respectivamente.
+matrix(data = list(c(1,2,3),c(4,5,6)), dimnames = list(c("fila1","fila2","fila3"),c("colA","colB","colC")))
