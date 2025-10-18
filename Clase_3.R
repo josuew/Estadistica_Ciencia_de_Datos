@@ -151,3 +151,36 @@ median(sismos3$Magnitud)
 frecu_sismo <- table(sismos3$Magnitud)
 which(frecu_sismo == max(frecu_sismo))
 names(frecu_sismo)[which(frecu_sismo == max(frecu_sismo))]
+
+# which(sismos3$Estado2 == " OAx")
+sismos3$Estado2[which(sismos3$Estado2 == " OAx")]<-" OAX"
+table(sismos3$Estado2)
+
+# Aggregate
+# Estadisticas multivariadas
+aggregate(Magnitud ~ Estado2,FUN=mean,data=sismos3) # Obtiene el promedio de magnitud por estado
+aggregate(sismos3$Magnitud ~ sismos3$Estado2,FUN=mean,data=sismos3) # Obtiene el promedio de magnitud por estado
+aggregate(sismos3$Magnitud ~ sismos3$Estado2,FUN=length) # Obtiene la cantidad de sismos
+
+# Varianza
+sqrt(var(sismos3$Magnitud) * 100) / mean(sismos3$Magnitud)
+
+coef_var <- function (x){
+  (sqrt(var(x))) * 100 / mean(x)
+}
+
+coef_var2 <- function (x){
+  sd(x) * 100 /mean(x)
+}
+
+coef_var(sismos3$Profundidad)
+aggregate(sismos3$Magnitud ~ sismos3$Estado2,FUN=coef_var,data=sismos3)
+aggregate(sismos3$Magnitud ~ sismos3$Estado2,FUN=coef_var2,data=sismos3)
+
+aggregate(cbind(sismos3$Magnitud,sismos3$Profundidad) ~ sismos3$Estado, FUN=mean)
+aggregate(cbind(sismos3$Magnitud,sismos3$Profundidad, sismos3$Latitud) ~ sismos3$Estado, FUN=mean)
+
+
+############################## DENGUE 2024
+# Edad promedio por estado de las personas con dengue
+# Edad promedio por estado y por sexo de personas con dengue
