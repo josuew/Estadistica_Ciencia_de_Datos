@@ -64,7 +64,10 @@ sqrt(9) # sqrt(x): Devuelve la raíz cuadrada de x.
 # El valor absoluto de un numero es el valor del numero sin signo
 abs(-2) # abs(x): Devuelve el valor absoluto de x.
 # El redondeo funciona apartir de .5 de lo contrario se trunca
-round(1.4) # round(x, n): Devuelve el redondeo de x a n decimales.
+round(1.4) # round(x, n): Devuelve el redondeo de x a n decimales. Apartir de .5
+round(1.5) # round(x, n): Devuelve el redondeo de x a n decimales. Apartir de .5
+ceiling(1.4)  # Redondea hacia arriba independientemente de que decimal sea
+trunc(1.5) # Trunca hacia abajo independientemente de que decimal sea
 exp(1) # exp(x): Devuelve la exponencial de x (𝑒𝑥).
 log(10) # log(x): Devuelve el logaritmo neperiano de x.
 sin(10) # sin(x): Devuelve el seno del ángulo x en radianes.
