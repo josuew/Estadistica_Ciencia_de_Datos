@@ -102,6 +102,7 @@ names(arreglo_etiquetas) # Devuelve un vector de cadenas de caracteres con los n
 # Un indice puede ser un entero o un caracter dentro de corchetes
 # Cuando se utiliza un índice lógico, se obtienen los elementos correspondientes a las posiciones donde está el valor booleano TRUE.
 arreglo <- c(1,2,3,4)
+arreglo > 2
 arreglo[arreglo > 2]
 
 # --- Pertenencia de un elemento en un vector ---
@@ -126,6 +127,12 @@ arreglo <- arreglo[-1]
 arreglo
 rm(arreglo) # Eliminar un vector
 arreglo
+
+# --- Une vectores por columnas ---
+a1 <- c(1,2,3)
+a2 <- c(4,5,6)
+cbind(a1,a2)
+rbind(a1,a2)
 
 # --- Operaciones aritméticas con vectores ---
 # Si los vectores tienen distinto tamaño, el tamaño del vector más pequeño
@@ -172,11 +179,65 @@ lista
 # matrix(x, nrow = m, ncol = n): Devuelve la matriz con los elementos del vector x
 # organizados en n filas y m columnas. Habitualmente basta con especificar el
 # número de filas o el número de columnas.
-matrix(data = c(1,2), nrow = 2, ncol = 2) # Los elementos se almacenan en columnas por defecto
+matrix(data = c(1,2), nrow = 2, ncol = 2) # Los elementos se almacenan en columnas por defecto (es como cbind)
 
-matrix(data = c(1,2), nrow = 2, ncol = 2, byrow = TRUE) # Los elementos se almacenan en filas
+matrix(data = c(1,2), nrow = 2, ncol = 2, byrow = TRUE) # Los elementos se almacenan en filas (es como rbind)
 
-# Es posible poner nombres a las filas y a las columnas de una matriz añadiendo el parámetro
-# dimnames y pasándole una lista de dos vectores de cadenas con los nombres de las filas
-# y las columnas respectivamente.
-matrix(data = list(c(1,2,3),c(4,5,6)), dimnames = list(c("fila1","fila2","fila3"),c("colA","colB","colC")))
+# Obtener nombre de las filas
+matriz <- matrix(data = c(1,2,3,4), ncol = 2, byrow = TRUE)
+matriz
+
+length(matriz) # numero elementos de la matriz
+nrow(matriz) # numero de filas de la matriz
+ncol(matriz) # numero de columnas de la matriz
+dim(matriz) # Numero de dimensiones de la matriz
+
+colnames(matriz) # Nombre de las columnas de la matriz
+rownames(matriz) # Nombre de las filas de la matriz
+
+#--- Acceso a elemento de la matriz ---
+# Para acceder a los elementos de una matriz se utilizan dos índices (uno para las filas y otro para las columnas)
+# separados por comas entre corchetes
+matriz[1,1] # Fila 1, Columna 1
+matriz[,1] # Todas las Filas de la Columna 1
+matriz[matriz > 1] # Obtiene todos los elementos logicos
+
+# --- Pertenencia a una Matriz ---
+2 %in% matriz
+
+# --- Modificacion a una Matriz ---
+matriz[1,1] <- 5 # Elemento 1,1 asignale 5
+matriz
+
+# --- Anadir elementos a una Matriz ---
+cbind(matriz, c(5,6)) # Devuelve la matriz que resulta de añadir nuevas columnas a la matriz x con los elementos del vector y.
+rbind(matriz, c(5,6)) # Devuelve la matriz que resulta de añadir nuevas filas a la matriz x con los elementos del vector y.
+
+
+# --- Data Frames ---
+# Un data frame es una estructura bidimensional cuyos elementos se organizan por filas y columnas
+# de manera similar a una matriz. La principal diferencia con las matrices es que sus columnas
+# están formadas por vectores, pero pueden tener tipos de datos distintos. Un data frame es un
+# caso particular de lista formada por vectores del mismo tamaño con nombre.
+edades_arr <- c(19,27,33)
+altura_arr <- c(1.77, 1.87, 1.91)
+data.frame(Edades = edades_arr, Alturas = altura_arr)
+
+# --- Coerción de otras estructuras de datos a data frame ---
+# Devuelve el data frame que se obtiene a partir la estructura de datos x aplicando las siguientes reglas de coerción:
+# * Si x es un vector se obtiene un data frame con una sola columna.
+# * Si x es una lista se obtiene un data frame con tantas columnas como elementos tenga la lista. Si los elementos de la lista tienen tamaños distintos se obtiene un error.
+# * Si x es una matriz se obtiene un data frame con el mismo número de columnas y filas que la matriz.
+as.data.frame(c(1,2,3,4))
+# as.data.frame(list(c(1,2,3),c(4,5,6,7)))
+as.data.frame(list(c(1,2,3),c(4,5,6)))
+as.data.frame(matrix(c(1,2,3,4,5,6), ncol = 2))
+
+# --- Acceso a los elementos de un data frame ---
+frame_prueba <- data.frame(c(1,2,3,4,5,6,7,8,9,10))
+head(frame_prueba, 5) # Primeros 5 elementos
+tail(frame_prueba, 5) # Ultimos 5 elementos
+
+# --- Añadir elementos a un data frame ---
+cbind(frame_prueba, c(10,9,8,7,6,5,4,3,2,1)) # Agrega elementos como columna
+rbind(frame_prueba, c(10,9,8,7,6,5,4,3,2,1)) # Agrega elementos como filas

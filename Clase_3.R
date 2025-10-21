@@ -1,4 +1,3 @@
-x <- 5
 sismos <- read.csv("data/SSNMX_catalogo_19000101_20251004 (1).csv")
 dim(sismos)
 
@@ -34,7 +33,7 @@ table(anios)
 anios >= 1980
 
 # Obtenemos cuantos a considerar y cuantos no
-# table(anios >= 1980)
+table(anios >= 1980)
 
 sismos2 <- sismos[anios >= 1980,]
 dim(sismos)
@@ -80,28 +79,94 @@ table(sismoper$mes)
 sismoper <- sismos2[sismos2$Magnitud >= 5 & !is.na(sismos2$Magnitud),]
 table(sismoper$mes)
 
+#--- Clase 3 ---
+# Poblacion: Es el conjunto "completo" de una poblacion
+# Muestra: Es un subconjunto de la poblacion al que se le pueden realizar mediciones
+
+# Parametro: Cantidad numerica calculada sobre la poblacion (por ejemplo la altura media de los mexicanos), se representa
+# con la letra µ(mu) o S (sigma)
+# Estadistico: Cantidad numerica calculada sobre una muestra (la altura media de un salon de clases), se representa con
+# la letra, se le puede llamar estimador tambien, como la desviacion estandar o el promedio
+
+# Variable: Es la caracteristica que se quiere estudiar de la poblacion (estatura de los mexicanos)
+# Dato u observacion: Es la realizacion (medicion) de la variable de interes
+# Experimento: Actividad o proceso realizado cuyos resultados producen un conjunto de datos
+
+# Tipos de Variables
+# Cualitativas
+#   Nominal - No se guarda relacion entre ellas, no importa el orden y se guardan en etiquetas (un ejemplo es el sexo, masculina o femenino)
+#   Ordinal - Importa el Orden y se guardan en etiquetas (por ejemplo el nivel socioeconomico: nivel bajo, medio o alto)
+# Cuantitativas
+#   Intervalo - Temperatura o calificacion de un examen
+#   Razon - Estatura, peso o distancia (cero absoluto)
+#   Absoluto - Hijos por familia
+
+# Probabilidad
+# Es una medida de incertidumbre asociada a un experimento aleatorio. Es un valor entre 0 y 1 que resulta
+# del cociente entre el numero de casos favorables al evento (m) y el numero de casos totales del evento (n)
+# P(A) = m / n
+
+# Experimento Aleatorio
+# Experimento cuyo resultado es incierto apeasar de realizar dicho experimento en las mismas condiciones (lanzar moneda)
+
+# Espacio muestral
+# Conjunto de "todos" los resultados posibles de un experimento aleatorio (Ω)
+
+# Evento
+# Objeto de estudio de la teoria de probabilidades
+
+# Medidas de tendencia central
+# Moda: EL dato que mas se repite de los elementos, pueden existir elementos duplicados
+# Mediana: Son datos ORDENADOS en medio, si hay pares se suman los 2 elmentos medios y se saca el promedio de esos 2 datos
+#           Tambien es el punto medio de la distribucion de frecuencias. NO PUEDEN EXISTIR ELEMENTOS DUPLICADOS
+#           --- Calculo Mediana ---
+#           - Impar: n = 2k + 1
+#                   Se obtiene tomando el elemento de en medio, es decir si tienes 7 datos el elemento 4 es la mediana
+#                   - Ejemplo
+#                     1,2,3,4,5,6,7
+#                     n = 2(4) + 1 = 9
+#           - Par: n = 1/2 (Xk-1 + Xk+1)
+#                   Se obtiene dividiendo entre 2 el total de los elementos y se toma el de abajo y el de arriba, se suman y se multiplican por 1/2
+#                   - Ejemplo
+#                     1,2,3,4,5,6,7,8
+#                     1. Se Ordenan
+#                     2. Posiciones Medias, 8/2 = 4 y 8/2 + 1 = 5
+#                     n = 1/2 (4 + 5) = 4.5
+# Media - Es el promedio
+
+
 estaturas <- c(69, 71, 67, 66, 59, 73, 80, 70, 72, 69, 68, 72, 59, 76,
                67, 74, 67, 74, 64, 63, 71, 66, 67, 62, 62, 57, 71, 56,
                69, 65, 79, 70, 71, 78, 75, 65, 61, 57, 59, 66,
                63, 61, 64, 61, 60, 62, 65, 59, 70, 77)
 
 sum(estaturas) * (1 / length(estaturas)) # Media
-mean(estaturas)
+mean(estaturas) # Media
 
 # Mediana
-median(estaturas)
-(sort(estaturas)[length(estaturas) / 2] +
-  sort(estaturas)[(length(estaturas) / 2) + 1]) / 2
-sort(estaturas)[25]
+length(estaturas) %% 2 == 0 # es par?
+# 1. Ordena
+estaturas_ordenadas <- sort(estaturas)
+(estaturas_ordenadas[length(estaturas) / 2] +
+  estaturas_ordenadas[(length(estaturas) / 2) + 1]) * 0.5 # (Xk - 1 + Xk + 1) * 1/2
+median(estaturas) # Ya ordena los valores y le saca la mediana
 
 # Moda
 # Elemento que mas se repite en los datos
-frecuncias_esta <- table(estaturas)
-max(frecuncias_esta)
-elemento <- which(frecuncias_esta == max(frecuncias_esta))
-dim(elemento)
-length(elemento)
-names(frecuncias_esta)[elemento]
+frecuencias_esta <- table(estaturas) # Genera un arreglo con etiquetas con las estaturas y su contador de elementos
+frecuencias_esta
+max(frecuencias_esta) # Obtiene el valor maximo de la tabla de frecuencias, no la posicion del elemento maximo de frecuencias, es decir
+#                       el elemento maximo es 4 en la tabla de frecuencias
+
+# utilizando which obtenemos cual es el elemento maximo de la tabla de frecuencias y no el valor de las frecuencias
+which.max(frecuencias_esta)
+elemento <- which(frecuencias_esta == max(frecuencias_esta)) # Moda, retorna un Arreglo con las posiciones de la condicion logica
+elemento
+
+dim(elemento) # Aqui podemos ver que retorna NULL, el cual nos dice que es un arreglo
+length(elemento) # contiene 3 elementos
+names(frecuencias_esta) # Retorna el nombre de las etiquetas de la tabla de frecuencias
+names(frecuencias_esta)[elemento] # Retorna el nombre de los valores mayormente repetidos
 
 # Medidas de Dispercion
 # Rango
