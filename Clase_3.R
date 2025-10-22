@@ -16,6 +16,7 @@ library("lubridate")
 #obtiene los anios de cada renglon
 anios <- year(fechas)
 
+
 # Obtiene los dias de cada tenglon
 day(fechas)
 
@@ -199,7 +200,8 @@ names(frecuencias_esta)[elemento] # Retorna el nombre de los valores mayormente 
 #
 # 1. Tomamos cada elemento y lo restamos con la media
 # 2. El Resultado se eleva al cuadrado
-# 3. se toma 1 / n - 1
+# 3. Se suman todos los elementos de elemento - media elevado al cuadrado de los puntos anteriores
+# 4. Se divide la suma / (elementos del arreglo - 1)
 # Desventaja es que todo de eleva al cuadrado, es decir anios al cuadrado
 
 
@@ -245,9 +247,9 @@ diff(range(sismos3$Magnitud))
 # Rango Intercuantilico de las magnitudes
 # h=1+(n−1)×p
 sismo_orde <- sort(sismos3$Magnitud)
-pos_quartil_3 <- 1 + (length(sismos3$Magnitud) - 1) * 0.75
+pos_quartil_3 <- 1 + ((length(sismos3$Magnitud) - 1) * 0.75)
 pos_quartil_3 # 252742.8
-pos_quartil_1 <- 1 + (length(sismos3$Magnitud) - 1) * 0.25
+pos_quartil_1 <- 1 + ((length(sismos3$Magnitud) - 1) * 0.25)
 pos_quartil_1
 
 #Interpolacion
@@ -271,18 +273,25 @@ IQR(sismos3$Magnitud)
 
 # Desviacion absoluta media - DAM
 sum(abs(sismos3$Magnitud - mean(sismos3$Magnitud))) / length(sismos3$Magnitud) # Escalar
-mean(sismos3$Magnitud)
 
 # Varianza de los Sismos
+var(sismos3$Magnitud)
+
 vari_magni <- sum((sismos3$Magnitud - mean(sismos3$Magnitud)) ^ 2) / (length(sismos3$Magnitud) - 1)
+vari_magni
+var(sismos3$Magnitud)
+
+# Desviacion Estandar de la magnitud
 sqrt(vari_magni)
 
 # Mediana
-sismo_orde[ceiling(length(sismos3$Magnitud) / 2)]
+sismo_orde[length(sismos3$Magnitud) / 2]
 median(sismos3$Magnitud)
+
 
 # Moda
 frecu_sismo <- table(sismos3$Magnitud)
+sort(frecu_sismo)
 which(frecu_sismo == max(frecu_sismo))
 names(frecu_sismo)[which(frecu_sismo == max(frecu_sismo))]
 
@@ -290,14 +299,21 @@ names(frecu_sismo)[which(frecu_sismo == max(frecu_sismo))]
 sismos3$Estado2[which(sismos3$Estado2 == " OAx")]<-" OAX"
 table(sismos3$Estado2)
 
+# --- Clase 4 ---
 # Aggregate
 # Estadisticas multivariadas
 aggregate(Magnitud ~ Estado2,FUN=mean,data=sismos3) # Obtiene el promedio de magnitud por estado
 aggregate(sismos3$Magnitud ~ sismos3$Estado2,FUN=mean,data=sismos3) # Obtiene el promedio de magnitud por estado
-aggregate(sismos3$Magnitud ~ sismos3$Estado2,FUN=length) # Obtiene la cantidad de sismos
+aggregate(sismos3$Magnitud ~ sismos3$Estado2,FUN=length) # Obtiene la cantidad de sismos por estado
 
 # Varianza
-sqrt(var(sismos3$Magnitud) * 100) / mean(sismos3$Magnitud)
+var(sismos3$Magnitud)
+
+# Desviacion estandar
+sqrt(var(sismos3$Magnitud))
+
+# Coeficiente de variacion
+(sqrt(var(sismos3$Magnitud)) * 100) / mean(sismos3$Magnitud)
 
 coef_var <- function (x){
   (sqrt(var(x))) * 100 / mean(x)
@@ -313,8 +329,3 @@ aggregate(sismos3$Magnitud ~ sismos3$Estado2,FUN=coef_var2,data=sismos3)
 
 aggregate(cbind(sismos3$Magnitud,sismos3$Profundidad) ~ sismos3$Estado, FUN=mean)
 aggregate(cbind(sismos3$Magnitud,sismos3$Profundidad, sismos3$Latitud) ~ sismos3$Estado, FUN=mean)
-
-
-############################## DENGUE 2024
-# Edad promedio por estado de las personas con dengue
-# Edad promedio por estado y por sexo de personas con dengue
