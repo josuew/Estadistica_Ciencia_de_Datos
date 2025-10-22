@@ -169,16 +169,64 @@ names(frecuencias_esta) # Retorna el nombre de las etiquetas de la tabla de frec
 names(frecuencias_esta)[elemento] # Retorna el nombre de los valores mayormente repetidos
 
 # Medidas de Dispercion
-# Rango
-diff(range(estaturas))
-max(estaturas) - min(estaturas)
+# Una vez que se han estimado medidas de tendencia central lo siguiente son las medidas de dispercion
+# Digamos que la dispercion significa "separarse entre si"
+# las medidas de dispercion indican la variacion de los datos
+# estas se aplican a variables continuas (razon e intervalo)
 
-# Rango quartil
+# Rango
+# Es la diferencia entre la observacion mayor con la menor
+
+# Rango Interquartil
+# Su principal objetivo es eliminar los datos extremos, es decir el menor y el mayor
+# Los datos se dividen en 4 (quartil)
+# 0.25 - Primer Quartil
+# 0.50 - Segundo Quartil
+# 0.75 - Tercer Quartil
+# 1 - Cuarto Quartil
+# Rango Interquartil = X al 0.75 - X al 0.25 (se toma el dato en la posicion 0.75 y el dato en la posicion 0.25 y se restan)
+# 1. Se ordenan los datos
+# 2. De la cantidad de datos n es igual a arreglo[N * P] donde p es el quartil que queremos y N son la cantidad de elementos, esto
+#     para obtener las posiciones de los quartiles, el valor de [N*P] SE REDONDEA
+
+# Desviacion Media Absoluta
+# Si los datos estan cercanos a "cero" (porque se resta el elemento - media) nos dice que los "errores" respecto al promedio son minimos
+# 1. Tomamos cada elemento y lo restamos con la media
+# 2. Sacamos su valor absoluto
+# 3. Los dividimos entre los elementos [n]
+
+# Varianza
+#
+# 1. Tomamos cada elemento y lo restamos con la media
+# 2. El Resultado se eleva al cuadrado
+# 3. se toma 1 / n - 1
+# Desventaja es que todo de eleva al cuadrado, es decir anios al cuadrado
+
+
+# Desviacion estandar
+# Se toma lo mismo que la varianza pero con una raiz cuadrada al final
+# 1. Tomamos cada elemento y lo restamos con la media
+# 2. El Resultado se eleva al cuadrado
+# 3. se toma 1 / n - 1
+# 4. raiz cuadrada del resultado
+
+# Coeficiente de Vaciacion
+# Se obtiene el porcentaje de dispercion
+# 1. Se obtiene la desviacion estandar
+# 2. Se obtiene el promedio
+# 3. Se multiplica la desviacion estandar por 100 entre el promedio
+
+# Rango
+max(estaturas) - min(estaturas)
+range(estaturas) # Retorna valores maximo y min
+diff(range(estaturas))
+
+ # Rango intercuantilico
 ceiling(0.25 * length(estaturas))
 ceiling(0.75 * length(estaturas))
 estatu_orde <- sort(estaturas)
 estatu_orde[ceiling(0.75 * length(estaturas))] -
-  estatu_orde[ceiling(0.25 * length(estaturas))] # Rango intercuantilico
+  estatu_orde[ceiling(0.25 * length(estaturas))]
 
 # round(0.25 * length(estaturas),0)
 # round(0.75 * length(estaturas),0)
@@ -192,11 +240,32 @@ dim(sismos3)
 
 # Rango
 max(sismos3$Magnitud) - min(sismos3$Magnitud)
+diff(range(sismos3$Magnitud))
 
-# Rango Intercuantilico de las maginitudes
+# Rango Intercuantilico de las magnitudes
+# h=1+(n−1)×p
 sismo_orde <- sort(sismos3$Magnitud)
+pos_quartil_3 <- 1 + (length(sismos3$Magnitud) - 1) * 0.75
+pos_quartil_3 # 252742.8
+pos_quartil_1 <- 1 + (length(sismos3$Magnitud) - 1) * 0.25
+pos_quartil_1
+
+#Interpolacion
+# la posicion quartil 3 indica que esta entre las posiciones 252742 y 252743
+quartil_3 <- sismo_orde[floor(pos_quartil_3)] + 0.75 * (sismo_orde[floor(pos_quartil_3)] - sismo_orde[ceiling(pos_quartil_3)])
+quartil_3
+
+quartil_1 <- sismo_orde[floor(pos_quartil_1)] + 0.25 * (sismo_orde[floor(pos_quartil_1)] - sismo_orde[ceiling(pos_quartil_1)])
+quartil_1
+
+iqr <- quartil_3 - quartil_1
+iqr
+
+# h=1+(n−1)×p
 sismo_orde[trunc(length(sismos3$Magnitud) * 0.75)] - # Trunca
   sismo_orde[round(length(sismos3$Magnitud) * 0.25)] # Redondea
+IQR(sismos3$Magnitud)
+
 
 # El 50% de los sismos se encuentra entre 3.8 y 3.4 escala richter de 0.4
 
