@@ -327,5 +327,7 @@ coef_var(sismos3$Profundidad)
 aggregate(sismos3$Magnitud ~ sismos3$Estado2,FUN=coef_var,data=sismos3)
 aggregate(sismos3$Magnitud ~ sismos3$Estado2,FUN=coef_var2,data=sismos3)
 
+# ~ respecto
+cbind(sismos3$Magnitud,sismos3$Profundidad) # arreglo columnas
 aggregate(cbind(sismos3$Magnitud,sismos3$Profundidad) ~ sismos3$Estado, FUN=mean)
 aggregate(cbind(sismos3$Magnitud,sismos3$Profundidad, sismos3$Latitud) ~ sismos3$Estado, FUN=mean)

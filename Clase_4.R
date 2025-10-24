@@ -6,28 +6,53 @@
 library(readxl)
 dengue <- read.csv("data/dengue_abierto.csv")
 
-sheet_name <- iconv("CATÁLOGO SEXO", from = "latin1", to = "UTF-8")
-catalo_sexo <- read_excel("data/cat_dengue.xlsx", sheet = sheet_name)
+# Un archivo xlsx se debe de leer pestana tras pestana
+# Se utiliza la libreria "readxl"
+
+# Aqui se especifica que hoja leer
+conv_sexo <- iconv("CATÁLOGO SEXO", from = "latin1", to = "UTF-8")
+catalo_sexo <- read_excel("data/cat_dengue.xlsx", sheet = conv_sexo)
+catalo_sexo
 
 sheet_name2 <- iconv("CATÁLOGO MUNICIPIO", from = "latin1", to = "UTF-8")
 catalo_munici <- read_excel("data/cat_dengue.xlsx", sheet = sheet_name2)
 
-sheet_name3 <- iconv("CATÁLOGO ENTIDAD", from = "latin1", to = "UTF-8")
-catalo_entidad <- read_excel("data/cat_dengue.xlsx", sheet = sheet_name3)
 # catalo_sexo
 # dengue$SEXO
 
-dengue2 <- merge(dengue, catalo_sexo, by.x = "SEXO", by.y = "CLAVE") # Union O inner join
+# El primer campo toma la tabla que contiene la numeracion en la tabla
+# El segundo campo es de donde va a crear la relacion de las etiquetas con los numeros
+# by.x toma las columna de X de la tabla Dengue que contiene los numeros y by.y contiene la columna y con la relacion de los campos
+dengue2 <- merge(dengue, catalo_sexo, by.x = "SEXO", by.y = "CLAVE") # INNER JOIN = merge
+
+# Al realizar el merge se agregan las columnas de la sheet "CATÁLOGO SEXO" en la tabla dengue2
+colnames(dengue2)
+
 table(dengue2$`DESCRIPCIÓN`)
 table(dengue2$SEXO, dengue2$`DESCRIPCIÓN`)
 
-catalo_entidad$CLAVE_ENTIDAD <- as.numeric(catalo_entidad$CLAVE_ENTIDAD)
+#Catalogo Entidad
+# En este ejemplo la columna CLAVE_ENTIDAD parece numerica pero es "text"
+conv_entidad <- iconv("CATÁLOGO ENTIDAD", from = "latin1", to = "UTF-8")
+catalo_entidad <- read_excel("data/cat_dengue.xlsx", sheet = conv_entidad)
+catalo_entidad
 
+# Convertimos la columna CLAVE_ENTIDAD a numerica para empatarla con ENTIDAD_RES que es numerica
+catalo_entidad$CLAVE_ENTIDAD <- as.numeric(catalo_entidad$CLAVE_ENTIDAD)
+catalo_entidad
+
+# Agregamos las columnas de la sheet "CATÁLOGO ENTIDAD" en la tabla que unimos con "CATÁLOGO SEXO"
 dengue3 <- merge(dengue2, catalo_entidad, by.x = "ENTIDAD_RES", by.y = "CLAVE_ENTIDAD")
+dengue3
+
 table(dengue3$ABREVIATURA)
 
+# 1:31:36
+# Edad anos de las personas respecto a la abreviatura
 aggregate(EDAD_ANOS ~ ABREVIATURA, FUN = mean, data = dengue3)
+# Dentro del estado los sexos
 aggregate(EDAD_ANOS ~ ABREVIATURA + `DESCRIPCIÓN`, FUN = mean, data = dengue3)
+# Dentro de los sexos cada estado
 aggregate(EDAD_ANOS ~ `DESCRIPCIÓN` + ABREVIATURA, FUN = mean, data = dengue3)
 
 #Municipios
