@@ -110,7 +110,7 @@ dev.off()
 # Grafico 3D
 library(scatterplot3d)
 scatterplot3d(x = turismo[,2:4], y=turismo$TIC, z=turismo$Precios, color = 1, pch = 3)
-scatterplot3d(turismo[,2:4], color = 1:turismo["continente"])
+scatterplot3d(turismo[,2:4])
 
 library(rgl)
 plot3d(x = turismo$AN, y=turismo$TIC, z=turismo$Precios, pch = 3, font = 2)

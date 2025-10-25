@@ -1,3 +1,6 @@
 library(readxl)
-sismos <- read.csv("data/SSNMX_catalogo_19000101_20251004 (1).csv")
-sismos
+dengue <- read.csv("data/dengue_abierto.csv")
+dengue
+
+categoria_
+
