@@ -34,7 +34,13 @@ mean_and_sd <- function (x){
 }
 
 
-aggregate(dengue4$EDAD_ANOS ~ dengue4$`DESCRIPCIÓN` + dengue4$ENTIDAD_FEDERATIVA, FUN=sd, data = dengue4)
-aggregate(dengue4$EDAD_ANOS ~ dengue4$`DESCRIPCIÓN` + dengue4$ENTIDAD_FEDERATIVA, FUN=mean, data = dengue4)
-df <- data.frame(aggregate(dengue4$EDAD_ANOS ~ dengue4$`DESCRIPCIÓN` + dengue4$ENTIDAD_FEDERATIVA, FUN=mean_and_sd, data = dengue4))
-df
+# aggregate(dengue4$EDAD_ANOS ~ dengue4$`DESCRIPCIÓN` + dengue4$ENTIDAD_FEDERATIVA, FUN=sd, data = dengue4)
+# aggregate(dengue4$EDAD_ANOS ~ dengue4$`DESCRIPCIÓN` + dengue4$ENTIDAD_FEDERATIVA, FUN=mean, data = dengue4)
+media_edades_por_estado <- aggregate(dengue4$EDAD_ANOS ~ dengue4$`DESCRIPCIÓN` + dengue4$ENTIDAD_FEDERATIVA, FUN=mean_and_sd, data = dengue4)
+
+# BoxPlot
+# Elaborar un grafico Boxplot donde simultaneamente se compare la edad promedio,
+# por sexo, en cada uno de los cinco estados estudiados. ¿Que se puede rescatar de
+# lo observado? Realizar una descripcion apropiada de lo observado en el grafico.
+boxplot(tabla_promedio$EDAD_ANOS ~ dengue4$ENTIDAD_FEDERATIVA, data = dengue4)
+dev.off()
