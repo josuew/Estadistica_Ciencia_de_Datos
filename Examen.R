@@ -76,6 +76,12 @@ densityPlot(dengue4$EDAD_ANOS ~ as.factor(dengue4$ENTIDAD_FEDERATIVA),
             legend = list(title="Densidad Edad"))
 
 
+# Considerando solo el municipio con mayor cantidad de casos de cada estado, comparar
+# los graficos de densidad de estos municipios de forma simult´anea (un solo ambiente
+# grafico). ¿Que se puede observar?
+
+
+
 # Mostrar un grafico de barras, de cada estado, donde muestre la frecuencia de registro
 # de nuevos casos de los meses enero a septiembre.
 
