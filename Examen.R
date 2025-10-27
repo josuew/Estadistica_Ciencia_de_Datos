@@ -94,9 +94,10 @@ table(dengue5$ENTIDAD_FEDERATIVA)
 
 # Grafico de Barras
 dengue_jal <- dengue5[which(dengue5$ENTIDAD_FEDERATIVA == "JALISCO"),]
-dengue_jal$MES
+table(dengue_jal$MES)
 res <- aggregate(dengue_jal$FECHA_SIGN_SINTOMAS ~ dengue_jal$MES, FUN=length)
-with(res, hist(rep(x = res$`dengue_jal$MES`, times = res$`dengue_jal$FECHA_SIGN_SINTOMAS`)))
-
+# with(res, hist(rep(x = res$`dengue_jal$MES`, times = res$`dengue_jal$FECHA_SIGN_SINTOMAS`)))
+barplot(res$`dengue_jal$FECHA_SIGN_SINTOMAS` ~ res$`dengue_jal$MES`, xlab = "Meses", ylab = "Registro", names.arg = c("1","2","3","4","5","6","7","8","9"),)
+# axis(side = 1, at = seq_along(res$`dengue_jal$MES`), labels = res$`dengue_jal$MES`, las = 2)
 # aggregate(month(dengue5$FECHA_SIGN_SINTOMAS) ~ dengue5$ENTIDAD_FEDERATIVA, FUN=length)
 # hist(dengue3$FECHA_SIGN_SINTOMAS)
