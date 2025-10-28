@@ -94,8 +94,8 @@ densityPlot(info_estados_dengue$EDAD_ANOS ~ as.factor(info_estados_dengue$ENTIDA
 # los graficos de densidad de estos municipios de forma simultanea (un solo ambiente
 # grafico). ¿Que se puede observar?
 estados_registro_municipio <- aggregate(info_estados_dengue$ID_REGISTRO ~ info_estados_dengue$ENTIDAD_FEDERATIVA + info_estados_dengue$MUNICIPIO , FUN = length)
-maximos_por_estado <- do.call(rbind, by(estados_registro_municipio, estados_registro_municipio$ENTIDAD_FEDERATIVA, function(df) {
-  df[which.max(df$ID_REGISTRO), ]
+maximos_por_estado <- do.call(rbind, by(estados_registro_municipio, estados_registro_municipio$`info_estados_dengue$ENTIDAD_FEDERATIVA`, function(df) {
+  df[which.max(df$`info_estados_dengue$ID_REGISTRO`),]
 }))
 
 # Mostrar un grafico de barras, de cada estado, donde muestre la frecuencia de registro
