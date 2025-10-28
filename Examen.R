@@ -1,7 +1,6 @@
 library(readxl)
 dengue <- read.csv("data/dengue_abierto.csv")
-# dengue
-# length(dengue$ID_REGISTRO)
+length(dengue$ID_REGISTRO)
 
 catalogo_entidad <- read_excel("data/cat_dengue.xlsx", sheet = "CATÁLOGO ENTIDAD")
 # catalogo_entidad
@@ -22,40 +21,57 @@ catalogo_sexo <- read_excel("data/cat_dengue.xlsx", sheet = "CATÁLOGO SEXO")
 
 dengue3 <- merge(dengue2, catalogo_sexo, by.x = "SEXO", by.y = "CLAVE")
 
+# Union de CLAVE_MUNICIPIO
+catalogo_municipio <- read_excel("data/cat_dengue.xlsx", sheet = "CATÁLOGO MUNICIPIO")
+catalogo_municipio[catalogo_municipio$CLAVE_ENTIDAD == "USA", 3] <- "33"
+catalogo_municipio[catalogo_municipio$CLAVE_ENTIDAD == "ALTN", 3] <- "34"
+catalogo_municipio[catalogo_municipio$CLAVE_ENTIDAD == "OTROS", 3] <- "35"
+
+# sapply(catalogo_municipio, class)
+catalogo_municipio$CLAVE_ENTIDAD <- as.numeric(catalogo_municipio$CLAVE_ENTIDAD)
+catalogo_municipio$CLAVE_MUNICIPIO <- as.numeric(catalogo_municipio$CLAVE_MUNICIPIO)
+# length(catalogo_municipio$CLAVE_MUNICIPIO) # 2503
+
+dengue4 <- merge(x = dengue3, y = catalogo_municipio, by.x = c("ENTIDAD_RES","MUNICIPIO_RES"), by.y = c("CLAVE_ENTIDAD", "CLAVE_MUNICIPIO"), sort=FALSE)
+# length(dengue4$ID_REGISTRO) # 550,247
+
+# Agregamos una columna con meses de registro
+library(lubridate)
+dengue4$FECHA_SIGN_SINTOMAS <- as.Date(dengue4$FECHA_SIGN_SINTOMAS, tryFormats = "%d/%m/%y")
+dengue4$DIA_SIGN_SINTOMAS <- day(dengue4$FECHA_SIGN_SINTOMAS)
+dengue4$MES_SIGN_SINTOMAS <- month(dengue4$FECHA_SIGN_SINTOMAS)
+dengue4$ANIO_SIGN_SINTOMAS <- year(dengue4$FECHA_SIGN_SINTOMAS)
+
+tabla_dengue <- dengue4
+
 # Obtenemos los registros de los Estados:
 # Michoacan, Colima, Nayarit, Jalisco y, Guerrero
-estados_dengue <- dengue3$ENTIDAD_FEDERATIVA %in% c("MICHOACÁN DE OCAMPO","COLIMA","NAYARIT","JALISCO","GUERRERO")
-dengue4 <- dengue3[estados_dengue,]
-# dengue4
+estados_dengue <- tabla_dengue$ENTIDAD_FEDERATIVA %in% c("MICHOACÁN DE OCAMPO","COLIMA","NAYARIT","JALISCO","GUERRERO")
+info_estados_dengue <- tabla_dengue[estados_dengue,]
 
-# sapply(dengue3, class)
-mean_and_sd <- function (x){
+# Respecto a la edad de los pacientes reportados, elaborar una tabla donde se resuma la
+# edad promedio y desviacion estandar, por sexo, de cada uno de los estados anteriormente
+# mencionados.
+media_y_desviacion_estandar <- function (x){
   c(media = mean(x), desviacion_estandar = sd(x))
 }
 
-
 # aggregate(dengue4$EDAD_ANOS ~ dengue4$`DESCRIPCIÓN` + dengue4$ENTIDAD_FEDERATIVA, FUN=sd, data = dengue4)
 # aggregate(dengue4$EDAD_ANOS ~ dengue4$`DESCRIPCIÓN` + dengue4$ENTIDAD_FEDERATIVA, FUN=mean, data = dengue4)
-media_edades_por_estado <- aggregate(dengue4$EDAD_ANOS ~ dengue4$ENTIDAD_FEDERATIVA + dengue4$`DESCRIPCIÓN`, FUN=mean_and_sd, data = dengue4)
-media_edades_por_estado_ordenado <- media_edades_por_estado[order(media_edades_por_estado$`dengue4$ENTIDAD_FEDERATIVA`),]
-media_edades_por_estado_ordenado
+media_edades <- aggregate(info_estados_dengue$EDAD_ANOS ~ info_estados_dengue$ENTIDAD_FEDERATIVA + info_estados_dengue$`DESCRIPCIÓN`, FUN=media_y_desviacion_estandar, data = info_estados_dengue)
+media_edades <- media_edades[order(media_edades$`info_estados_dengue$ENTIDAD_FEDERATIVA`),]
+media_edades
 
-# ordenamos por estado
-
-# media_edades_por_estado_ordenado <- do.call(data.frame, media_edades_por_estado_ordenado)
-# colnames(media_edades_por_estado_ordenado) <- c("ENTIDAD_FEDERATIVA", "DESCRIPCIÓN", "media", "desviacion_estandar")
-median(dengue4$EDAD_ANOS)
-
-# BoxPlot
+# aggregate(info_estados_dengue$EDAD_ANOS ~ info_estados_dengue$ENTIDAD_FEDERATIVA + info_estados_dengue$`DESCRIPCIÓN`, FUN = median)
 # Elaborar un grafico Boxplot donde simultaneamente se compare la edad promedio,
 # por sexo, en cada uno de los cinco estados estudiados. ¿Que se puede rescatar de
 # lo observado? Realizar una descripcion apropiada de lo observado en el grafico.
-par(mar = c(5, 10, 4, 2))  # Ajustar márgenes
+par(mar = c(5, 10, 4, 2))
 boxplot(EDAD_ANOS ~ `DESCRIPCIÓN` + ENTIDAD_FEDERATIVA,
         main = "Distribución de Edad por Entidad Federativa y Sexo",
         xlab = "Edad (años)",
         ylab = "",
-        data = dengue4,
+        data = info_estados_dengue,
         horizontal = TRUE,
         las = 1,
         col = c("lightblue", "lightpink"),
@@ -64,23 +80,23 @@ boxplot(EDAD_ANOS ~ `DESCRIPCIÓN` + ENTIDAD_FEDERATIVA,
 
 # Agregar etiquetas de los estados en el eje Y
 axis(2, at = c(1.5, 4.5, 7.5, 10.5, 13.5),
-     labels = sort(unique(dengue4$ENTIDAD_FEDERATIVA)),
+     labels = sort(unique(info_estados_dengue$ENTIDAD_FEDERATIVA)),
      las = 1, tick = FALSE, line = 1)
-
 legend("topright", legend = c("Hombre", "Mujer"), fill = c("lightblue", "lightpink"))
 
 # Mostrar el grafico de densidad (simultaneos) de cada uno de los cinco estados. Discutir
 # lo observado.
 library(car)
-densityPlot(dengue4$EDAD_ANOS ~ as.factor(dengue4$ENTIDAD_FEDERATIVA),
+densityPlot(info_estados_dengue$EDAD_ANOS ~ as.factor(info_estados_dengue$ENTIDAD_FEDERATIVA),
             legend = list(title="Densidad Edad"))
 
-
 # Considerando solo el municipio con mayor cantidad de casos de cada estado, comparar
-# los graficos de densidad de estos municipios de forma simult´anea (un solo ambiente
+# los graficos de densidad de estos municipios de forma simultanea (un solo ambiente
 # grafico). ¿Que se puede observar?
-
-
+estados_registro_municipio <- aggregate(info_estados_dengue$ID_REGISTRO ~ info_estados_dengue$ENTIDAD_FEDERATIVA + info_estados_dengue$MUNICIPIO , FUN = length)
+maximos_por_estado <- do.call(rbind, by(estados_registro_municipio, estados_registro_municipio$ENTIDAD_FEDERATIVA, function(df) {
+  df[which.max(df$ID_REGISTRO), ]
+}))
 
 # Mostrar un grafico de barras, de cada estado, donde muestre la frecuencia de registro
 # de nuevos casos de los meses enero a septiembre.
