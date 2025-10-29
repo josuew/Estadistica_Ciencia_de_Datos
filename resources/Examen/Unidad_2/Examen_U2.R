@@ -1,8 +1,8 @@
 library(readxl)
-dengue <- read.csv("data/dengue_abierto.csv")
+dengue <- read.csv("../../../data/dengue_abierto.csv")
 length(dengue$ID_REGISTRO)
 
-catalogo_entidad <- read_excel("data/cat_dengue.xlsx", sheet = "CATÁLOGO ENTIDAD")
+catalogo_entidad <- read_excel("../../../data/cat_dengue.xlsx", sheet = "CATÁLOGO ENTIDAD")
 # catalogo_entidad
 
 # Convertir Catalogo Entidad a Numerico
@@ -16,13 +16,13 @@ dengue2 <- merge(dengue,catalogo_entidad, by.x = "ENTIDAD_RES", by.y = "CLAVE_EN
 # dengue2$ENTIDAD_FEDERATIVA[is.na(dengue2$ENTIDAD_FEDERATIVA)]
 
 # Union de CATÁLOGO SEXO con SEXO
-catalogo_sexo <- read_excel("data/cat_dengue.xlsx", sheet = "CATÁLOGO SEXO")
+catalogo_sexo <- read_excel("../../../data/cat_dengue.xlsx", sheet = "CATÁLOGO SEXO")
 # sapply(catalogo_sexo, class)
 
 dengue3 <- merge(dengue2, catalogo_sexo, by.x = "SEXO", by.y = "CLAVE")
 
 # Union de CLAVE_MUNICIPIO
-catalogo_municipio <- read_excel("data/cat_dengue.xlsx", sheet = "CATÁLOGO MUNICIPIO")
+catalogo_municipio <- read_excel("../../../data/cat_dengue.xlsx", sheet = "CATÁLOGO MUNICIPIO")
 catalogo_municipio[catalogo_municipio$CLAVE_ENTIDAD == "USA", 3] <- "33"
 catalogo_municipio[catalogo_municipio$CLAVE_ENTIDAD == "ALTN", 3] <- "34"
 catalogo_municipio[catalogo_municipio$CLAVE_ENTIDAD == "OTROS", 3] <- "35"
@@ -43,6 +43,7 @@ dengue4$MES_SIGN_SINTOMAS <- month(dengue4$FECHA_SIGN_SINTOMAS)
 dengue4$ANIO_SIGN_SINTOMAS <- year(dengue4$FECHA_SIGN_SINTOMAS)
 
 tabla_dengue <- dengue4
+table(tabla_dengue$ANIO_SIGN_SINTOMAS)
 
 # Obtenemos los registros de los Estados:
 # Michoacan, Colima, Nayarit, Jalisco y, Guerrero

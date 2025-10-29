@@ -1,0 +1,159 @@
+---
+title: "Analisis Estadistico Exploratorio"
+author: "Josue Emmanuel Jauregui Arvilla"
+date: "28 de Octubre de 2025"
+output: html_document
+---
+
+# Introduccion
+El presente reporte analiza los datos de dengue en Mexico correspondientes al anio 2020 para los estados de Michoacan, Colima, Nayarit, Jalisco y Guerrero con el objetivo de mostrar algunas medidas de tendencia central,
+
+## Cargar libreria para la lectura de archivos xlsx en R
+```{r}
+# readxl es una libreria de R que nos permite leer el archivos con extension .xlsx, esto nos ayuda para poder
+# realizar lecturas de sheets (tabs en excel)
+library(readxl)
+
+# lubridate es una libreria de R que nos permite trabajar con fechas, los cuales podemos extraer dia, mes y anio de alguna columna que contenga tipos de datos Date
+library(lubridate)
+```
+
+## Preparacion de Datos de Dengue
+En esta sección se procede a la carga de los datos de dengue en México y a su integración con los catálogos de entidades federativas, municipios y sexo.
+
+### Carga de Datos de Dengue
+Al momento de cargar los datos de dengue, se observa que el archivo contiene 550,247 registros. Es importante mencionar que este archivo contiene los datos en crudo, es necesario realizar la integracion con los catalogos de entidades federativas, municipios y sexo para mejorar la visualizacion de los datos.
+```{r}
+# Carga de datos de dengue en México
+dengue <- read.csv("/Users/jaureperro/PycharmProjects/Estadistica_Ciencia_de_Datos/data/dengue_abierto.csv")
+length(dengue$ID_REGISTRO)
+```
+
+### Integracion Entidades Federativas
+Para integrar las entidades federativas a nuestra tabla de dengue, es necesario cargar el archivo de catalogo de entidades federativas. Para ello se utiliza la libreria readxl que nos permite cargar el sheet de catalogo de entidades federativas, una vez cargado el archivo, se realiza la integracion de los datos de dengue en la columna entidad_res con el catalogo de entidades federativas. Esto nos permite obtener el nombre de la entidad federativa correspondiente al numero de registro de la tabla dengue en la columna entidad_res.
+```{r}
+# Cargamos el archivo cat_dengue.xlsx y seleccionamos el sheet "CATÁLOGO ENTIDAD"
+catalogo_entidad <- read_excel("/Users/jaureperro/PycharmProjects/Estadistica_Ciencia_de_Datos/data/cat_dengue.xlsx", sheet = "CATÁLOGO ENTIDAD")
+catalogo_entidad
+```
+
+Dentro podemos observar que la columna CLAVE_ENTIDAD es de tipo character, por lo que es necesario convertirla a numerica mediante el uso de la funcion as.numeric el cual nos permite realizar la convercion de un tipo de dato character a numeric:
+```{r}
+catalogo_entidad$CLAVE_ENTIDAD <- as.numeric(catalogo_entidad$CLAVE_ENTIDAD) # conversion a numerico
+sapply(catalogo_entidad, class)
+```
+
+Realizamos la relacion de la columna CLAVE_ENTIDAD con la columna ENTIDAD_RES de nuestra tabla de dengue, la cual al hacer la union nos permite obtener el nombre de la entidad federativa correspondiente al numero de registro de la tabla dengue en la columna entidad_res:
+
+```{r}
+# Union de la columna CLAVE_ENTIDAD con la columna ENTIDAD_RES de la tabla dengue
+dengue2 <- merge(dengue,catalogo_entidad, by.x = "ENTIDAD_RES", by.y = "CLAVE_ENTIDAD")
+dengue2[1,]
+```
+
+### Integracion Catalogo Sexo
+Para integrar descripciones de sexo a nuestra tabla de dengue, es necesario cargar el archivo de catalogo de sexo. Nuevamente haremos uso de la libreria readxl que nos permite cargar el sheet de catalogo de sexo, una vez cargado el archivo, se realiza la integracion de los datos de dengue en la columna SEXO con el catalogo de sexo de la columna CLAVE. Esto nos permite obtener la descripcion de correspondiente al sexo de la tabla dengue en la columna sexo en vez de tomar numeros como 1 o 2.
+
+```{r}
+catalogo_sexo <- read_excel("/Users/jaureperro/PycharmProjects/Estadistica_Ciencia_de_Datos/data/cat_dengue.xlsx", sheet = "CATÁLOGO SEXO")
+sapply(catalogo_sexo, class)
+```
+
+
+En este caso podras notar que la columna CLAVE es de tipo numerico, por lo que no es necesario realizar la convercion de un tipo de dato character a numerica, aqui procederemos a realizar la union de la columna CLAVE con la columna SEXO de la tabla dengue (es importante mencionar que se tomaron los datos de dengue2 ya que contiene los datos de dengue integrados con el catalogo de entidades federativas):
+
+```{r}
+# Union de la columna CLAVE con la columna SEXO de la tabla dengue2
+dengue3 <- merge(dengue2, catalogo_sexo, by.x = "SEXO", by.y = "CLAVE")
+dengue3[1,]
+```
+
+### Integracion Catalogo Municipio
+Para integrar los municipio a nuestra tabla de dengue, es necesario cargar el archivo de catalogo municipio. Nuevamente haremos uso de la libreria readxl que nos permite cargar el sheet de catalogo de munixipio, una vez cargado el archivo, se realiza la integracion de los datos de dengue en la columna MUNICIPIO_RES con el catalogo de municipio de la columna CLAVE_MUNICIPIO y CLAVE_ENTIDAD.
+
+```{r}
+catalogo_municipio <- read_excel("/Users/jaureperro/PycharmProjects/Estadistica_Ciencia_de_Datos/data/cat_dengue.xlsx", sheet = "CATÁLOGO MUNICIPIO")
+sapply(catalogo_municipio, class)
+```
+
+Al momento de obtener los tipos de dato de las columnas del catalogo de municipio, podemos observar que la columna CLAVE_MUNICIPIO y CLAVE_ENTIDAD son de tipo character, por lo que es necesario convertirlas a numerica mediante el uso de la funcion as.numeric el cual nos permite realizar la convercion de un tipo de dato character a numerico, pero si nos fijamos en la columna CLAVE_ENTIDAD, podemos observar que tenemos en la tabla 3 registros (USA, ALTN, OTROS), los cuales si hacemos la conversion a numerica nos lo convertiria a NaN, para evitar el mensaje de coercion, es necesario sobreescribir dentro de esos valores, sus numeros correspondientes a las entidades federativas dentro de la sheet catalogo entidad:
+
+```{r}
+# Se asignan los valores que corresponden de CATALOGO ENTIDAD para estas CLAVES de Entidad
+catalogo_municipio[catalogo_municipio$CLAVE_ENTIDAD == "USA", 3] <- "33"
+catalogo_municipio[catalogo_municipio$CLAVE_ENTIDAD == "ALTN", 3] <- "34"
+catalogo_municipio[catalogo_municipio$CLAVE_ENTIDAD == "OTROS", 3] <- "35"
+
+# Realiza la conversion numerica de CLAVE_ENTIDAD y CLAVE_MUNICIPIO a numerico
+catalogo_municipio$CLAVE_ENTIDAD <- as.numeric(catalogo_municipio$CLAVE_ENTIDAD)
+catalogo_municipio$CLAVE_MUNICIPIO <- as.numeric(catalogo_municipio$CLAVE_MUNICIPIO)
+```
+
+Una vez realizada la convercion de los tipos de dato de las columnas del catalogo de municipio, procederemos a realizar la union de la columna CLAVE_ENTIDAD con la columna CLAVE_MUNICIPIO de la tabla dengue3:
+
+```{r}
+dengue4 <- merge(x = dengue3, y = catalogo_municipio, by.x = c("ENTIDAD_RES","MUNICIPIO_RES"), by.y = c("CLAVE_ENTIDAD", "CLAVE_MUNICIPIO"), sort=FALSE)
+dengue4[1,]
+```
+
+### Agregar columna de dia, meses, anios de registro
+Para agregar una columna de meses de registro a nuestra tabla de dengue, es necesario cargar la libreria lubridate que nos permite trabajar con fechas.
+
+```{r}
+# Realizamos la conversion de la columna FECHA_SIGN_SINTOMAS a el formato %d/%m/%y
+dengue4$FECHA_SIGN_SINTOMAS <- as.Date(dengue4$FECHA_SIGN_SINTOMAS, tryFormats = "%d/%m/%y")
+
+# Creamos una columna que se llama DIA_SIGN_SINTOMAS que contiene el dia del registro de la columna FECHA_SIGN_SINTOMAS
+dengue4$DIA_SIGN_SINTOMAS <- day(dengue4$FECHA_SIGN_SINTOMAS)
+# Creamos una columna que se llama MES_SIGN_SINTOMAS que contiene el mes del registro de la columna FECHA_SIGN_SINTOMAS
+dengue4$MES_SIGN_SINTOMAS <- month(dengue4$FECHA_SIGN_SINTOMAS)
+# Creamos una columna que se llama ANIO_SIGN_SINTOMAS que contiene el anio del registro de la columna FECHA_SIGN_SINTOMAS
+dengue4$ANIO_SIGN_SINTOMAS <- year(dengue4$FECHA_SIGN_SINTOMAS)
+dengue4[1,]
+
+```
+
+### Tabla de Dengue
+Despues de realizar todas las operaciones anteriores, podemos observar que la tabla de dengue contiene 550,247 registros al igual que al inicio, solo que ahora contiene las columnas que nos permiten saber la entidad federativa, municipio, sexo, dia, mes y anio de registro. Para mantener un nombre de variable claro, se renombro la tabla de dengue4 a tabla_dengue:
+
+```{r}
+tabla_dengue <- dengue4
+length(tabla_dengue$ID_REGISTRO)
+```
+
+## Obtencion de los registros de las entidades federativas seleccionadas
+Con el fin de realizar los análisis de este reporte, se extrajo una submuestra de los registros provenientes de las entidades federativas de Michoacán, Colima, Nayarit, Jalisco y Guerrero. Esta submuestra incluye 226,460 registros, lo que representa aproximadamente el 41% del total de 550,247 registros de la población estudiada.
+
+```{r}
+# Realizamos un filtro para obtener las entidades de "MICHOACÁN DE OCAMPO","COLIMA","NAYARIT","JALISCO","GUERRERO" de nuestra tabla dengue
+estados_dengue <- tabla_dengue$ENTIDAD_FEDERATIVA %in% c("MICHOACÁN DE OCAMPO","COLIMA","NAYARIT","JALISCO","GUERRERO")
+
+# Crearemos la variable info_estados_dengue el cual solo contiene los registros de los estados anteriormente mencionados
+info_estados_dengue <- tabla_dengue[estados_dengue,]
+length(info_estados_dengue$ID_REGISTRO)
+```
+
+## Analisis de Tendencia Central
+
+
+
+The [R plugin](https://www.jetbrains.com/help/pycharm/r-plugin-support.html) for IntelliJ-based IDEs provides
+handy capabilities to work with the [R Markdown](https://www.jetbrains.com/help/pycharm/r-markdown.html) files.
+To [add](https://www.jetbrains.com/help/pycharm/r-markdown.html#add-code-chunk) a new R chunk,
+```{r}
+5+1
+```
+position the caret at any line or the code chunk, then click "+".
+
+The code chunk appears:
+```{r}
+```
+
+Type any R code in the chunk, for example:
+```{r}
+mycars <- within(mtcars, { cyl <- ordered(cyl) })
+mycars
+```
+
+Now, click the **Run** button on the chunk toolbar to [execute](https://www.jetbrains.com/help/pycharm/r-markdown.html#run-r-code) the chunk code. The result should be placed under the chunk.
+Click the **Knit and Open Document** to build and preview an output.
