@@ -94,9 +94,23 @@ densityPlot(info_estados_dengue$EDAD_ANOS ~ as.factor(info_estados_dengue$ENTIDA
 # los graficos de densidad de estos municipios de forma simultanea (un solo ambiente
 # grafico). ¿Que se puede observar?
 estados_registro_municipio <- aggregate(info_estados_dengue$ID_REGISTRO ~ info_estados_dengue$ENTIDAD_FEDERATIVA + info_estados_dengue$MUNICIPIO , FUN = length)
-maximos_por_estado <- do.call(rbind, by(estados_registro_municipio, estados_registro_municipio$`info_estados_dengue$ENTIDAD_FEDERATIVA`, function(df) {
-  df[which.max(df$`info_estados_dengue$ID_REGISTRO`),]
+colnames(estados_registro_municipio) <- c("Estado", "Municipio", "Registros")
+estados_registro_municipio
+maximos_por_estado <- do.call(rbind, by(estados_registro_municipio, estados_registro_municipio$Estado, function(df) {
+  df[which.max(df$Registros),]
 }))
+rownames(maximos_por_estado) <- NULL
+sapply(maximos_por_estado, class)
+
+info_municipios_max <- info_estados_dengue[
+  paste(info_estados_dengue$ENTIDAD_FEDERATIVA, info_estados_dengue$MUNICIPIO) %in%
+  paste(maximos_por_estado$Estado, maximos_por_estado$Municipio),
+]
+
+densityPlot(info_municipios_max$EDAD_ANOS ~ as.factor(info_municipios_max$MUNICIPIO),
+            main = "Distribución de Edad en Municipios con Mayor Casos por Estado",
+            xlab = "Edad (años)",
+            legend = list(title = "Municipio"))
 
 # Mostrar un grafico de barras, de cada estado, donde muestre la frecuencia de registro
 # de nuevos casos de los meses enero a septiembre.
