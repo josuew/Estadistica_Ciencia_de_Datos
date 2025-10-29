@@ -1,8 +1,8 @@
 library(readxl)
-dengue <- read.csv("../../../data/dengue_abierto.csv")
+dengue <- read.csv("/Users/jaureperro/PycharmProjects/Estadistica_Ciencia_de_Datos/data/dengue_abierto.csv")
 length(dengue$ID_REGISTRO)
 
-catalogo_entidad <- read_excel("../../../data/cat_dengue.xlsx", sheet = "CATÁLOGO ENTIDAD")
+catalogo_entidad <- read_excel("/Users/jaureperro/PycharmProjects/Estadistica_Ciencia_de_Datos/data/cat_dengue.xlsx", sheet = "CATÁLOGO ENTIDAD")
 # catalogo_entidad
 
 # Convertir Catalogo Entidad a Numerico
@@ -16,13 +16,13 @@ dengue2 <- merge(dengue,catalogo_entidad, by.x = "ENTIDAD_RES", by.y = "CLAVE_EN
 # dengue2$ENTIDAD_FEDERATIVA[is.na(dengue2$ENTIDAD_FEDERATIVA)]
 
 # Union de CATÁLOGO SEXO con SEXO
-catalogo_sexo <- read_excel("../../../data/cat_dengue.xlsx", sheet = "CATÁLOGO SEXO")
+catalogo_sexo <- read_excel("/Users/jaureperro/PycharmProjects/Estadistica_Ciencia_de_Datos/data/cat_dengue.xlsx", sheet = "CATÁLOGO SEXO")
 # sapply(catalogo_sexo, class)
 
 dengue3 <- merge(dengue2, catalogo_sexo, by.x = "SEXO", by.y = "CLAVE")
 
 # Union de CLAVE_MUNICIPIO
-catalogo_municipio <- read_excel("../../../data/cat_dengue.xlsx", sheet = "CATÁLOGO MUNICIPIO")
+catalogo_municipio <- read_excel("/Users/jaureperro/PycharmProjects/Estadistica_Ciencia_de_Datos/data/cat_dengue.xlsx", sheet = "CATÁLOGO MUNICIPIO")
 catalogo_municipio[catalogo_municipio$CLAVE_ENTIDAD == "USA", 3] <- "33"
 catalogo_municipio[catalogo_municipio$CLAVE_ENTIDAD == "ALTN", 3] <- "34"
 catalogo_municipio[catalogo_municipio$CLAVE_ENTIDAD == "OTROS", 3] <- "35"
@@ -49,6 +49,7 @@ table(tabla_dengue$ANIO_SIGN_SINTOMAS)
 # Michoacan, Colima, Nayarit, Jalisco y, Guerrero
 estados_dengue <- tabla_dengue$ENTIDAD_FEDERATIVA %in% c("MICHOACÁN DE OCAMPO","COLIMA","NAYARIT","JALISCO","GUERRERO")
 info_estados_dengue <- tabla_dengue[estados_dengue,]
+length(info_estados_dengue$ID_REGISTRO) # 226,460
 
 # Respecto a la edad de los pacientes reportados, elaborar una tabla donde se resuma la
 # edad promedio y desviacion estandar, por sexo, de cada uno de los estados anteriormente
