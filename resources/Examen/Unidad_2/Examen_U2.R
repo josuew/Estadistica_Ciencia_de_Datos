@@ -62,6 +62,7 @@ media_y_desviacion_estandar <- function (x){
 # aggregate(dengue4$EDAD_ANOS ~ dengue4$`DESCRIPCIÓN` + dengue4$ENTIDAD_FEDERATIVA, FUN=mean, data = dengue4)
 media_edades <- aggregate(info_estados_dengue$EDAD_ANOS ~ info_estados_dengue$ENTIDAD_FEDERATIVA + info_estados_dengue$`DESCRIPCIÓN`, FUN=media_y_desviacion_estandar, data = info_estados_dengue)
 media_edades <- media_edades[order(media_edades$`info_estados_dengue$ENTIDAD_FEDERATIVA`),]
+
 media_edades
 
 # aggregate(info_estados_dengue$EDAD_ANOS ~ info_estados_dengue$ENTIDAD_FEDERATIVA + info_estados_dengue$`DESCRIPCIÓN`, FUN = median)

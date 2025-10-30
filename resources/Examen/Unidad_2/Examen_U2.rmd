@@ -16,6 +16,9 @@ library(readxl)
 
 # lubridate es una libreria de R que nos permite trabajar con fechas, los cuales podemos extraer dia, mes y anio de alguna columna que contenga tipos de datos Date
 library(lubridate)
+
+# car es una libreria de R que nos permite generar graficos de densidad
+library(car)
 ```
 
 ## Preparacion de Datos de Dengue
@@ -113,13 +116,27 @@ dengue4[1,]
 
 ```
 
+### Agregar descripcion de pacientes
+```{r}
+catalogo_estatus_caso <- read_excel("/Users/jaureperro/PycharmProjects/Estadistica_Ciencia_de_Datos/data/cat_dengue.xlsx", sheet = "CATÁLOGO ESTATUS_CASO")
+sapply(catalogo_estatus_caso, class)
+```
+
+
+```{r}
+dengue5 <- merge(x = dengue4, y = catalogo_estatus_caso, by.x = "ESTATUS_CASO", by.y = "CLAVE", sort=FALSE)
+dengue5[1,]
+```
+
+
 ### Tabla de Dengue
 Despues de realizar todas las operaciones anteriores, podemos observar que la tabla de dengue contiene 550,247 registros al igual que al inicio, solo que ahora contiene las columnas que nos permiten saber la entidad federativa, municipio, sexo, dia, mes y anio de registro. Para mantener un nombre de variable claro, se renombro la tabla de dengue4 a tabla_dengue:
 
 ```{r}
-tabla_dengue <- dengue4
+tabla_dengue <- dengue5
 length(tabla_dengue$ID_REGISTRO)
 ```
+
 
 ## Obtencion de los registros de las entidades federativas seleccionadas
 Con el fin de realizar los análisis de este reporte, se extrajo una submuestra de los registros provenientes de las entidades federativas de Michoacán, Colima, Nayarit, Jalisco y Guerrero. Esta submuestra incluye 226,460 registros, lo que representa aproximadamente el 41% del total de 550,247 registros de la población estudiada.
@@ -135,25 +152,57 @@ length(info_estados_dengue$ID_REGISTRO)
 
 ## Analisis de Tendencia Central
 
-
-
-The [R plugin](https://www.jetbrains.com/help/pycharm/r-plugin-support.html) for IntelliJ-based IDEs provides
-handy capabilities to work with the [R Markdown](https://www.jetbrains.com/help/pycharm/r-markdown.html) files.
-To [add](https://www.jetbrains.com/help/pycharm/r-markdown.html#add-code-chunk) a new R chunk,
+### Analisis de Edad Promedio y Desviacion Estandar
+Para este punto nos importa obtener la media y desviacion estandar de aquellos pacientes reportados en las entidades federativas seleccionadas. Para ello, filtraremos aquellos pacientes confirmados:
 ```{r}
-5+1
-```
-position the caret at any line or the code chunk, then click "+".
+info_estados_dengue_confirmados <- info_estados_dengue[info_estados_dengue$`DESCRIPCIÓN.y` == "CONFIRMADO",]
 
-The code chunk appears:
+# Creamos la funcion que nos permite obtener la media y la desviacion estandar
+media_y_desviacion_estandar <- function (x){
+  c(media = mean(x), desviacion_estandar = sd(x))
+}
+
+# Obtenemos
+media_edades_confirmados <- aggregate(EDAD_ANOS ~ ENTIDAD_FEDERATIVA + `DESCRIPCIÓN.x`, FUN=media_y_desviacion_estandar, data = info_estados_dengue_confirmados)
+
+media_edades_confirmados <- media_edades_confirmados[order(media_edades_confirmados$ENTIDAD_FEDERATIVA),]
+df_edades_confirmadas <- do.call(data.frame, media_edades_confirmados)
+names(df_edades_confirmadas) <- c(
+  "entidad_federativa",
+  "descripcion",
+  "media",
+  "desviacion_estandar"
+)
+df_edades_confirmadas
+```
+
+De lo anterior podemos ver que las medias de edad de los pacientes confirmados estan entre 21 y 34 anios, lo que sugiere que de los casos confirmados afectan principalmente adultos jovenes en las entidades federativas seleccionadas, en cuanto a la desviacion estandar, podemos notar una amplia variabilidad en edades ya que oscila entre 16 y 19 anos dentro de cada entidad federativa tanto edades en menores como mayores. En general, las mujeres presentan una media de edad ligeramente mayor a los hombres.
+
+## Analisis Edad Promedio por Sexo
+Para reforzar la interpretacion de los resultados anteriores, se realizo un grafico tipo box, donde podemos ver que la distribucion de edades es bastante similar, donde en la mayoria de los casos las mujeres muestran mayormente cuentan con una mediana mayor a los hombres, lo que sugiere que en promedio las mujeres diagnosticadas tienden a ser ligeramente mayores que los hombres en los mismos estados. Ademas podemos notar que en Jalisco es el estado con mayor promedio de edades tanto en hombres como en mujeres y las cajas mas amplias lo que indica mayor variabilidad en la edad de los casos reportados. En cuanto al estado de Guerrero muestran las edades promedio mas bajas y las cajas mas pequenas lo que indica que la mayor concentracion de casos confirmados son de jovenes.
 ```{r}
+par(mar = c(5, 15, 4, 1))
+boxplot(EDAD_ANOS ~ `DESCRIPCIÓN.x` + ENTIDAD_FEDERATIVA,
+        main = "Distribución de Edad por Entidad Federativa y Sexo",
+        xlab = "Edad (años)",
+        ylab = "",
+        data = media_edades_confirmados,
+        horizontal = TRUE,
+        las = 1,
+        col = c("lightblue", "lightpink"),
+        names = rep(c("H", "M"), 5),
+        at = c(1, 2, 4, 5, 7, 8, 10, 11, 13, 14))
+
+# Agregar etiquetas de los estados en el eje Y
+axis(2, at = c(1.5, 4.5, 7.5, 10.5, 13.5),
+     labels = sort(unique(media_edades_confirmados$ENTIDAD_FEDERATIVA)),
+     las = 1, tick = FALSE, line = 1)
+legend("bottomright", legend = c("Hombre", "Mujer"), fill = c("lightblue", "lightpink"), )
 ```
 
-Type any R code in the chunk, for example:
+## Analisis grafico de densidad
+
 ```{r}
-mycars <- within(mtcars, { cyl <- ordered(cyl) })
-mycars
+densityPlot(info_estados_dengue_confirmados$EDAD_ANOS ~ as.factor(info_estados_dengue_confirmados$ENTIDAD_FEDERATIVA),
+            legend = list(title="Densidad Edad"))
 ```
-
-Now, click the **Run** button on the chunk toolbar to [execute](https://www.jetbrains.com/help/pycharm/r-markdown.html#run-r-code) the chunk code. The result should be placed under the chunk.
-Click the **Knit and Open Document** to build and preview an output.
