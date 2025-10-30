@@ -206,3 +206,15 @@ legend("bottomright", legend = c("Hombre", "Mujer"), fill = c("lightblue", "ligh
 densityPlot(info_estados_dengue_confirmados$EDAD_ANOS ~ as.factor(info_estados_dengue_confirmados$ENTIDAD_FEDERATIVA),
             legend = list(title="Densidad Edad"))
 ```
+
+
+Interpretación técnica
+Forma general de las distribuciones
+Todas las curvas presentan una forma asimétrica hacia la derecha (sesgo positivo), lo que indica que la mayoría de los casos se concentran en edades jóvenes, con una disminución progresiva del número de casos conforme aumenta la edad.
+Esto sugiere que el dengue afecta principalmente a personas jóvenes, aunque también hay presencia de casos en adultos y adultos mayores, pero en menor proporción.
+Comparación entre estados
+Guerrero y Colima muestran los picos de densidad más altos alrededor de los 10 a 20 años, lo que indica una concentración más marcada de casos en adolescentes o adultos jóvenes.
+Jalisco tiene una distribución más amplia con una segunda elevación hacia los 30–40 años, lo que refleja una mayor dispersión de edades afectadas.
+Michoacán de Ocampo y Nayarit presentan curvas más suaves y distribuciones intermedias, con concentraciones también hacia edades jóvenes pero con presencia notable en edades adultas.
+Dispersión
+En todos los estados, el rango de edad de casos confirmados abarca desde niños pequeños hasta adultos mayores, aunque la mayor densidad se encuentra en menores de 30 años.
