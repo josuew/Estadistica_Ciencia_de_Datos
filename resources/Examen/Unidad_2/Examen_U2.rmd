@@ -197,7 +197,7 @@ Una vez filtrados los datos, se procede al análisis de una medida de tendencia 
 ```{r}
 # Creamos la funcion media_y_desviacion_estandar que como su nombre lo indica, obtiene la media y la desviación estándar
 media_y_desviacion_estandar <- function (x){
-  c(media = mean(x), desviacion_estandar = sd(x), median(x))
+  c(media = mean(x), desviacion_estandar = sd(x))
 }
 
 # Agrupamos la relación de la edad de los pacientes por la entidad federativa y el sexo mediante el uso de la función aggregate con los datos filtrados
@@ -205,7 +205,6 @@ media_edades_confirmados <- aggregate(EDAD_ANOS ~ ENTIDAD_FEDERATIVA + `DESCRIPC
 
 # Ordenamos de manera ascendente los nombres de las entidades federativas
 media_edades_confirmados <- media_edades_confirmados[order(media_edades_confirmados$ENTIDAD_FEDERATIVA),]
-media_edades_confirmados
 
 # Se fuerza la conversión del objeto media_edades_confirmados a un data frame
 df_edades_confirmadas <- do.call(data.frame, media_edades_confirmados)
