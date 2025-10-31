@@ -222,7 +222,7 @@ De los datos presentados se observa que la edad promedio de los registros analiz
 
 En cuanto a la desviación estándar, esta se sitúa entre 17 y 19 años, lo cual refleja una amplia dispersión en las edades. Dicho valor indica que la muestra incluye personas de diferentes edades, desde niños y adultos jóvenes hasta adultos mayores.
 
-# Análisis gráfico de caja
+# Distribución de Edad por Entidad Federativa y Sexo
 Para reforzar la interpretación de los resultados anteriores, se elaboró un diagrama de cajas (boxplot) que muestra la distribución de edades por entidad federativa y sexo.
 
 ```{r boxplot_edad, fig.width=11, fig.height=7, dpi=300}
@@ -253,7 +253,7 @@ Podemos notar que en la mayoría de los casos, se observa que las mujeres presen
 
 El estado de Guerrero presenta un mayor número de valores atípicos (outliers), lo que indica la existencia de registros correspondientes a personas en edades más avanzadas, es decir, adultos mayores. Por otro lado, Jalisco muestra los promedios y medianas de edad más altos tanto en hombres como en mujeres, mientras que Guerrero concentra los promedios más bajos para ambos sexos, lo que sugiere que la población diagnosticada en esta entidad es, en general, más joven en comparación con las demás entidades federativas.
 
-# Análisis gráfico de densidad
+# Distribución de la Edad por Entidad Federativa
 Otra manera de interpretar los datos es mediante un gráfico de densidad que muestra la distribución de edades por entidad federativa. Este gráfico nos permite conocer la forma de nuestra distribución.
 
 ```{r}
@@ -282,10 +282,12 @@ El gráfico de densidad permite observar que el dengue durante el año 2020 afec
 Sin embargo, la presencia de colas largas hacia la derecha indica que también se registraron casos en edades más avanzadas.
 Entre los estados analizados, Guerrero presenta la población más joven afectada, mientras que Jalisco y Colima muestran una distribución más amplia, lo que refleja una afectación más homogénea entre jóvenes y adultos.
 
-En general, las distribuciones presentan una forma bimodal, con un primer pico pronunciado en edades jóvenes (entre 10 y 25 años) y un segundo pico menos marcado en edades adultas (aproximadamente entre 35 y 50 años).
+Por su parte, Nayarit presenta un patrón similar a Michoacán, con la diferencia de que su segundo pico es ligeramente más alto, lo que indica un mayor número de casos en personas de edad avanzada en comparación con Michoacán.
+
+En general, las distribuciones presentan una forma bimodal, con un primer pico pronunciado en edades jóvenes (entre 10 y 30 años) y un segundo pico menos marcado en edades adultas (aproximadamente entre 40 y 50 años).
 
 
-# Distribución de edad en municipios con mayores registros de casos
+# Distribución de edad en municipios con mayores casos por estado
 Para determinar el municipio con mayor cantidad de casos de cada estado, se realiza primero un conteo de los registros de cada entidad federativa y municipio, seguido de un filtro para obtener los municipios con mayores registros, esto lo podemos hacer de la siguiente manera:
 
 ```{r}
@@ -310,7 +312,7 @@ info_municipios_max <- info_estados_seleccionados[
 
 # Se genera el gráfico de densidad en base a estos municipios y estados con más casos de registro
 densityPlot(info_municipios_max$EDAD_ANOS ~ as.factor(info_municipios_max$MUNICIPIO),
-            main = "Distribución de Edad en Municipios con Mayores Casos por Estado",
+            main = "Distribución de edad en municipios con mayores casos por estado",
             xlab = "", ylab = "",
             legend = list(title = "Municipio"))
 
