@@ -1808,7 +1808,7 @@ estándar de los pacientes reportados en las entidades federativas
 seleccionadas.</p>
 <pre class="r"><code># Creamos la funcion media_y_desviacion_estandar que como su nombre lo indica, obtiene la media y la desviación estándar
 media_y_desviacion_estandar &lt;- function (x){
-  c(media = mean(x), desviacion_estandar = sd(x))
+  c(media = mean(x), desviacion_estandar = sd(x), median(x))
 }
 
 # Agrupamos la relación de la edad de los pacientes por la entidad federativa y el sexo mediante el uso de la función aggregate con los datos filtrados
@@ -1816,8 +1816,30 @@ media_edades_confirmados &lt;- aggregate(EDAD_ANOS ~ ENTIDAD_FEDERATIVA + `DESCR
 
 # Ordenamos de manera ascendente los nombres de las entidades federativas
 media_edades_confirmados &lt;- media_edades_confirmados[order(media_edades_confirmados$ENTIDAD_FEDERATIVA),]
-
-# Se fuerza la conversión del objeto media_edades_confirmados a un data frame
+media_edades_confirmados</code></pre>
+<pre><code>##     ENTIDAD_FEDERATIVA DESCRIPCIÓN EDAD_ANOS.media
+## 1               COLIMA      HOMBRE        23.91371
+## 6               COLIMA       MUJER        25.85981
+## 2             GUERRERO      HOMBRE        22.40599
+## 7             GUERRERO       MUJER        24.80821
+## 3              JALISCO      HOMBRE        30.91933
+## 8              JALISCO       MUJER        34.13147
+## 4  MICHOACÁN DE OCAMPO      HOMBRE        27.28045
+## 9  MICHOACÁN DE OCAMPO       MUJER        31.27589
+## 5              NAYARIT      HOMBRE        29.89813
+## 10             NAYARIT       MUJER        31.71562
+##    EDAD_ANOS.desviacion_estandar EDAD_ANOS.V3
+## 1                       17.26406     19.00000
+## 6                       17.36246     22.00000
+## 2                       18.06166     16.00000
+## 7                       18.17591     20.00000
+## 3                       18.22385     28.00000
+## 8                       18.10152     32.00000
+## 4                       18.57407     24.00000
+## 9                       18.59600     29.00000
+## 5                       18.94738     26.00000
+## 10                      18.26106     30.00000</code></pre>
+<pre class="r"><code># Se fuerza la conversión del objeto media_edades_confirmados a un data frame
 df_edades_confirmadas &lt;- do.call(data.frame, media_edades_confirmados)
 
 # Se renombran las columnas para tener nombres acordes al análisis
@@ -1828,17 +1850,17 @@ names(df_edades_confirmadas) &lt;- c(
   &quot;Desviación Estándar&quot;
 )
 df_edades_confirmadas</code></pre>
-<pre><code>##     Entidad Federativa   Sexo    Media Desviación Estándar
-## 1               COLIMA HOMBRE 23.91371            17.26406
-## 2               COLIMA  MUJER 25.85981            17.36246
-## 3             GUERRERO HOMBRE 22.40599            18.06166
-## 4             GUERRERO  MUJER 24.80821            18.17591
-## 5              JALISCO HOMBRE 30.91933            18.22385
-## 6              JALISCO  MUJER 34.13147            18.10152
-## 7  MICHOACÁN DE OCAMPO HOMBRE 27.28045            18.57407
-## 8  MICHOACÁN DE OCAMPO  MUJER 31.27589            18.59600
-## 9              NAYARIT HOMBRE 29.89813            18.94738
-## 10             NAYARIT  MUJER 31.71562            18.26106</code></pre>
+<pre><code>##     Entidad Federativa   Sexo    Media Desviación Estándar &lt;NA&gt;
+## 1               COLIMA HOMBRE 23.91371            17.26406   19
+## 2               COLIMA  MUJER 25.85981            17.36246   22
+## 3             GUERRERO HOMBRE 22.40599            18.06166   16
+## 4             GUERRERO  MUJER 24.80821            18.17591   20
+## 5              JALISCO HOMBRE 30.91933            18.22385   28
+## 6              JALISCO  MUJER 34.13147            18.10152   32
+## 7  MICHOACÁN DE OCAMPO HOMBRE 27.28045            18.57407   24
+## 8  MICHOACÁN DE OCAMPO  MUJER 31.27589            18.59600   29
+## 9              NAYARIT HOMBRE 29.89813            18.94738   26
+## 10             NAYARIT  MUJER 31.71562            18.26106   30</code></pre>
 <p>De los datos presentados se observa que la edad promedio de los
 registros analizados se encuentra entre 22 y 34 años. Asimismo, se
 aprecia que en todas las entidades federativas consideradas, las mujeres
@@ -1886,11 +1908,16 @@ en los mismos estados.</p>
 <p>El estado de Guerrero presenta un mayor número de valores atípicos
 (outliers), lo que indica la existencia de registros correspondientes a
 personas en edades más avanzadas, es decir, adultos mayores. Por otro
-lado, Jalisco muestra los promedios y medianas de edad más altos tanto
-en hombres como en mujeres, mientras que Guerrero concentra los
-promedios más bajos para ambos sexos, lo que sugiere que la población
-diagnosticada en esta entidad es, en general, más joven en comparación
-con las demás entidades federativas.</p>
+lado, Jalisco muestra los promedios y medianas de edad más altos (28
+años para hombres y 32 para mujeres), mientras que Guerrero concentra
+las medianas más bajas para ambos sexos (16 años para hombres y 20 para
+mujeres), lo que sugiere que la población diagnosticada en esta entidad
+es, en general, más joven en comparación con las demás entidades
+federativas.</p>
+<p>Además, al considerar la distribución por sexo, se observa que las
+medianas de edad para ambos sexos se encuentran entre los 16 y 32 años,
+lo que confirma que la mayoría de los casos de dengue ocurren en
+población joven.</p>
 </div>
 <div id="distribución-de-la-edad-por-entidad-federativa" class="section level1" number="6">
 <h1><span class="header-section-number">6</span> Distribución de la Edad
