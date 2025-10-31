@@ -284,7 +284,7 @@ Entre los estados analizados, Guerrero presenta la población más joven afectad
 
 Por su parte, Nayarit presenta un patrón similar a Michoacán, con la diferencia de que su segundo pico es ligeramente más alto, lo que indica un mayor número de casos en personas de edad avanzada en comparación con Michoacán.
 
-En general, las distribuciones presentan una forma bimodal, con un primer pico pronunciado en edades jóvenes (entre 10 y 30 años) y un segundo pico menos marcado en edades adultas (aproximadamente entre 40 y 50 años).
+En general, las distribuciones presentan una forma bimodal, con un primer pico pronunciado en edades jóvenes (entre 10 y 25 años) y un segundo pico menos marcado en edades adultas (aproximadamente entre 35 y 50 años).
 
 
 # Distribución de edad en municipios con mayores casos por estado
