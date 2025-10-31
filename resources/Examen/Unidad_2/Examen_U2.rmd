@@ -328,6 +328,9 @@ Por otro lado, Manzanillo y Tepic muestran una distribución más uniforme entre
 En todos los municipios seleccionados, la densidad disminuye gradualmente a partir de los 60 años, lo cual indica que las edades avanzadas tienen una menor representación entre los casos, es decir, hay pocos.
 
 # Gráficos de barras de los registros entre el mes de Enero y Septiembre de los estados seleccionados
+Al analizar los gráficos de barras, se observa que septiembre es el mes con mayor número de casos registrados, superando los 15,000 casos, particularmente en Jalisco, lo cual coincide con su alta densidad poblacional en municipios como Guadalajara, como se indicó en análisis anteriores.
+
+No obstante, Guerrero presenta un comportamiento atípico, mostrando su mayor registro de casos en enero, a diferencia de las demás entidades, que evidencian un incremento más gradual y estacional en sus registros. Esta diferencia sugiere patrones locales de transmisión que podrían estar influenciados por factores climáticos, demográficos o de vectorización específicos de cada estado.
 
 ## Jalisco
 ```{r}
