@@ -20,15 +20,16 @@ Además, se incluyen diversos gráficos exploratorios como diagramas de caja, gr
 
 # Librerías necesarias
 ```{r}
-# readxl es una libreria de R que nos permite leer el archivos con extension .xlsx, esto nos ayuda para poder
+# readxl es una librería de R que nos permite leer el archivos con extensión .xlsx, esto nos ayuda para poder
 # realizar lecturas de sheets (tabs en excel)
 library(readxl)
 
-# lubridate es una libreria de R que nos permite trabajar con fechas, los cuales podemos extraer dia, mes y anio de alguna columna que contenga tipos de datos Date
+# lubridate es una librería de R que nos permite trabajar con fechas, los cuales podemos extraer día, mes y año de alguna columna que contenga tipos de datos Date
 library(lubridate)
 
-# car es una libreria de R que nos permite generar graficos de densidad
+# car es una librería de R que nos permite generar gráficos de densidad
 library(car)
+
 ```
 
 # Preparación de datos
