@@ -1,8 +1,14 @@
 ---
-title: "Analisis Estadistico Exploratorio"
+title: "Análisis Estadístico Exploratorio"
 author: "Josue Emmanuel Jauregui Arvilla"
 date: "28 de Octubre de 2025"
-output: html_document
+output:
+  html_document:
+    toc: true          # Activa la tabla de contenido
+    toc_depth: 3       # Niveles de encabezados que se mostrarán (##, ###, etc.)
+    toc_float: true    # Hace que el índice flote en la parte lateral (HTML interactivo)
+    number_sections: true  # Numera las secciones del documento
+    theme: flatly          # (Opcional) Cambia el tema visual
 ---
 
 # Introducción
@@ -12,7 +18,7 @@ El objetivo principal es describir el proceso completo, desde la preparación y 
 
 Además, se incluyen diversos gráficos exploratorios como diagramas de caja, gráficos de densidad e histogramas que facilitan la interpretación visual y el entendimiento de los patrones presentes en los datos.
 
-## Cargar libreria para la lectura de archivos xlsx en R
+# Librerías necesarias
 ```{r}
 # readxl es una libreria de R que nos permite leer el archivos con extension .xlsx, esto nos ayuda para poder
 # realizar lecturas de sheets (tabs en excel)
@@ -25,10 +31,10 @@ library(lubridate)
 library(car)
 ```
 
-## Preparacion de Datos de Dengue
+# Preparación de datos
 En esta sección se describe el proceso de preparación de los datos de dengue en México, el cual incluye la carga del archivo principal y su integración con los catálogos complementarios de entidades federativas, municipios y sexo.
 
-### Carga de Datos de Dengue
+## Carga de Datos de Dengue
 El archivo original de casos de dengue contiene 550,247 registros, correspondientes a los reportes del año 2020.
 
 Dado que este archivo presenta los datos en su formato crudo, es necesario integrarlo con los catálogos de entidades federativas, municipios y sexo para enriquecer la información y facilitar su análisis y visualización posterior.
@@ -39,7 +45,7 @@ dengue <- read.csv("/Users/jaureperro/PycharmProjects/Estadistica_Ciencia_de_Dat
 length(dengue$ID_REGISTRO)
 ```
 
-### Integración Catálogo Entidades Federativas
+## Integración Catálogo Entidades Federativas
 Para incorporar la información de las entidades federativas a la base de datos de dengue, se carga el catálogo oficial de entidades federativas utilizando la librería readxl, que permite la lectura de archivos con extensión .xlsx.
 
 Una vez cargado el archivo, se realiza la integración entre la columna ENTIDAD_RES del conjunto de datos de dengue y la columna CLAVE_ENTIDAD del catálogo.
@@ -71,7 +77,7 @@ dengue2 <- merge(dengue,catalogo_entidad, by.x = "ENTIDAD_RES", by.y = "CLAVE_EN
 dengue2[1,]
 ```
 
-### Integracion Catálogo Sexo
+## Integracion Catálogo Sexo
 Se realiza la unión entre la columna SEXO de la tabla de dengue y la columna CLAVE del catálogo, con el propósito de reemplazar los valores numéricos (1 o 2) por sus descripciones textuales (“HOMBRE” o “MUJER”), facilitando así la interpretación de los registros.
 
 ```{r}
@@ -92,7 +98,7 @@ dengue3 <- merge(dengue2, catalogo_sexo, by.x = "SEXO", by.y = "CLAVE")
 dengue3[1,]
 ```
 
-### Integración Catálogo Municipio
+## Integración Catálogo Municipio
 Para integrar los municipios a nuestra tabla de dengue, es necesario cargar el archivo del catálogo de municipios.
 
 Una vez cargado el archivo, se procede a realizar la integración de los datos de dengue a través de las columnas MUNICIPIO_RES (de la tabla de dengue) y las columnas CLAVE_MUNICIPIO y CLAVE_ENTIDAD (del catálogo de municipios).
@@ -136,7 +142,7 @@ dengue4 <- merge(x = dengue3, y = catalogo_municipio, by.x = c("ENTIDAD_RES","MU
 dengue4[1,]
 ```
 
-### Agregar columna de día, mes, año de registro
+## Agregar columna de día, mes, año de registro
 Para agregar las columnas correspondientes al día, mes y año de registro en la tabla de dengue, es necesario utilizar la librería lubridate, la cual facilita el manejo y la manipulación de datos de tipo fecha en R.
 
 Esta librería permite extraer componentes individuales (como el día, el mes y el año) a partir de una fecha completa contenida en una columna.
@@ -159,7 +165,7 @@ dengue4[1,]
 
 ```
 
-### Tabla de Dengue
+## Tabla de Dengue
 Después de realizar la preparación de los datos, se observa que la base de datos de dengue conserva un total de 550,247 registros, al igual que en el inicio del proceso. No obstante, ahora incluye las columnas necesarias para identificar la entidad federativa, municipio, sexo, día, mes y año de registro lo que facilita la generación de gráficos descriptivos.
 
 Con el fin de mantener una nomenclatura más clara y coherente, la tabla dengue4 fue renombrada como tabla_dengue.
@@ -184,7 +190,7 @@ info_estados_seleccionados <- tabla_dengue[estados_seleccionados,]
 paste("Cantidad de registros de las entidades filtradas: ", length(info_estados_seleccionados$ID_REGISTRO))
 ```
 
-## Análisis de Tendencia Central y Dispersión
+# Análisis de Tendencia Central y Dispersión
 Una vez filtrados los datos, se procede al análisis de una medida de tendencia central y una medida de dispersión: la media y la desviación estándar de los pacientes reportados en las entidades federativas seleccionadas.
 
 ```{r}
@@ -216,7 +222,7 @@ De los datos presentados se observa que la edad promedio de los registros analiz
 
 En cuanto a la desviación estándar, esta se sitúa entre 17 y 19 años, lo cual refleja una amplia dispersión en las edades. Dicho valor indica que la muestra incluye personas de diferentes edades, desde niños y adultos jóvenes hasta adultos mayores.
 
-## Gráfico de Caja
+# Análisis gráfico de caja
 Para reforzar la interpretación de los resultados anteriores, se elaboró un diagrama de cajas (boxplot) que muestra la distribución de edades por entidad federativa y sexo.
 
 ```{r boxplot_edad, fig.width=11, fig.height=7, dpi=300}
@@ -247,7 +253,7 @@ Podemos notar que en la mayoría de los casos, se observa que las mujeres presen
 
 El estado de Guerrero presenta un mayor número de valores atípicos (outliers), lo que indica la existencia de registros correspondientes a personas en edades más avanzadas, es decir, adultos mayores. Por otro lado, Jalisco muestra los promedios y medianas de edad más altos tanto en hombres como en mujeres, mientras que Guerrero concentra los promedios más bajos para ambos sexos, lo que sugiere que la población diagnosticada en esta entidad es, en general, más joven en comparación con las demás entidades federativas.
 
-## Análisis gráfico de densidad
+# Análisis gráfico de densidad
 Otra manera de interpretar los datos es mediante un gráfico de densidad que muestra la distribución de edades por entidad federativa y sexo. Este gráfico nos permite conocer la forma de nuestra distribución.
 
 ```{r}
@@ -275,7 +281,7 @@ El gráfico de densidad permite observar que el dengue durante el año 2020 afec
 Sin embargo, la presencia de colas largas hacia la derecha indica que también se registraron casos en edades más avanzadas.
 Entre los estados analizados, Guerrero presenta la población más joven afectada, mientras que Jalisco y Colima muestran una distribución más amplia, lo que refleja una afectación más homogénea entre jóvenes y adultos.
 
-## Mayor cantidad de casos de cada estado y hacer grafico de densidad
+# Mayor cantidad de casos de cada estado y hacer grafico de densidad
 Para determinar el municipio con mayor cantidad de casos de cada estado, se realiza un conteo de los registros de la siguiente manera:
 
 ```{r}
