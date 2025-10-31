@@ -278,14 +278,12 @@ mtext("Edad (años)", side = 1, line = 2.5, cex = 1.1)
 mtext("Densidad", side = 2, line = 2.5, cex = 1.1)
 ```
 
-El gráfico de densidad permite observar que el dengue durante el año 2020 afectó principalmente a personas jóvenes, especialmente en el rango de 10 a 30 años.
+En general, las distribuciones presentan una forma bimodal, con un primer pico pronunciado en edades jóvenes (entre 10 y 20 años) y un segundo pico menos marcado en edades adultas (aproximadamente entre 35 y 50 años).
 
 Sin embargo, la presencia de colas largas hacia la derecha indica que también se registraron casos en edades más avanzadas.
 Entre los estados analizados, Guerrero presenta la población más joven afectada, mientras que Jalisco y Colima muestran una distribución más amplia, lo que refleja una afectación más homogénea entre jóvenes y adultos.
 
 Por su parte, Nayarit presenta un patrón similar a Michoacán, con la diferencia de que su segundo pico es ligeramente más alto, lo que indica un mayor número de casos en personas de edad avanzada en comparación con Michoacán.
-
-En general, las distribuciones presentan una forma bimodal, con un primer pico pronunciado en edades jóvenes (entre 10 y 25 años) y un segundo pico menos marcado en edades adultas (aproximadamente entre 35 y 50 años).
 
 
 # Distribución de edad en municipios con mayores casos por estado
@@ -321,7 +319,7 @@ mtext("Edad (años)", side = 1, line = 2.5, cex = 1.1)
 mtext("Densidad", side = 2, line = 2.5, cex = 1.1)
 ```
 
-En general, las distribuciones presentan una forma bimodal, con un primer pico pronunciado en edades jóvenes (entre 10 y 25 años) y un segundo pico menos marcado en edades adultas (aproximadamente entre 35 y 50 años).
+Al igual que la distribución pasada, las distribuciones presentan una forma bimodal, con un primer pico pronunciado en edades jóvenes (entre 10 y 30 años) y un segundo pico menos marcado en edades adultas (aproximadamente entre 35 y 53 años).
 
  Acapulco de Juárez presenta una mayor concentración en edades más jóvenes, mientras que Guadalajara y Morelia muestran un desplazamiento del segundo pico hacia edades adultas, lo que indica una población afectada de mayor edad promedio.
 
