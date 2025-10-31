@@ -1747,7 +1747,7 @@ dengue4$DIA_SIGN_SINTOMAS &lt;- day(dengue4$FECHA_SIGN_SINTOMAS)
 dengue4$MES_SIGN_SINTOMAS &lt;- month(dengue4$FECHA_SIGN_SINTOMAS)
 # Creamos la columna MES_SIGN_SINTOMAS_DESC que almacena los meses con caracteres y en mayúsculas
 dengue4$MES_SIGN_SINTOMAS_DESC &lt;- toupper(month(dengue4$FECHA_SIGN_SINTOMAS, label = TRUE, abbr = FALSE))
-# Creamos una columna que se llama ANIO_SIGN_SINTOMAS que contiene el anio del registro de la columna FECHA_SIGN_SINTOMAS
+# Creamos una columna que se llama ANIO_SIGN_SINTOMAS que contiene el año del registro de la columna FECHA_SIGN_SINTOMAS
 dengue4$ANIO_SIGN_SINTOMAS &lt;- year(dengue4$FECHA_SIGN_SINTOMAS)
 dengue4[1,]</code></pre>
 <pre><code>##   ENTIDAD_RES MUNICIPIO_RES SEXO FECHA_ACTUALIZACION ID_REGISTRO EDAD_ANOS
