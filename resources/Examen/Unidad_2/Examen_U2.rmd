@@ -131,47 +131,54 @@ length(tabla_dengue$ID_REGISTRO)
 ## Obtencion de los registros de las entidades federativas seleccionadas
 Con el fin de realizar los análisis de este reporte, se extrajo una submuestra de los registros provenientes de las entidades federativas de Michoacán, Colima, Nayarit, Jalisco y Guerrero. Esta submuestra incluye 226,460 registros, lo que representa aproximadamente el 41% del total de 550,247 registros de la población estudiada.
 
+Los datos se filtran de la siguiente manera:
+
 ```{r}
 # Realizamos un filtro para obtener las entidades de "MICHOACÁN DE OCAMPO","COLIMA","NAYARIT","JALISCO","GUERRERO" de nuestra tabla dengue
 estados_seleccionados <- tabla_dengue$ENTIDAD_FEDERATIVA %in% c("MICHOACÁN DE OCAMPO","COLIMA","NAYARIT","JALISCO","GUERRERO")
 
-# Crearemos la variable info_estados_dengue el cual solo contiene los registros de los estados anteriormente mencionados
+# Crearemos la variable info_estados_seleccionados contiene los registros de las entidades federativas anteriormente mencionadas
 info_estados_seleccionados <- tabla_dengue[estados_seleccionados,]
-length(info_estados_seleccionados$ID_REGISTRO)
+paste("Cantidad de registros de las entidades filtradas: ", length(info_estados_seleccionados$ID_REGISTRO))
 ```
 
-## Analisis de Tendencia Central
+## Análisis de Tendencia Central y Dispersión
+Una vez filtrados los datos, se procede al análisis de una medida de tendencia central y una medida de dispersión: la media y la desviación estándar de los pacientes reportados en las entidades federativas seleccionadas.
 
-### Analisis de Edad Promedio y Desviacion Estandar
-Para este punto nos importa obtener la media y desviacion estandar de aquellos pacientes reportados en las entidades federativas seleccionadas. Para ello, filtraremos aquellos pacientes confirmados:
 ```{r}
-# Creamos la funcion que nos permite obtener la media y la desviacion estandar
+# Creamos la funcion media_y_desviacion_estandar que como su nombre lo indica, obtiene la media y la desviación estándar
 media_y_desviacion_estandar <- function (x){
   c(media = mean(x), desviacion_estandar = sd(x))
 }
 
-
-# Obtenemos
+# Agrupamos la relación de la edad de los pacientes por la entidad federativa y el sexo mediante el uso de la función aggregate con los datos filtrados
 media_edades_confirmados <- aggregate(EDAD_ANOS ~ ENTIDAD_FEDERATIVA + `DESCRIPCIÓN`, FUN=media_y_desviacion_estandar, data = info_estados_seleccionados)
 
+# Ordenamos de manera ascendente los nombres de las entidades federativas
 media_edades_confirmados <- media_edades_confirmados[order(media_edades_confirmados$ENTIDAD_FEDERATIVA),]
+
+# Se fuerza la conversión del objeto media_edades_confirmados a un data frame
 df_edades_confirmadas <- do.call(data.frame, media_edades_confirmados)
+
+# Se renombran las columnas para tener nombres acordes al análisis
 names(df_edades_confirmadas) <- c(
   "Entidad Federativa",
   "Sexo",
   "Media",
-  "Desviacion Estandar"
+  "Desviación Estándar"
 )
 df_edades_confirmadas
 ```
 
-De lo anterior podemos ver que las medias de edad de los pacientes confirmados estan entre 21 y 34 anios, lo que sugiere que de los casos confirmados afectan principalmente adultos jovenes en las entidades federativas seleccionadas, en cuanto a la desviacion estandar, podemos notar una amplia variabilidad en edades ya que oscila entre 16 y 19 anos dentro de cada entidad federativa tanto edades en menores como mayores. En general, las mujeres presentan una media de edad ligeramente mayor a los hombres.
+De los datos presentados se observa que la edad promedio de los registros analizados se encuentra entre 22 y 34 años. Asimismo, se aprecia que en todas las entidades federativas consideradas, las mujeres presentan una media de edad superior a la de los hombres. Esto sugiere que, en promedio, las mujeres diagnosticadas tienden a ser ligeramente mayores que los hombres dentro de los mismos estados.
 
-## Analisis Edad Promedio por Sexo
-Para reforzar la interpretacion de los resultados anteriores, se realizo un grafico tipo box, donde podemos ver que la distribucion de edades es bastante similar, donde en la mayoria de los casos las mujeres muestran mayormente cuentan con una mediana mayor a los hombres, lo que sugiere que en promedio las mujeres diagnosticadas tienden a ser ligeramente mayores que los hombres en los mismos estados. Ademas podemos notar que en Jalisco es el estado con mayor promedio de edades tanto en hombres como en mujeres y las cajas mas amplias lo que indica mayor variabilidad en la edad de los casos reportados. En cuanto al estado de Guerrero muestran las edades promedio mas bajas y las cajas mas pequenas lo que indica que la mayor concentracion de casos confirmados son de jovenes.
+En cuanto a la desviación estándar, esta se sitúa entre 17 y 19 años, lo cual refleja una amplia dispersión en las edades. Dicho valor indica que la muestra incluye personas de diferentes edades, desde niños y adultos jóvenes hasta adultos mayores.
 
-```{r}
-par(mar = c(5, 10, 4, 2))
+## Gráfico de Caja
+Para reforzar la interpretación de los resultados anteriores, se elaboró un diagrama de cajas (boxplot) que muestra la distribución de edades por entidad federativa y sexo.
+
+```{r boxplot_edad, fig.width=11, fig.height=7, dpi=300}
+par(mar = c(5, 14, 4, 8), xpd = NA)
 boxplot(EDAD_ANOS ~ `DESCRIPCIÓN` + ENTIDAD_FEDERATIVA,
         main = "Distribución de Edad por Entidad Federativa y Sexo",
         xlab = "Edad (años)",
@@ -183,74 +190,127 @@ boxplot(EDAD_ANOS ~ `DESCRIPCIÓN` + ENTIDAD_FEDERATIVA,
         names = rep(c("H", "M"), 5),
         at = c(1, 2, 4, 5, 7, 8, 10, 11, 13, 14))
 
-# Agregar etiquetas de los estados en el eje Y
 axis(2, at = c(1.5, 4.5, 7.5, 10.5, 13.5),
      labels = sort(unique(info_estados_seleccionados$ENTIDAD_FEDERATIVA)),
      las = 1, tick = FALSE, line = 1)
-legend("topright", legend = c("Hombre", "Mujer"), fill = c("lightblue", "lightpink"))
-
+legend("topright",
+       legend = c("Hombre", "Mujer"),
+       fill = c("lightblue", "lightpink"),
+       inset = c(-0.25, 0),   # mueve más hacia fuera
+       xpd = NA,              # permite dibujar fuera de los márgenes del plot
+       bty = "n")             # sin borde para verse más limpio
 ```
 
-## Analisis grafico de densidad
+Podemos notar que en la mayoría de los casos, se observa que las mujeres presentan una mediana de edad superior a la de los hombres, lo cual coincide con el análisis previo y sugiere que, en promedio, las mujeres diagnosticadas tienden a ser ligeramente mayores que los hombres en los mismos estados.
+
+El estado de Guerrero presenta un mayor número de valores atípicos (outliers), lo que indica la existencia de registros correspondientes a personas en edades más avanzadas, es decir, adultos mayores. Por otro lado, Jalisco muestra los promedios y medianas de edad más altos tanto en hombres como en mujeres, mientras que Guerrero concentra los promedios más bajos para ambos sexos, lo que sugiere que la población diagnosticada en esta entidad es, en general, más joven en comparación con las demás entidades federativas.
+
+## Análisis gráfico de densidad
+Otra manera de interpretar los datos es mediante un gráfico de densidad que muestra la distribución de edades por entidad federativa y sexo.
 
 ```{r}
-densityPlot(info_estados_seleccionados$EDAD_ANOS ~ as.factor(info_estados_seleccionados$ENTIDAD_FEDERATIVA),
-            legend = list(title="Densidad Edad"))
+
+colores_estados <- c(
+  "COLIMA" = "black",
+  "GUERRERO" = "blue",
+  "JALISCO" = "magenta",
+  "MICHOACÁN DE OCAMPO" = "cyan",
+  "NAYARIT" = "orange"
+)
+
+
+densityPlot(
+  info_estados_seleccionados$EDAD_ANOS ~ as.factor(info_estados_seleccionados$ENTIDAD_FEDERATIVA),
+  main = "Distribución de la Edad por Entidad Federativa",
+  xlab = "", ylab = "", col = colores_estados,
+  legend = list(title = "Entidad Federativa", cex = 0.8)
+)
+mtext("Edad (años)", side = 1, line = 2.5, cex = 1.1)
+mtext("Densidad", side = 2, line = 2.5, cex = 1.1)
 ```
 
-
-Interpretación técnica
-Forma general de las distribuciones
-Todas las curvas presentan una forma asimétrica hacia la derecha (sesgo positivo), lo que indica que la mayoría de los casos se concentran en edades jóvenes, con una disminución progresiva del número de casos conforme aumenta la edad.
-Esto sugiere que el dengue afecta principalmente a personas jóvenes, aunque también hay presencia de casos en adultos y adultos mayores, pero en menor proporción.
-Comparación entre estados
-Guerrero y Colima muestran los picos de densidad más altos alrededor de los 10 a 20 años, lo que indica una concentración más marcada de casos en adolescentes o adultos jóvenes.
-Jalisco tiene una distribución más amplia con una segunda elevación hacia los 30–40 años, lo que refleja una mayor dispersión de edades afectadas.
-Michoacán de Ocampo y Nayarit presentan curvas más suaves y distribuciones intermedias, con concentraciones también hacia edades jóvenes pero con presencia notable en edades adultas.
-Dispersión
-En todos los estados, el rango de edad de casos confirmados abarca desde niños pequeños hasta adultos mayores, aunque la mayor densidad se encuentra en menores de 30 años.
+El gráfico de densidad permite observar que el dengue durante el año 2020 afectó principalmente a personas jóvenes, especialmente en el rango de 10 a 30 años.
+Sin embargo, la presencia de colas largas hacia la derecha indica que también se registraron casos en edades más avanzadas.
+Entre los estados analizados, Guerrero presenta la población más joven afectada, mientras que Jalisco y Colima muestran una distribución más amplia, lo que refleja una afectación más homogénea entre jóvenes y adultos.
 
 ## Mayor cantidad de casos de cada estado y hacer grafico de densidad
+Para determinar el municipio con mayor cantidad de casos de cada estado, se realiza un conteo de los registros de la siguiente manera:
+
 ```{r}
+
+# Se realiza un conteo de registros por entidad federativa y municipio
 conteo_registros_municipio <- aggregate(info_estados_seleccionados$ID_REGISTRO ~ info_estados_seleccionados$ENTIDAD_FEDERATIVA + info_estados_seleccionados$MUNICIPIO , FUN = length)
+
+# Se renombran la columnas para que contengan nombres mas cortos
 colnames(conteo_registros_municipio) <- c("Estado", "Municipio", "Registros")
 
+# Se obtiene la cantidad de registros mas alto de cada estado
 maximos_por_estado <- do.call(rbind, by(conteo_registros_municipio, conteo_registros_municipio$Estado, function(df) {
   df[which.max(df$Registros),]
 }))
 rownames(maximos_por_estado) <- NULL
-maximos_por_estado
+
+# Se obtienen los registros de los estados y municipios con mas registros
 info_municipios_max <- info_estados_seleccionados[
   paste(info_estados_seleccionados$ENTIDAD_FEDERATIVA, info_estados_seleccionados$MUNICIPIO) %in%
   paste(maximos_por_estado$Estado, maximos_por_estado$Municipio),
 ]
-table(info_municipios_max$ENTIDAD_FEDERATIVA)
 
-# Filtrar datos por municipios con mas casos
-# info_estados_dengue_confirmados[info_estados_dengue_confirmados$]
-
+# Se genera el gráfico de densidad en base a estos municipios y estados con mas casos de registro
 densityPlot(info_municipios_max$EDAD_ANOS ~ as.factor(info_municipios_max$MUNICIPIO),
-            main = "Distribución de Edad en Municipios con Mayor Casos por Estado",
-            xlab = "Edad (años)",
+            main = "Distribución de Edad en Municipios con Mayores Casos por Estado",
+            xlab = "", ylab = "",
             legend = list(title = "Municipio"))
+
+mtext("Edad (años)", side = 1, line = 2.5, cex = 1.1)
+mtext("Densidad", side = 2, line = 2.5, cex = 1.1)
 ```
 
 
 # Mostrar un grafico de barras, de cada estado, donde muestre la frecuencia de registro
 # de nuevos casos de los meses enero a septiembre.
 
-Jalisco
 ```{r}
 
-registros_jalisco <- info_estados_seleccionados[info_estados_seleccionados$MES_SIGN_SINTOMAS >= 1 & info_estados_seleccionados$MES_SIGN_SINTOMAS <= 9,]
-frecuencia_jalisco <- aggregate(ID_REGISTRO ~ MES_SIGN_SINTOMAS + MES_SIGN_SINTOMAS_DESC, FUN=length, data = registros_jalisco)
+registros_jalisco_meses <- info_estados_seleccionados[info_estados_seleccionados$ENTIDAD_FEDERATIVA == "JALISCO",]
+table(registros_jalisco$ENTIDAD_FEDERATIVA)
+registros_jalisco[length(registros_jalisco$ID_REGISTRO),]
+frecuencia_jalisco <- aggregate(ID_REGISTRO ~ MES_SIGN_SINTOMAS + MES_SIGN_SINTOMAS_DESC, FUN=length, data = registros_jalisco_meses)
 frecuencia_jalisco <- frecuencia_jalisco[order(frecuencia_jalisco$MES_SIGN_SINTOMAS), ]
+
+par(mar = c(8, 6, 4, 2))
 barplot(
   frecuencia_jalisco$ID_REGISTRO,
   names.arg = frecuencia_jalisco$MES_SIGN_SINTOMAS_DESC,
-  xlab = "Meses",
-  ylab = "Registros",
+  xlab = "",
+  ylab = "",
+  cex.names = 0.9,    # Tamaño del texto de los nombres
+  cex.axis = 0.9,     # Tamaño del texto de los ejes
   las = 2)
 
+# Títulos de los ejes y gráfico (con separación ajustada)
+mtext("Meses", side = 1, line = 5, cex = 1.1)      # Eje X (más abajo)
+mtext("Registros", side = 2, line = 4, cex = 1.1)  # Eje Y (más a la izquierda)
+title(main = "Distribución de los registros por mes en el estado de Jalisco", line = 1)
+```
 
+```{r}
+registros_colima <- info_estados_seleccionados[info_estados_seleccionados$MES_SIGN_SINTOMAS >= 1 & info_estados_seleccionados$MES_SIGN_SINTOMAS <= 9,]
+frecuencia_colima <- aggregate(ID_REGISTRO ~ MES_SIGN_SINTOMAS + MES_SIGN_SINTOMAS_DESC, FUN=length, data = registros_colima)
+frecuencia_jalisco <- frecuencia_jalisco[order(frecuencia_jalisco$MES_SIGN_SINTOMAS), ]
+
+par(mar = c(8, 6, 4, 2))
+barplot(
+  frecuencia_jalisco$ID_REGISTRO,
+  names.arg = frecuencia_jalisco$MES_SIGN_SINTOMAS_DESC,
+  xlab = "",
+  ylab = "",
+  cex.names = 0.9,    # Tamaño del texto de los nombres
+  cex.axis = 0.9,     # Tamaño del texto de los ejes
+  las = 2)
+
+# Títulos de los ejes y gráfico (con separación ajustada)
+mtext("Meses", side = 1, line = 5, cex = 1.1)      # Eje X (más abajo)
+mtext("Registros", side = 2, line = 4, cex = 1.1)  # Eje Y (más a la izquierda)
+title(main = "Distribución de los registros por mes en el estado de Jalisco", line = 1)
 ```
