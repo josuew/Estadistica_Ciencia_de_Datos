@@ -254,7 +254,7 @@ Podemos notar que en la mayoría de los casos, se observa que las mujeres presen
 El estado de Guerrero presenta un mayor número de valores atípicos (outliers), lo que indica la existencia de registros correspondientes a personas en edades más avanzadas, es decir, adultos mayores. Por otro lado, Jalisco muestra los promedios y medianas de edad más altos tanto en hombres como en mujeres, mientras que Guerrero concentra los promedios más bajos para ambos sexos, lo que sugiere que la población diagnosticada en esta entidad es, en general, más joven en comparación con las demás entidades federativas.
 
 # Análisis gráfico de densidad
-Otra manera de interpretar los datos es mediante un gráfico de densidad que muestra la distribución de edades por entidad federativa y sexo. Este gráfico nos permite conocer la forma de nuestra distribución.
+Otra manera de interpretar los datos es mediante un gráfico de densidad que muestra la distribución de edades por entidad federativa. Este gráfico nos permite conocer la forma de nuestra distribución.
 
 ```{r}
 
@@ -278,11 +278,15 @@ mtext("Densidad", side = 2, line = 2.5, cex = 1.1)
 ```
 
 El gráfico de densidad permite observar que el dengue durante el año 2020 afectó principalmente a personas jóvenes, especialmente en el rango de 10 a 30 años.
+
 Sin embargo, la presencia de colas largas hacia la derecha indica que también se registraron casos en edades más avanzadas.
 Entre los estados analizados, Guerrero presenta la población más joven afectada, mientras que Jalisco y Colima muestran una distribución más amplia, lo que refleja una afectación más homogénea entre jóvenes y adultos.
 
-# Mayor cantidad de casos de cada estado y hacer grafico de densidad
-Para determinar el municipio con mayor cantidad de casos de cada estado, se realiza un conteo de los registros de la siguiente manera:
+En general, las distribuciones presentan una forma bimodal, con un primer pico pronunciado en edades jóvenes (entre 10 y 25 años) y un segundo pico menos marcado en edades adultas (aproximadamente entre 35 y 50 años).
+
+
+# Distribución de edad en municipios con mayores registros de casos
+Para determinar el municipio con mayor cantidad de casos de cada estado, se realiza primero un conteo de los registros de cada entidad federativa y municipio, seguido de un filtro para obtener los municipios con mayores registros, esto lo podemos hacer de la siguiente manera:
 
 ```{r}
 
@@ -292,19 +296,19 @@ conteo_registros_municipio <- aggregate(info_estados_seleccionados$ID_REGISTRO ~
 # Se renombran la columnas para que contengan nombres mas cortos
 colnames(conteo_registros_municipio) <- c("Estado", "Municipio", "Registros")
 
-# Se obtiene la cantidad de registros mas alto de cada estado
+# Se obtiene la cantidad de registros más alto de cada estado
 maximos_por_estado <- do.call(rbind, by(conteo_registros_municipio, conteo_registros_municipio$Estado, function(df) {
   df[which.max(df$Registros),]
 }))
 rownames(maximos_por_estado) <- NULL
 
-# Se obtienen los registros de los estados y municipios con mas registros
+# Se obtienen los registros de los estados y municipios con más registros
 info_municipios_max <- info_estados_seleccionados[
   paste(info_estados_seleccionados$ENTIDAD_FEDERATIVA, info_estados_seleccionados$MUNICIPIO) %in%
   paste(maximos_por_estado$Estado, maximos_por_estado$Municipio),
 ]
 
-# Se genera el gráfico de densidad en base a estos municipios y estados con mas casos de registro
+# Se genera el gráfico de densidad en base a estos municipios y estados con más casos de registro
 densityPlot(info_municipios_max$EDAD_ANOS ~ as.factor(info_municipios_max$MUNICIPIO),
             main = "Distribución de Edad en Municipios con Mayores Casos por Estado",
             xlab = "", ylab = "",
@@ -314,9 +318,17 @@ mtext("Edad (años)", side = 1, line = 2.5, cex = 1.1)
 mtext("Densidad", side = 2, line = 2.5, cex = 1.1)
 ```
 
+En general, las distribuciones presentan una forma bimodal, con un primer pico pronunciado en edades jóvenes (entre 10 y 25 años) y un segundo pico menos marcado en edades adultas (aproximadamente entre 35 y 50 años).
 
-# Gráficos de barras de los registros entre el mes de Enero y Septiembre
+ Acapulco de Juárez presenta una mayor concentración en edades más jóvenes, mientras que Guadalajara y Morelia muestran un desplazamiento del segundo pico hacia edades adultas, lo que indica una población afectada de mayor edad promedio.
 
+Por otro lado, Manzanillo y Tepic muestran una distribución más uniforme entre ambos grupos.
+
+En todos los municipios seleccionados, la densidad disminuye gradualmente a partir de los 60 años, lo cual indica que las edades avanzadas tienen una menor representación entre los casos, es decir, hay pocos.
+
+# Gráficos de barras de los registros entre el mes de Enero y Septiembre de los estados seleccionados
+
+## Jalisco
 ```{r}
 registros_estado <- info_estados_seleccionados[info_estados_seleccionados$ENTIDAD_FEDERATIVA == "JALISCO" & (info_estados_seleccionados$MES_SIGN_SINTOMAS >= 1 & info_estados_seleccionados$MES_SIGN_SINTOMAS <= 9),]
 frecuencia_estado <- aggregate(ID_REGISTRO ~ MES_SIGN_SINTOMAS + MES_SIGN_SINTOMAS_DESC, FUN=length, data = registros_estado)
@@ -337,8 +349,10 @@ barplot(
 # Títulos de los ejes y gráfico (con separación ajustada)
 mtext("Meses", side = 1, line = 5, cex = 1.1)      # Eje X (más abajo)
 mtext("Registros", side = 2, line = 4, cex = 1.1)  # Eje Y (más a la izquierda)
-title(main = "Distribución de los registros por mes en el estado de Jalisco", line = 1)
+title(main = "Distribución de nuevos casos por mes en el estado de Jalisco", line = 1)
 ```
+
+## Colima
 
 ```{r}
 registros_estado <- info_estados_seleccionados[info_estados_seleccionados$ENTIDAD_FEDERATIVA == "COLIMA" & (info_estados_seleccionados$MES_SIGN_SINTOMAS >= 1 & info_estados_seleccionados$MES_SIGN_SINTOMAS <= 9),]
@@ -360,11 +374,11 @@ barplot(
 # Títulos de los ejes y gráfico (con separación ajustada)
 mtext("Meses", side = 1, line = 5, cex = 1.1)      # Eje X (más abajo)
 mtext("Registros", side = 2, line = 4, cex = 1.1)  # Eje Y (más a la izquierda)
-title(main = "Distribución de los registros por mes en el estado de Colima", line = 1)
+title(main = "Distribución de nuevos casos por mes en el estado de Colima", line = 1)
 ```
 
+## Guerrero
 
-Guerrero
 ```{r}
 registros_estado <- info_estados_seleccionados[info_estados_seleccionados$ENTIDAD_FEDERATIVA == "GUERRERO" & (info_estados_seleccionados$MES_SIGN_SINTOMAS >= 1 & info_estados_seleccionados$MES_SIGN_SINTOMAS <= 9),]
 frecuencia_estado <- aggregate(ID_REGISTRO ~ MES_SIGN_SINTOMAS + MES_SIGN_SINTOMAS_DESC, FUN=length, data = registros_estado)
@@ -385,10 +399,11 @@ barplot(
 # Títulos de los ejes y gráfico (con separación ajustada)
 mtext("Meses", side = 1, line = 5, cex = 1.1)      # Eje X (más abajo)
 mtext("Registros", side = 2, line = 4, cex = 1.1)  # Eje Y (más a la izquierda)
-title(main = "Distribución de los registros por mes en el estado de Guerrero", line = 1)
+title(main = "Distribución de nuevos casos por mes en el estado de Guerrero", line = 1)
 ```
 
-Michoacan
+## Michoacán de Ocampo
+
 ```{r}
 registros_estado <- info_estados_seleccionados[info_estados_seleccionados$ENTIDAD_FEDERATIVA == "MICHOACÁN DE OCAMPO" & (info_estados_seleccionados$MES_SIGN_SINTOMAS >= 1 & info_estados_seleccionados$MES_SIGN_SINTOMAS <= 9),]
 frecuencia_estado <- aggregate(ID_REGISTRO ~ MES_SIGN_SINTOMAS + MES_SIGN_SINTOMAS_DESC, FUN=length, data = registros_estado)
@@ -409,10 +424,11 @@ barplot(
 # Títulos de los ejes y gráfico (con separación ajustada)
 mtext("Meses", side = 1, line = 5, cex = 1.1)      # Eje X (más abajo)
 mtext("Registros", side = 2, line = 4, cex = 1.1)  # Eje Y (más a la izquierda)
-title(main = "Distribución de los registros por mes en el estado de Michoácan", line = 1)
+title(main = "Distribución de nuevos casos por mes en el estado de Michoácan", line = 1)
 ```
 
-NAYARIT
+## Nayarit
+
 ```{r}
 registros_estado <- info_estados_seleccionados[info_estados_seleccionados$ENTIDAD_FEDERATIVA == "NAYARIT" & (info_estados_seleccionados$MES_SIGN_SINTOMAS >= 1 & info_estados_seleccionados$MES_SIGN_SINTOMAS <= 9),]
 frecuencia_estado <- aggregate(ID_REGISTRO ~ MES_SIGN_SINTOMAS + MES_SIGN_SINTOMAS_DESC, FUN=length, data = registros_estado)
@@ -433,5 +449,5 @@ barplot(
 # Títulos de los ejes y gráfico (con separación ajustada)
 mtext("Meses", side = 1, line = 5, cex = 1.1)      # Eje X (más abajo)
 mtext("Registros", side = 2, line = 4, cex = 1.1)  # Eje Y (más a la izquierda)
-title(main = "Distribución de los registros por mes en el estado de Nayarit", line = 1)
+title(main = "Distribución de nuevos casos por mes en el estado de Nayarit", line = 1)
 ```
