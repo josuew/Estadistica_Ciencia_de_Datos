@@ -1,0 +1,14 @@
+---
+title: "Estadística y Probabilidad Aplicada"
+author: "Josue Emmanuel Jauregui Arvilla"
+date: "1 de Noviembre de 2025"
+output:
+  html_document:
+    toc: true          # Activa la tabla de contenido
+    toc_depth: 3       # Niveles de encabezados que se mostrarán (##, ###, etc.)
+    toc_float: true    # Hace que el índice flote en la parte lateral (HTML interactivo)
+    number_sections: true  # Numera las secciones del documento
+    theme: flatly          # (Opcional) Cambia el tema visual
+---
+
+# Introduccion

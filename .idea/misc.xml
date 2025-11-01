@@ -43,6 +43,14 @@
             </RMarkdownRenderProfile>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/resources/Examen/Unidad_3/Examen_U3.rmd">
+          <value>
+            <RMarkdownRenderProfile>
+              <option name="lastOutput" value="$PROJECT_DIR$/resources/Examen/Unidad_3/Examen_U3.html" />
+              <option name="outputDirectoryUrl" value="file://$PROJECT_DIR$/resources/Examen/Unidad_3" />
+            </RMarkdownRenderProfile>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/resources/Unidad_3/ejercicios_probabilidad.Rmd">
           <value>
             <RMarkdownRenderProfile>

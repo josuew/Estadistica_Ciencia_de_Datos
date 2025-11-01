@@ -188,8 +188,10 @@ datos_ejemplo <- matrix(c(601.333, 595.0222, 601.744, 606.0491, 606.0802, 604.09
                           602.0219, 599.094, 599.3259, 598.7811, 602.5042, 603.5545, 600.9781, 592.3436,
                           602.7935, 605.3266, 592.9382, 600.6886, NA, 601.1702, NA, 601.3226), ncol = 2, byrow = T)
 colnames(datos_ejemplo) <- c("Linea_A", "Linea_B")
+
 datos_ejemplo <- as.data.frame(datos_ejemplo)
 var(datos_ejemplo$Linea_A, na.rm = T)
+sd(datos_ejemplo$Linea_A, na.rm = T)
 datos_ejemplo
 ```
 
@@ -203,11 +205,14 @@ mediaA <- mean(datos_ejemplo$Linea_A, na.rm = TRUE)
 varA <- var(datos_ejemplo$Linea_A, na.rm = TRUE)
 mediaB <- mean(datos_ejemplo$Linea_B, na.rm = TRUE)
 varB <- var(datos_ejemplo$Linea_B, na.rm = TRUE)
+mediaA
+varA
+
 ```
 
 ```{r}
-pnorm(602, mediaA, varA) - pnorm(598, mediaA, varA) #En este proceso es más probable cumplir con las especificaciones
-pnorm(602, mediaB, varB) - pnorm(598, mediaB, varB)
+pnorm(602, mediaA, sqrt(varA)) - pnorm(598, mediaA, sqrt(varA)) #En este proceso es más probable cumplir con las especificaciones
+pnorm(602, mediaB, sqrt(varB)) - pnorm(598, mediaB, sqrt(varB))
 ```
 
 2) Considere los siguientes datos sobre carga de ruptura (kg/25mm de ancho) para varios tejidos tanto sin cardar como cardados.
@@ -234,8 +239,13 @@ sismos2 <- sismos[which(sismos$Estado2 %in% c(" CHIS", " OAX", " JAL")),]
 ```
 
 ```{r}
+dim(sismos2)
+```
+
+```{r}
 sismos2$Magnitud <- as.numeric(sismos2$Magnitud)
 hist(as.numeric(sismos2$Magnitud), breaks = seq(1, 8.25, 0.05))
+plot(density(sismos2$Magnitud, na.rm = TRUE))
 ```
 
 ```{r}
@@ -247,10 +257,17 @@ media_nac <- mean(sismos$Magnitud, na.rm = TRUE)
 sd_nac <- sd(sismos$Magnitud, na.rm = TRUE)
 ```
 
+#P(X > 5.0|Estado = Chiapas)
+#P(X > 5.0|Estado = Jalisco)
+#P(X > 5.0|Estado = Oaxaca)
+#P(X > 5.0|Nacionales)
+
+
+
 ```{r}
-pnorm(5, media_nac, sd_nac) #Probabilidad de un sismo no-destructo
-#pnorm(5,media_nac,sd_nac,lower.tail = FALSE) #Probabilidad de un sismo destructo
-#1-pnorm(5,media_nac,sd_nac,lower.tail = TRUE) #Similar al anterior
+pnorm(5, media_nac, sd_nac) #Probabilidad de un sismo no-destructor
+pnorm(5,media_nac,sd_nac,lower.tail = FALSE) #Probabilidad de un sismo destructor
+1-pnorm(5,media_nac,sd_nac,lower.tail = TRUE) #Similar al anterior
 media_nac
 ```
 
@@ -293,14 +310,89 @@ magni2
 ### EJERCICIO INTEGRADOR
 Una compañía fabrica focos con vida media de 500 horas y desviación estándar de 100. Suponga que los tiempos de vida útil de los focos se distribuyen normalmente, esto es que los tiempos de vida forman una distribución normal.
 
-- a) Encuentre la probabilidad de que cierta cantidad de focos dure menos de 650 horas.
+- a) Encuentre la probabilidad de que cierta cantidad de focos dure menos de 650 horas. P (X < 650) Sea X, la duracion de vida de los focos
+```{r}
+pnorm(650, 500, 100)
+```
 - b) Calcule la probabilidad de que cierta cantidad de focos dure más de 780 horas.
+P(X > 780)
+```{r}
+pnorm(780, 500, 100, lower.tail = FALSE)
+```
+
+P(650 <= x <= 780)
+```{r}
+pnorm(780, 500, 100) - pnorm(650,500,100)
+```
+
 - c) Determine la probabilidad de que cierta cantidad de focos dure entre 650 y 780 horas (ambos inclusive).
 - d) Halle el valor de k tal que el 5% de los focos tenga un tiempo de vida mayor que  k horas?
+
+$P(x = ?, \mu = 500, \sigma = 100) = 0.05$
+```{r}
+pnorm(663,500,100, lower.tail = FALSE)
+```
+
+```{r}
+qnorm(0.05, 500, 100, lower.tail = FALSE)
+```
+
+```{r}
+pnorm(664.4854, 500, 100)
+```
+
 - e) Si se eligen 10,000 focos, ¿cuántos tuvieron un tiempo de vida entre 650 y 780 horas (ambos inclusive)?
+
+```{r}
+(pnorm(780, 500, 100) - pnorm(650,500,100)) * 10000
+
+```
+
 - f) Si se eligen 1200 focos, ¿cuál es la probabilidad de que al menos 3 duren más de 780 horas?
+
+$P(X_{1} > 780) | \mu = 500, \sigma=100)$ $X_{1}$ es la duracion de los focos > 780 horas
+```{r}
+peee <- pnorm(780, 500, 100, lower.tail = FALSE)
+peee
+```
+
+$ P(X_{2} \geq 3 | p = 0.002, n = 1200) $ Con $ x_{2} $ el numero de focos que fallan en 1200 inspecciones
+
+$ P(X_{2} \geq 3) = $ 1 - P(X_{2} < 3) = 1 - $P(X_{2} \leq 2)
+
+```{r}
+1 - pbinom(2, peee, size = 1200)
+```
+
+```{r}
+
+```
+
 - g) Si se eligen 20 focos, ¿cuál es la probabilidad de que entre 16 y 19 (ambos inclusive) duren menos de 650 horas?
+
+P(X_{1} < 650) $X_{1} es la duracion de los focos $X_{1} $ sigue una distribucion normal
+P(16 \leq X_{2} \leq 19) $ $X{2}$ sigue una distribucion binomial
+P(15 < x < 20) = P(X \leq 19) - P(X \leq 15) =
+
+```{r}
+pee2 <- pnorm(650, 500, 100)
+pee2
+```
+
+```{r}
+pbinom(19,prob=pee2, size=20) - pbinom(15,prob=pee2, size=20)
+```
+
+
 - h) Si se eligen 20 focos, ¿cuál es la probabilidad de que entre 16 y 19 (ambos inclusive) no duren menos de 650 horas?
+
+$ P(X_{1} > 650)
+$ P(16 \leq X_{2} \leq 19)
+```{r}
+pee3 <- pnorm(650, 500, 100, lower.tail = FALSE)
+pbinom(19, prob=pee3, size = 20) - pbinom(15, prob = pee3, size = 20)
+```
+
 
 ```{r}
 pnorm(650, 500, 100) # a)
