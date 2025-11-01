@@ -1,0 +1,1036 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Probabilidad: MIACD},
+  pdfauthor={Héctor de la Torre Gutiérrez},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Probabilidad: MIACD}
+\author{Héctor de la Torre Gutiérrez}
+\date{Fecha de modificación: 31-10-2025}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+\section{DISTRIBUCIONES DE
+PROBABILIDAD}\label{distribuciones-de-probabilidad}
+
+\textbf{Ejemplo de simulación para determinar probabilidades:} Simular
+el experimento del lanzamiento de uno, dos, tres dados. Se analiza la
+suma.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{1234}\NormalTok{)}
+\NormalTok{experi}\OtherTok{\textless{}{-}}\DecValTok{8000000}
+\NormalTok{dado1}\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(}\FunctionTok{runif}\NormalTok{(experi,}\DecValTok{1}\NormalTok{,}\DecValTok{6}\NormalTok{),}\DecValTok{0}\NormalTok{) }\CommentTok{\#Dado uno, lanzado X veces}
+\NormalTok{dado2}\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(}\FunctionTok{runif}\NormalTok{(experi,}\DecValTok{1}\NormalTok{,}\DecValTok{6}\NormalTok{),}\DecValTok{0}\NormalTok{) }\CommentTok{\#Dado dos, lanzado X veces}
+\NormalTok{dado3}\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(}\FunctionTok{runif}\NormalTok{(experi,}\DecValTok{1}\NormalTok{,}\DecValTok{6}\NormalTok{),}\DecValTok{0}\NormalTok{) }\CommentTok{\#Dado tres, lanzado X veces}
+\NormalTok{dado\_suma}\OtherTok{\textless{}{-}}\NormalTok{dado1}\SpecialCharTok{+}\NormalTok{dado2}\SpecialCharTok{+}\NormalTok{dado3}
+\NormalTok{(}\FunctionTok{table}\NormalTok{(dado\_suma)}\SpecialCharTok{/}\NormalTok{experi)}\SpecialCharTok{*}\DecValTok{100}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## dado_suma
+##          3          4          5          6          7          8          9 
+##  0.0996500  0.5970125  1.8010375  3.8026875  6.5977875  9.8901625 12.8212625 
+##         10         11         12         13         14         15         16 
+## 14.4028500 14.3910500 12.7880750  9.9028875  6.6098500  3.7968750  1.8003250 
+##         17         18 
+##  0.5966250  0.1018625
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(dado\_suma)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{/Users/jaureperro/PycharmProjects/Estadistica_Ciencia_de_Datos/resources/Unidad_3/ejercicios_probabilidad_files/figure-latex/unnamed-chunk-2-1.pdf}}
+
+\subsection{1) DISTRIBUCIONES DE PROBABILIDAD PARA VARIABLES ALEATORIAS
+DE TIPO
+DISCRETAS}\label{distribuciones-de-probabilidad-para-variables-aleatorias-de-tipo-discretas}
+
+\subsection{1.1) DISTRIBUCION BINOMIAL}\label{distribucion-binomial}
+
+Tomando en cuenta el ejemplo de la población fumadora dentro de una
+muestra de 50 personas, se pide determinar:\\
+\(P(10 \leq  x \leq 40)\) = \(P(x \leq 40) - P(x \leq 9)\)\\
+\(P(x = 10)\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{proba\_binom}\OtherTok{\textless{}{-}}\FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{,}\DecValTok{31}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{10}\SpecialCharTok{:}\DecValTok{40}\NormalTok{)\{}
+\NormalTok{proba\_binom[i}\DecValTok{{-}9}\NormalTok{]}\OtherTok{\textless{}{-}}\FunctionTok{choose}\NormalTok{(}\DecValTok{50}\NormalTok{,i)}\SpecialCharTok{*}\NormalTok{(.}\DecValTok{3}\SpecialCharTok{\^{}}\NormalTok{i)}\SpecialCharTok{*}\NormalTok{(.}\DecValTok{7}\SpecialCharTok{\^{}}\NormalTok{(}\DecValTok{50}\SpecialCharTok{{-}}\NormalTok{i)) \}}
+\FunctionTok{sum}\NormalTok{(proba\_binom)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9597684
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{proba\_binom}\OtherTok{\textless{}{-}}\FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{,}\DecValTok{10}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{0}\SpecialCharTok{:}\DecValTok{9}\NormalTok{)\{}
+\NormalTok{proba\_binom[i}\SpecialCharTok{+}\DecValTok{1}\NormalTok{]}\OtherTok{\textless{}{-}}\FunctionTok{choose}\NormalTok{(}\DecValTok{50}\NormalTok{,i)}\SpecialCharTok{*}\NormalTok{(.}\DecValTok{3}\SpecialCharTok{\^{}}\NormalTok{i)}\SpecialCharTok{*}\NormalTok{(.}\DecValTok{7}\SpecialCharTok{\^{}}\NormalTok{(}\DecValTok{50}\SpecialCharTok{{-}}\NormalTok{i)) \}}
+\FunctionTok{sum}\NormalTok{(proba\_binom)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.04023163
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pbinom}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{50}\NormalTok{,}\FloatTok{0.3}\NormalTok{,}\AttributeTok{lower.tail =} \ConstantTok{TRUE}\NormalTok{)}\SpecialCharTok{{-}}\FunctionTok{pbinom}\NormalTok{(}\DecValTok{9}\NormalTok{,}\DecValTok{50}\NormalTok{,}\FloatTok{0.3}\NormalTok{,}\AttributeTok{lower.tail =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.03861899
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{choose}\NormalTok{(}\DecValTok{50}\NormalTok{,}\DecValTok{10}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(.}\DecValTok{3}\SpecialCharTok{\^{}}\DecValTok{10}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(.}\DecValTok{7}\SpecialCharTok{\^{}}\NormalTok{(}\DecValTok{50{-}10}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.03861899
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pbinom}\NormalTok{(}\DecValTok{40}\NormalTok{,}\DecValTok{50}\NormalTok{,.}\DecValTok{3}\NormalTok{,}\AttributeTok{lower.tail =} \ConstantTok{TRUE}\NormalTok{)}\SpecialCharTok{{-}}\FunctionTok{pbinom}\NormalTok{(}\DecValTok{9}\NormalTok{,}\DecValTok{50}\NormalTok{,.}\DecValTok{3}\NormalTok{,}\AttributeTok{lower.tail =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9597684
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#var\_Esp\_binom\textless{}{-}50*.3}
+\CommentTok{\#var\_Esp\_binom}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  Probabilidad de hasta 15 fumadores en la muestra de 50 personas.\\
+\item
+  Probabilidad de encontrar más de 20 fumadores en la muestra.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pbinom}\NormalTok{(}\DecValTok{15}\NormalTok{,}\DecValTok{50}\NormalTok{,.}\DecValTok{3}\NormalTok{,}\AttributeTok{lower.tail =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5691784
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1}\SpecialCharTok{{-}}\FunctionTok{pbinom}\NormalTok{(}\DecValTok{20}\NormalTok{,}\DecValTok{50}\NormalTok{,.}\DecValTok{3}\NormalTok{,}\AttributeTok{lower.tail =} \ConstantTok{TRUE}\NormalTok{) }\CommentTok{\# igual a lo siguiente}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.04776384
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pbinom}\NormalTok{(}\DecValTok{20}\NormalTok{,}\DecValTok{50}\NormalTok{,.}\DecValTok{3}\NormalTok{,}\AttributeTok{lower.tail =} \ConstantTok{FALSE}\NormalTok{) }\CommentTok{\#igual a lo anterior}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.04776384
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pbinom}\NormalTok{(}\DecValTok{15}\NormalTok{,}\DecValTok{50}\NormalTok{,.}\DecValTok{3}\NormalTok{,}\AttributeTok{lower.tail =} \ConstantTok{TRUE}\NormalTok{)}\SpecialCharTok{{-}}\FunctionTok{pbinom}\NormalTok{(}\DecValTok{14}\NormalTok{,}\DecValTok{50}\NormalTok{,.}\DecValTok{3}\NormalTok{,}\AttributeTok{lower.tail =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.1223469
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{proba\_binom}\OtherTok{\textless{}{-}}\FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{,}\DecValTok{51}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{0}\SpecialCharTok{:}\DecValTok{50}\NormalTok{)\{}
+\NormalTok{proba\_binom[i}\SpecialCharTok{+}\DecValTok{1}\NormalTok{]}\OtherTok{\textless{}{-}}\FunctionTok{choose}\NormalTok{(}\DecValTok{50}\NormalTok{,i)}\SpecialCharTok{*}\NormalTok{(.}\DecValTok{3}\SpecialCharTok{\^{}}\NormalTok{i)}\SpecialCharTok{*}\NormalTok{(.}\DecValTok{7}\SpecialCharTok{\^{}}\NormalTok{(}\DecValTok{50}\SpecialCharTok{{-}}\NormalTok{i)) \}}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\FunctionTok{barplot}\NormalTok{(proba\_binom)}
+\FunctionTok{plot}\NormalTok{(}\FunctionTok{cumsum}\NormalTok{(proba\_binom),}\AttributeTok{type=}\StringTok{"l"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{/Users/jaureperro/PycharmProjects/Estadistica_Ciencia_de_Datos/resources/Unidad_3/ejercicios_probabilidad_files/figure-latex/unnamed-chunk-7-1.pdf}}
+
+\subsection{1.2) DISTRIBUCIÓN POISSON}\label{distribuciuxf3n-poisson}
+
+Se estudia el número de ocurrencias (accidentes) en 20 cruceros de la
+ciudad de Aguascalientes el día 10 de septiembre (24 horas), los datos
+son los siguientes:
+
+0, 5, 3, 4, 1, 6, 0, 2, 4, 9, 1, 0, 0, 4, 7, 3, 0, 1, 0, 1
+
+Dada una taza de accidentes,\\
+- 1. ¿Cuál es la probabilidad de que haya accidentes en un crucero? - 2.
+¿Cuál es la probabilidad de no haya accidentes? - 3. ¿Haya más de tres
+accidentes en 24 horas? - 4. ¿Cuál es la probabilidad de que haya 2 o
+más accidentes cuando se observa el fenómenos de `accidentes en un
+crucero' por 48 horas?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{accidentes}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{theta\_pos}\OtherTok{\textless{}{-}}\FunctionTok{mean}\NormalTok{(accidentes)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ppois}\NormalTok{(}\DecValTok{0}\NormalTok{,theta\_pos,}\AttributeTok{lower.tail =} \ConstantTok{TRUE}\NormalTok{) }\CommentTok{\#Probabilidad de que no haya accidentes}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.07808167
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1}\SpecialCharTok{{-}}\FunctionTok{ppois}\NormalTok{(}\DecValTok{0}\NormalTok{,theta\_pos,}\AttributeTok{lower.tail =} \ConstantTok{TRUE}\NormalTok{) }\CommentTok{\#Probabilidad de que haya accidentes}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9219183
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ppois}\NormalTok{(}\DecValTok{0}\NormalTok{,theta\_pos,}\AttributeTok{lower.tail =} \ConstantTok{FALSE}\NormalTok{) }\CommentTok{\#Probabilidad de que haya accidentes}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9219183
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1}\SpecialCharTok{{-}}\FunctionTok{ppois}\NormalTok{(}\DecValTok{3}\NormalTok{,theta\_pos,}\AttributeTok{lower.tail =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2531635
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1}\SpecialCharTok{{-}}\FunctionTok{ppois}\NormalTok{(}\DecValTok{1}\NormalTok{,theta\_pos}\SpecialCharTok{*}\DecValTok{2}\NormalTok{,}\AttributeTok{lower.tail =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9628098
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ppois}\NormalTok{(}\DecValTok{1}\NormalTok{,theta\_pos}\SpecialCharTok{*}\DecValTok{2}\NormalTok{,}\AttributeTok{lower.tail =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9628098
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\NormalTok{proba\_pois}\OtherTok{\textless{}{-}}\FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{,}\DecValTok{21}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{0}\SpecialCharTok{:}\DecValTok{20}\NormalTok{)\{}
+\NormalTok{proba\_pois[i}\SpecialCharTok{+}\DecValTok{1}\NormalTok{]}\OtherTok{\textless{}{-}}\FunctionTok{ppois}\NormalTok{(i,theta\_pos)\}}
+\FunctionTok{plot}\NormalTok{(proba\_pois,}\AttributeTok{type=}\StringTok{"b"}\NormalTok{)}
+
+\NormalTok{proba\_pois2}\OtherTok{\textless{}{-}}\FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{,}\DecValTok{21}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{0}\SpecialCharTok{:}\DecValTok{20}\NormalTok{)\{}
+\NormalTok{proba\_pois2[i}\SpecialCharTok{+}\DecValTok{1}\NormalTok{]}\OtherTok{\textless{}{-}}\NormalTok{((}\FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{theta\_pos)}\SpecialCharTok{*}\NormalTok{theta\_pos}\SpecialCharTok{\^{}}\NormalTok{i))}\SpecialCharTok{/}\FunctionTok{factorial}\NormalTok{(i) \}}
+\FunctionTok{barplot}\NormalTok{(proba\_pois2)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{/Users/jaureperro/PycharmProjects/Estadistica_Ciencia_de_Datos/resources/Unidad_3/ejercicios_probabilidad_files/figure-latex/unnamed-chunk-10-1.pdf}}
+
+\subsection{1.3) EJEMPLO INTEGRADOR DE DISTRIBUCIONES
+DISCRETAS}\label{ejemplo-integrador-de-distribuciones-discretas}
+
+Utilizar la distribución Binomal para calcular 1) y 2) del ejercicio
+anterior. Repensar el problema, ahora se estudiará cada semáforo como un
+evento Bernoulli, y buscaremos saber:\\
+\emph{1) en todos los semáforos no haya accidentes}
+\(P(X =0 | p = 0.70)\) y\\
+\emph{2) en solo un semáforo haya accidentes} \(P(X = 1 | p = 0.70)\).
+También, que haya mínimo cinco semáforos con choques. ¿Es posible pensar
+que haya más de 10 semáforos con choques dada la proporción de \emph{p =
+0.70} y \emph{n= 20} ?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{accidentes2}\OtherTok{\textless{}{-}}\FunctionTok{ifelse}\NormalTok{(accidentes}\SpecialCharTok{==}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{)}
+\NormalTok{pe\_acci}\OtherTok{\textless{}{-}}\FunctionTok{sum}\NormalTok{(accidentes2)}\SpecialCharTok{/}\DecValTok{20}
+\DecValTok{20}\SpecialCharTok{*}\NormalTok{pe\_acci }\CommentTok{\#Valor esperado}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 14
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Se tiene una flotilla que puede atender hasta cinco accidentes al día}
+\CommentTok{\#P() Probabilidad de que cubran el trabajo demandado P(X\textless{}=5|n=20,p=0.7)}
+\FunctionTok{pbinom}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{20}\NormalTok{,}\FloatTok{0.7}\NormalTok{,}\AttributeTok{lower.tail =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3.486784e-11
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pbinom}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{20}\NormalTok{,}\FloatTok{0.7}\NormalTok{,}\AttributeTok{lower.tail =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pbinom}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{20}\NormalTok{,}\FloatTok{0.7}\NormalTok{,}\AttributeTok{lower.tail =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9520381
+\end{verbatim}
+
+\section{2) DISTRIBUCIONES DE PROBABILIDAD PARA VARIABLES ALEATORIAS
+CONTINUAS}\label{distribuciones-de-probabilidad-para-variables-aleatorias-continuas}
+
+Una empresa refresquera tiene dos líneas de llenado para las botellas,
+línea A y B. Ambas, en teoría suministran una cantidad de llenado de
+600ml en promedio. Sin embargo, durante la última semana, se ha
+detectado que en la línea A, dos botellas estaban por encima de los 600
+ml. Mientras que en la línea B, todo se encontró en orden. El ingeniero
+de control de la calidad decide tomar 10 botellas al azar de la línea A
+y 12 botellas al azar de la línea B. ¿Cuál de las dos máquinas puede
+cumplir de mejor manera con los requisitos de calidad? (ver tolerancias
+más adelante). Los resultados se muestran en la tabla siguiente:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos\_ejemplo}\OtherTok{\textless{}{-}}\FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\FloatTok{601.333}\NormalTok{,    }\FloatTok{595.0222}\NormalTok{,}\FloatTok{601.744}\NormalTok{,   }\FloatTok{606.0491}\NormalTok{,}\FloatTok{606.0802}\NormalTok{,  }\FloatTok{604.0949}\NormalTok{,}\FloatTok{601.2242}\NormalTok{,  }\FloatTok{601.951}\NormalTok{,}
+\FloatTok{602.0219}\NormalTok{,   }\FloatTok{599.094}\NormalTok{,}\FloatTok{599.3259}\NormalTok{,   }\FloatTok{598.7811}\NormalTok{,}\FloatTok{602.5042}\NormalTok{,  }\FloatTok{603.5545}\NormalTok{,}\FloatTok{600.9781}\NormalTok{,  }\FloatTok{592.3436}\NormalTok{,}
+\FloatTok{602.7935}\NormalTok{,   }\FloatTok{605.3266}\NormalTok{,}\FloatTok{592.9382}\NormalTok{,  }\FloatTok{600.6886}\NormalTok{,}\ConstantTok{NA}\NormalTok{,        }\FloatTok{601.1702}\NormalTok{,}\ConstantTok{NA}\NormalTok{,        }\FloatTok{601.3226}\NormalTok{),}\AttributeTok{ncol=}\DecValTok{2}\NormalTok{,}\AttributeTok{byrow=}\NormalTok{T)}
+\FunctionTok{colnames}\NormalTok{(datos\_ejemplo)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"Linea\_A"}\NormalTok{,   }\StringTok{"Linea\_B"}\NormalTok{)}
+\NormalTok{datos\_ejemplo}\OtherTok{\textless{}{-}}\FunctionTok{as.data.frame}\NormalTok{(datos\_ejemplo)}
+\FunctionTok{var}\NormalTok{(datos\_ejemplo}\SpecialCharTok{$}\NormalTok{Linea\_A,}\AttributeTok{na.rm=}\NormalTok{T)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 11.19482
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos\_ejemplo}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     Linea_A  Linea_B
+## 1  601.3330 595.0222
+## 2  601.7440 606.0491
+## 3  606.0802 604.0949
+## 4  601.2242 601.9510
+## 5  602.0219 599.0940
+## 6  599.3259 598.7811
+## 7  602.5042 603.5545
+## 8  600.9781 592.3436
+## 9  602.7935 605.3266
+## 10 592.9382 600.6886
+## 11       NA 601.1702
+## 12       NA 601.3226
+\end{verbatim}
+
+Si se tiene una tolerancia de llenado extra o faltante de 2ml, ¿cuál es
+la probabilidad de que la Línea A y B cumplan con lo estipulado?
+
+\begin{itemize}
+\tightlist
+\item
+  Proceso A: \(P(598 < X < 602| \mu = 601.09, \sigma^2=11.19)\)\\
+\item
+  Proceso B: \(P(598 < X < 602| \mu = 600.78, \sigma^2=16.37)\)
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mediaA}\OtherTok{\textless{}{-}}\FunctionTok{mean}\NormalTok{(datos\_ejemplo}\SpecialCharTok{$}\NormalTok{Linea\_A,}\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{varA}\OtherTok{\textless{}{-}}\FunctionTok{var}\NormalTok{(datos\_ejemplo}\SpecialCharTok{$}\NormalTok{Linea\_A,}\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{mediaB}\OtherTok{\textless{}{-}}\FunctionTok{mean}\NormalTok{(datos\_ejemplo}\SpecialCharTok{$}\NormalTok{Linea\_B,}\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{varB}\OtherTok{\textless{}{-}}\FunctionTok{var}\NormalTok{(datos\_ejemplo}\SpecialCharTok{$}\NormalTok{Linea\_B,}\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pnorm}\NormalTok{(}\DecValTok{602}\NormalTok{,mediaA,varA)}\SpecialCharTok{{-}}\FunctionTok{pnorm}\NormalTok{(}\DecValTok{598}\NormalTok{,mediaA,varA) }\CommentTok{\#En este proceso es más probable cumplir con las especificaciones}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.1411219
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pnorm}\NormalTok{(}\DecValTok{602}\NormalTok{,mediaB,varB)}\SpecialCharTok{{-}}\FunctionTok{pnorm}\NormalTok{(}\DecValTok{598}\NormalTok{,mediaB,varB)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.0971068
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Considere los siguientes datos sobre carga de ruptura (kg/25mm de
+  ancho) para varios tejidos tanto sin cardar como cardados.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Sin\_cardar}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\FloatTok{36.4}\NormalTok{,}\FloatTok{55.0}\NormalTok{,}\FloatTok{51.5}\NormalTok{,}\FloatTok{38.7}\NormalTok{,}\FloatTok{43.2}\NormalTok{,}\FloatTok{48.8}\NormalTok{,}\FloatTok{25.6}\NormalTok{,}\FloatTok{49.8}\NormalTok{)}
+\NormalTok{Cardado}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\FloatTok{28.5}\NormalTok{,}\DecValTok{20}\NormalTok{, }\DecValTok{46}\NormalTok{, }\FloatTok{34.5}\NormalTok{,   }\FloatTok{36.5}\NormalTok{,   }\FloatTok{52.5}\NormalTok{,   }\FloatTok{26.5}\NormalTok{,   }\FloatTok{46.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{DISTRIBUCION DE PROBABILIDAD DE LA MAGNITUD DE LOS
+SISMOS}\label{distribucion-de-probabilidad-de-la-magnitud-de-los-sismos}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  Jalar datos junto al histograma de las magnitudes, así como de la
+  densidad\\
+\item
+  ¿Parece ser una distribución normal?\\
+\item
+  ¿Cuál es la probabilidad de que haya un sismo destructor?\\
+\item
+  ¿Y la probabilidad de un sismo cuya magnitud sea mayor a 5?\\
+\item
+  TLC. Pendiente
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sismos}\OtherTok{\textless{}{-}}\FunctionTok{read.csv}\NormalTok{(}\StringTok{"/Users/jaureperro/PycharmProjects/Estadistica\_Ciencia\_de\_Datos/data/SSNMX\_catalogo\_19000101\_20251004 (1).csv"}\NormalTok{)}
+\NormalTok{sismos}\SpecialCharTok{$}\NormalTok{Magnitud}\OtherTok{\textless{}{-}}\FunctionTok{as.numeric}\NormalTok{(sismos}\SpecialCharTok{$}\NormalTok{Magnitud)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: NAs introduced by coercion
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sismos2}\OtherTok{\textless{}{-}}\NormalTok{sismos[}\FunctionTok{which}\NormalTok{(sismos}\SpecialCharTok{$}\NormalTok{Estado2}\SpecialCharTok{\%in\%}\FunctionTok{c}\NormalTok{(}\StringTok{" CHIS"}\NormalTok{,}\StringTok{" OAX"}\NormalTok{,}\StringTok{" JAL"}\NormalTok{)),]}
+\CommentTok{\#which(sismos$Estado2\%in\%c(" CHIS"," OAX"," JAL"))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sismos2}\SpecialCharTok{$}\NormalTok{Magnitud}\OtherTok{\textless{}{-}}\FunctionTok{as.numeric}\NormalTok{(sismos2}\SpecialCharTok{$}\NormalTok{Magnitud)}
+\FunctionTok{hist}\NormalTok{(}\FunctionTok{as.numeric}\NormalTok{(sismos2}\SpecialCharTok{$}\NormalTok{Magnitud),}\AttributeTok{breaks =} \FunctionTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{,}\FloatTok{8.25}\NormalTok{,}\FloatTok{0.05}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{/Users/jaureperro/PycharmProjects/Estadistica_Ciencia_de_Datos/resources/Unidad_3/ejercicios_probabilidad_files/figure-latex/unnamed-chunk-17-1.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Asumamos que un sismo destructor es aquel cuya magnitud es mayor a 5.0 grados.}
+\CommentTok{\#Obtener la probabilidad de dicho tipo de sismo para cada estado y a nivel nacional.}
+\NormalTok{media\_estados}\OtherTok{\textless{}{-}}\FunctionTok{aggregate}\NormalTok{(Magnitud}\SpecialCharTok{\textasciitilde{}}\NormalTok{Estado2,}\AttributeTok{data=}\NormalTok{sismos2,}\AttributeTok{FUN=}\NormalTok{mean,}\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{sd\_estados}\OtherTok{\textless{}{-}}\FunctionTok{aggregate}\NormalTok{(Magnitud}\SpecialCharTok{\textasciitilde{}}\NormalTok{Estado2,}\AttributeTok{data=}\NormalTok{sismos2,}\AttributeTok{FUN=}\NormalTok{sd,}\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{media\_nac}\OtherTok{\textless{}{-}}\FunctionTok{mean}\NormalTok{(sismos}\SpecialCharTok{$}\NormalTok{Magnitud,}\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{sd\_nac}\OtherTok{\textless{}{-}}\FunctionTok{sd}\NormalTok{(sismos}\SpecialCharTok{$}\NormalTok{Magnitud,}\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pnorm}\NormalTok{(}\DecValTok{5}\NormalTok{,media\_nac,sd\_nac) }\CommentTok{\#Probabilidad de un sismo no{-}destructo}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9970959
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#pnorm(5,media\_nac,sd\_nac,lower.tail = FALSE) \#Probabilidad de un sismo destructo}
+\CommentTok{\#1{-}pnorm(5,media\_nac,sd\_nac,lower.tail = TRUE) \#Similar al anterior}
+\NormalTok{media\_nac}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3.544628
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fun\_sismo}\OtherTok{\textless{}{-}}\ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{  media}\OtherTok{\textless{}{-}}\FunctionTok{mean}\NormalTok{(x,}\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{  desvest}\OtherTok{\textless{}{-}}\FunctionTok{sd}\NormalTok{(x,}\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{  probabilidad}\OtherTok{\textless{}{-}}\FunctionTok{pnorm}\NormalTok{(}\DecValTok{5}\NormalTok{,media,desvest,}\AttributeTok{lower.tail =} \ConstantTok{FALSE}\NormalTok{)}
+  \CommentTok{\#return(data.frame(Media=media,Des\_Esta=desvest,Prrobabilidad=probabilidad))\}}
+  \FunctionTok{return}\NormalTok{(probabilidad) \}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1}\SpecialCharTok{{-}}\FunctionTok{pnorm}\NormalTok{(}\DecValTok{5}\NormalTok{,media\_nac,sd\_nac,}\AttributeTok{lower.tail =} \ConstantTok{TRUE}\NormalTok{) }\CommentTok{\#Similar al anterior}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.002904127
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1}\SpecialCharTok{{-}}\FunctionTok{pnorm}\NormalTok{(}\DecValTok{5}\NormalTok{,media\_estados[}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{],sd\_estados[}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{]) }\CommentTok{\#Chiapas}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.004558354
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1}\SpecialCharTok{{-}}\FunctionTok{pnorm}\NormalTok{(}\DecValTok{5}\NormalTok{,media\_estados[}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{],sd\_estados[}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{]) }\CommentTok{\#Jalisco}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.0002066
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1}\SpecialCharTok{{-}}\FunctionTok{pnorm}\NormalTok{(}\DecValTok{5}\NormalTok{,media\_estados[}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{],sd\_estados[}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{]) }\CommentTok{\#Oaxaca}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3.411705e-05
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cbind}\NormalTok{(media\_estados,sd\_estados[,}\DecValTok{2}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Estado2 Magnitud sd_estados[, 2]
+## 1    CHIS 3.780379       0.4677094
+## 2     JAL 3.545959       0.4117339
+## 3     OAX 3.616808       0.3473296
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Calcularlo para los 32 estados y observa aquel donde la probabilidad se la mayor,}
+\CommentTok{\# y la menor. Aggregate}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{magnitud}\OtherTok{\textless{}{-}}\FunctionTok{aggregate}\NormalTok{(Magnitud}\SpecialCharTok{\textasciitilde{}}\NormalTok{Estado2,}\AttributeTok{data=}\NormalTok{sismos,}\AttributeTok{FUN=}\NormalTok{fun\_sismo,}\AttributeTok{simplify =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{mean\_magni}\OtherTok{\textless{}{-}}\FunctionTok{aggregate}\NormalTok{(Magnitud}\SpecialCharTok{\textasciitilde{}}\NormalTok{Estado2,}\AttributeTok{data=}\NormalTok{sismos,}\AttributeTok{FUN=}\NormalTok{mean,}\AttributeTok{simplify =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{sd\_magni}\OtherTok{\textless{}{-}}\FunctionTok{aggregate}\NormalTok{(Magnitud}\SpecialCharTok{\textasciitilde{}}\NormalTok{Estado2,}\AttributeTok{data=}\NormalTok{sismos,}\AttributeTok{FUN=}\NormalTok{sd,}\AttributeTok{simplify =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{magnitud[}\FunctionTok{order}\NormalTok{(magnitud}\SpecialCharTok{$}\NormalTok{Magnitud,}\AttributeTok{decreasing =} \ConstantTok{TRUE}\NormalTok{),]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Estado2     Magnitud
+## 23      QR 3.461654e-01
+## 32     YUC 4.523902e-02
+## 25     SIN 2.256600e-02
+## 6     CHIH 1.303216e-02
+## 4     CAMP 1.152166e-02
+## 3      BCS 6.357967e-03
+## 7     CHIS 4.558354e-03
+## 18     NAY 2.384860e-03
+## 15     MEX 2.164871e-03
+## 8     COAH 1.076265e-03
+## 26     SLP 1.028104e-03
+## 27     SON 1.017773e-03
+## 22     PUE 4.138874e-04
+## 28     TAB 2.231477e-04
+## 14     JAL 2.066000e-04
+## 31     VER 1.143970e-04
+## 13     HGO 1.045731e-04
+## 11     GRO 6.930489e-05
+## 16    MICH 4.894393e-05
+## 20     OAX 3.411705e-05
+## 10     DGO 3.246049e-05
+## 5     CDMX 2.811593e-05
+## 17     MOR 1.953568e-05
+## 2       BC 1.098871e-05
+## 19      NL 8.238268e-06
+## 33     ZAC 7.364855e-06
+## 29    TAMS 4.604504e-06
+## 9      COL 2.171194e-06
+## 1      AGS 1.520671e-06
+## 24     QRO 1.050707e-06
+## 30    TLAX 4.733117e-07
+## 12     GTO 7.434940e-09
+## 21     OAx           NA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{magni1}\OtherTok{\textless{}{-}}\FunctionTok{merge}\NormalTok{(magnitud,mean\_magni,}\AttributeTok{by.x=}\StringTok{"Estado2"}\NormalTok{,}\AttributeTok{by.y =} \StringTok{"Estado2"}\NormalTok{)}
+\NormalTok{magni2}\OtherTok{\textless{}{-}}\FunctionTok{merge}\NormalTok{(magni1,sd\_magni,}\AttributeTok{by.x=}\StringTok{"Estado2"}\NormalTok{,}\AttributeTok{by.y =} \StringTok{"Estado2"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(magni2)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"Estado"}\NormalTok{,}\StringTok{"Probabilidad"}\NormalTok{,}\StringTok{"Media"}\NormalTok{,}\StringTok{"Sd"}\NormalTok{)}
+\NormalTok{magni2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Estado Probabilidad    Media        Sd
+## 1     AGS 1.520671e-06 2.791489 0.4731163
+## 2      BC 1.098871e-05 3.415207 0.3734379
+## 3     BCS 6.357967e-03 2.437123 1.0285957
+## 4    CAMP 1.152166e-02 4.213333 0.3461351
+## 5    CDMX 2.811593e-05 2.087049 0.7231594
+## 6    CHIH 1.303216e-02 3.487569 0.6796673
+## 7    CHIS 4.558354e-03 3.780379 0.4677094
+## 8    COAH 1.076265e-03 3.815517 0.3860340
+## 9     COL 2.171194e-06 3.406098 0.3469315
+## 10    DGO 3.246049e-05 3.830588 0.2927796
+## 11    GRO 6.930489e-05 3.539758 0.3832017
+## 12    GTO 7.434940e-09 3.758929 0.2191522
+## 13    HGO 1.045731e-04 2.841137 0.5822639
+## 14    JAL 2.066000e-04 3.545959 0.4117339
+## 15    MEX 2.164871e-03 2.786099 0.7759683
+## 16   MICH 4.894393e-05 3.582820 0.3637743
+## 17    MOR 1.953568e-05 3.417722 0.3847108
+## 18    NAY 2.384860e-03 3.850877 0.4071744
+## 19     NL 8.238268e-06 3.556210 0.3351445
+## 20    OAX 3.411705e-05 3.616808 0.3473296
+## 21    OAx           NA 3.000000        NA
+## 22    PUE 4.138874e-04 3.395629 0.4798712
+## 23     QR 3.461654e-01 4.748571 0.6354116
+## 24    QRO 1.050707e-06 3.476471 0.3211881
+## 25    SIN 2.256600e-02 3.993798 0.5022414
+## 26    SLP 1.028104e-03 3.685897 0.4263810
+## 27    SON 1.017773e-03 3.746959 0.4061727
+## 28    TAB 2.231477e-04 3.901455 0.3128797
+## 29   TAMS 4.604504e-06 3.639462 0.3067758
+## 30   TLAX 4.733117e-07 3.513534 0.3032106
+## 31    VER 1.143970e-04 3.747764 0.3398291
+## 32    YUC 4.523902e-02 3.920000 0.6379655
+## 33    ZAC 7.364855e-06 1.730249 0.7546697
+\end{verbatim}
+
+\subsubsection{EJERCICIO INTEGRADOR}\label{ejercicio-integrador}
+
+Una compañía fabrica focos con vida media de 500 horas y desviación
+estándar de 100. Suponga que los tiempos de vida útil de los focos se
+distribuyen normalmente, esto es que los tiempos de vida forman una
+distribución normal.
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \tightlist
+  \item
+    Encuentre la probabilidad de que cierta cantidad de focos dure menos
+    de 650 horas.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Calcule la probabilidad de que cierta cantidad de focos dure más de
+    780 horas.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Determine la probabilidad de que cierta cantidad de focos dure entre
+    650 y 780 horas (ambos inclusive).
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Halle el valor de k tal que el 5\% de los focos tenga un tiempo de
+    vida mayor que k horas?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \setcounter{enumi}{4}
+  \tightlist
+  \item
+    Si se eligen 10,000 focos, ¿cuántos tuvieron un tiempo de vida entre
+    650 y 780 horas (ambos inclusive)?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \setcounter{enumi}{5}
+  \tightlist
+  \item
+    Si se eligen 1200 focos, ¿cuál es la probabilidad de que al menos 3
+    duren más de 780 horas?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \setcounter{enumi}{6}
+  \tightlist
+  \item
+    Si se eligen 20 focos, ¿cuál es la probabilidad de que entre 16 y 19
+    (ambos inclusive) duren menos de 650 horas?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \setcounter{enumi}{7}
+  \tightlist
+  \item
+    Si se eligen 20 focos, ¿cuál es la probabilidad de que entre 16 y 19
+    (ambos inclusive) no duren menos de 650 horas?
+  \end{enumerate}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pnorm}\NormalTok{(}\DecValTok{650}\NormalTok{,}\DecValTok{500}\NormalTok{,}\DecValTok{100}\NormalTok{) }\CommentTok{\# a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9331928
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1}\SpecialCharTok{{-}}\FunctionTok{pnorm}\NormalTok{(}\DecValTok{650}\NormalTok{,}\DecValTok{500}\NormalTok{,}\DecValTok{100}\NormalTok{) }\CommentTok{\# pre{-}h}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.0668072
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pnorm}\NormalTok{(}\DecValTok{780}\NormalTok{,}\DecValTok{500}\NormalTok{,}\DecValTok{100}\NormalTok{,}\AttributeTok{lower.tail =} \ConstantTok{FALSE}\NormalTok{) }\CommentTok{\#b)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.00255513
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pnorm}\NormalTok{(}\DecValTok{780}\NormalTok{,}\DecValTok{500}\NormalTok{,}\DecValTok{100}\NormalTok{,}\AttributeTok{lower.tail =} \ConstantTok{TRUE}\NormalTok{)}\SpecialCharTok{{-}}\FunctionTok{pnorm}\NormalTok{(}\DecValTok{650}\NormalTok{,}\DecValTok{500}\NormalTok{,}\DecValTok{100}\NormalTok{,}\AttributeTok{lower.tail =} \ConstantTok{TRUE}\NormalTok{) }\CommentTok{\#c}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.06425207
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{qnorm}\NormalTok{(}\FloatTok{0.95}\NormalTok{,}\DecValTok{500}\NormalTok{,}\DecValTok{100}\NormalTok{) }\CommentTok{\#d)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 664.4854
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{qnorm}\NormalTok{(}\FloatTok{0.05}\NormalTok{,}\DecValTok{500}\NormalTok{,}\DecValTok{100}\NormalTok{,}\AttributeTok{lower.tail =} \ConstantTok{FALSE}\NormalTok{) }\CommentTok{\#d)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 664.4854
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pnorm}\NormalTok{(}\FloatTok{664.485362695147}\NormalTok{,}\DecValTok{500}\NormalTok{,}\DecValTok{100}\NormalTok{) }\CommentTok{\#d)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.95
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\FunctionTok{pnorm}\NormalTok{(}\DecValTok{780}\NormalTok{,}\DecValTok{500}\NormalTok{,}\DecValTok{100}\NormalTok{,}\AttributeTok{lower.tail =} \ConstantTok{TRUE}\NormalTok{)}\SpecialCharTok{{-}}\FunctionTok{pnorm}\NormalTok{(}\DecValTok{650}\NormalTok{,}\DecValTok{500}\NormalTok{,}\DecValTok{100}\NormalTok{,}\AttributeTok{lower.tail =} \ConstantTok{TRUE}\NormalTok{))}\SpecialCharTok{*}\DecValTok{10000} \CommentTok{\#e}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 642.5207
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1}\SpecialCharTok{{-}}\FunctionTok{pbinom}\NormalTok{(}\DecValTok{2}\NormalTok{,}\AttributeTok{size=}\DecValTok{1200}\NormalTok{,}\AttributeTok{prob=}\FunctionTok{pnorm}\NormalTok{(}\DecValTok{780}\NormalTok{,}\DecValTok{500}\NormalTok{,}\DecValTok{100}\NormalTok{,}\AttributeTok{lower.tail =} \ConstantTok{FALSE}\NormalTok{)) }\CommentTok{\#f)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5917659
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pbinom}\NormalTok{(}\DecValTok{19}\NormalTok{,}\AttributeTok{size=}\DecValTok{20}\NormalTok{,}\AttributeTok{prob=}\FunctionTok{pnorm}\NormalTok{(}\DecValTok{650}\NormalTok{,}\DecValTok{500}\NormalTok{,}\DecValTok{100}\NormalTok{))}\SpecialCharTok{{-}}\FunctionTok{pbinom}\NormalTok{(}\DecValTok{15}\NormalTok{,}\AttributeTok{size=}\DecValTok{20}\NormalTok{,}\AttributeTok{prob=}\FunctionTok{pnorm}\NormalTok{(}\DecValTok{650}\NormalTok{,}\DecValTok{500}\NormalTok{,}\DecValTok{100}\NormalTok{)) }\CommentTok{\#g)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.7403082
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pbinom}\NormalTok{(}\DecValTok{19}\NormalTok{,}\AttributeTok{size=}\DecValTok{20}\NormalTok{,}\AttributeTok{prob=}\FunctionTok{pnorm}\NormalTok{(}\DecValTok{650}\NormalTok{,}\DecValTok{500}\NormalTok{,}\DecValTok{100}\NormalTok{,}\AttributeTok{lower.tail =} \ConstantTok{FALSE}\NormalTok{))}\SpecialCharTok{{-}}\FunctionTok{pbinom}\NormalTok{(}\DecValTok{15}\NormalTok{,}\AttributeTok{size=}\DecValTok{20}\NormalTok{,}\AttributeTok{prob=}\FunctionTok{pnorm}\NormalTok{(}\DecValTok{650}\NormalTok{,}\DecValTok{500}\NormalTok{,}\DecValTok{100}\NormalTok{,}\AttributeTok{lower.tail =} \ConstantTok{FALSE}\NormalTok{)) }\CommentTok{\#h)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 6.661338e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Gráficamente, ¿cómo se ve la distribución?}
+\FunctionTok{plot}\NormalTok{(}\FunctionTok{pnorm}\NormalTok{(}\FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1000}\NormalTok{),}\DecValTok{500}\NormalTok{,}\DecValTok{100}\NormalTok{),}\AttributeTok{type=}\StringTok{"l"}\NormalTok{,}\AttributeTok{lwd=}\DecValTok{2}\NormalTok{,}\AttributeTok{col=}\StringTok{"blue"}\NormalTok{,}\AttributeTok{main=}\StringTok{"F(x)"}\NormalTok{,}\AttributeTok{xlab=}\StringTok{"Horas"}\NormalTok{,}
+\AttributeTok{ylab=}\StringTok{"Probabilidad"}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{v=}\FloatTok{664.485362695147}\NormalTok{,}\AttributeTok{col=}\StringTok{"red"}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{h=}\FloatTok{0.95}\NormalTok{,}\AttributeTok{col=}\StringTok{"red"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{/Users/jaureperro/PycharmProjects/Estadistica_Ciencia_de_Datos/resources/Unidad_3/ejercicios_probabilidad_files/figure-latex/unnamed-chunk-26-1.pdf}}
+
+\section{EJEMPLO DE LA APLICACIÓN DE TEOREMA DEL LÍMITE
+CENTRAL}\label{ejemplo-de-la-aplicaciuxf3n-de-teorema-del-luxedmite-central}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 1) Tomar 200,000 muestras}
+\CommentTok{\# 2) Calcular la media de esta muestra de tamaño 200,000}
+\CommentTok{\# 3) Guardar el valor}
+\CommentTok{\# 4) Repertir lo anterior 200 veces}
+
+\CommentTok{\#1000 medias... ¿cómo se observa gráficamente estas 200 medias? Realizar un histograma}
+\CommentTok{\# o un gráfico de densidad.}
+\NormalTok{sismos}\SpecialCharTok{$}\NormalTok{Magnitud}\OtherTok{\textless{}{-}}\FunctionTok{as.numeric}\NormalTok{(sismos}\SpecialCharTok{$}\NormalTok{Magnitud)}
+\NormalTok{media\_muestra}\OtherTok{\textless{}{-}}\FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{,}\DecValTok{1000}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{1000}\NormalTok{) \{}
+\NormalTok{  media\_muestra[i]}\OtherTok{\textless{}{-}}\FunctionTok{mean}\NormalTok{(}\FunctionTok{sample}\NormalTok{(sismos}\SpecialCharTok{$}\NormalTok{Magnitud,}\AttributeTok{size=}\DecValTok{200000}\SpecialCharTok{+}\NormalTok{i,}\AttributeTok{replace=}\ConstantTok{FALSE}\NormalTok{),}\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{)\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\FunctionTok{hist}\NormalTok{(media\_muestra,}\AttributeTok{breaks=}\FunctionTok{seq}\NormalTok{(}\FunctionTok{min}\NormalTok{(media\_muestra)}\SpecialCharTok{*}\NormalTok{.}\DecValTok{9999}\NormalTok{,}\FunctionTok{max}\NormalTok{(media\_muestra)}\SpecialCharTok{*}\FloatTok{1.0001}\NormalTok{,}\FloatTok{0.00005}\NormalTok{))}
+\FunctionTok{plot}\NormalTok{(}\FunctionTok{density}\NormalTok{(media\_muestra))}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{/Users/jaureperro/PycharmProjects/Estadistica_Ciencia_de_Datos/resources/Unidad_3/ejercicios_probabilidad_files/figure-latex/unnamed-chunk-28-1.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{media\_media}\OtherTok{\textless{}{-}}\FunctionTok{mean}\NormalTok{(media\_muestra)}
+\NormalTok{sd\_media}\OtherTok{\textless{}{-}}\FunctionTok{sd}\NormalTok{(media\_muestra)}\SpecialCharTok{/}\FunctionTok{sqrt}\NormalTok{(}\DecValTok{1000}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}
