@@ -3,12 +3,39 @@ title: "Estadística y Probabilidad Aplicada"
 author: "Josue Emmanuel Jauregui Arvilla"
 date: "1 de Noviembre de 2025"
 output:
-  html_document:
-    toc: true          # Activa la tabla de contenido
-    toc_depth: 3       # Niveles de encabezados que se mostrarán (##, ###, etc.)
-    toc_float: true    # Hace que el índice flote en la parte lateral (HTML interactivo)
-    number_sections: true  # Numera las secciones del documento
-    theme: flatly          # (Opcional) Cambia el tema visual
+html_document:
+toc: true          # Activa la tabla de contenido
+toc_depth: 3       # Niveles de encabezados que se mostrarán (##, ###, etc.)
+toc_float: true    # Hace que el índice flote en la parte lateral (HTML interactivo)
+number_sections: true  # Numera las secciones del documento
+theme: flatly          # (Opcional) Cambia el tema visual
 ---
 
 # Introduccion
+
+# Preparacion de datos
+```{r}
+library(readxl)
+```
+```{r}
+marginacion <- read_excel("/Users/jaureperro/PycharmProjects/Estadistica_Ciencia_de_Datos/data/IMM_2020.xlsx", sheet = "IMM_2020")
+sapply(marginacion, class)
+```
+
+```{r}
+marginacion$CVE_ENT <- as.numeric(marginacion$CVE_ENT)
+marginacion$CVE_MUN <- as.numeric(marginacion$CVE_MUN)
+table(marginacion$CVE_ENT) # Cantidad de municipios por entidad
+marginacion
+```
+
+
+# Mostrar el rango, rango intercuantılico, media, mediana y desviacion estandar de las
+# nueve variables porcentuales (ANALF, SBASC, OVSDE, OVSEE, OVSAE, OVPT,
+# VHAC, PL.5000, PO2SM) de cada uno de las 32 entidades federativas.
+```{r}
+
+res <- aggregate(cbind(ANALF, SBASC) ~ NOM_ENT, FUN = mean, data = marginacion)
+res
+
+```
