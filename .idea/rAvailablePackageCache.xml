@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="RAvailablePackageCache">
-    <option name="lastUpdate" value="1761354886536" />
+    <option name="lastUpdate" value="1762117267124" />
     <option name="packages">
       <list>
         <SerializablePackage>
@@ -1210,7 +1210,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="0.38" />
+          <option name="latestVersion" value="0.39" />
           <option name="name" value="admisc" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -1518,6 +1518,11 @@
           <option name="depends" value="reshape2, mvtnorm, ggplot2, shiny" />
           <option name="latestVersion" value="0.1.0" />
           <option name="name" value="AFheritability" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="latestVersion" value="0.2.0" />
+          <option name="name" value="afmpar" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -2405,6 +2410,12 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 3.1.0)" />
+          <option name="latestVersion" value="0.3.5" />
+          <option name="name" value="alpaca" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="latestVersion" value="0.0.2" />
           <option name="name" value="alpha.correction.bh" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
@@ -2507,7 +2518,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="0.6.0" />
+          <option name="latestVersion" value="0.7.0" />
           <option name="name" value="altdoc" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -2519,7 +2530,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.0.0), stats,utils, graphics, pROC, plyr, sn, Hmisc" />
-          <option name="latestVersion" value="1.0.1" />
+          <option name="latestVersion" value="1.0.3" />
           <option name="name" value="alternativeROC" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -2792,6 +2803,12 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1)" />
+          <option name="latestVersion" value="0.1.0" />
+          <option name="name" value="amsSim" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="depends" value="R (&gt;= 4.1)" />
           <option name="latestVersion" value="0.3.0.0" />
           <option name="name" value="amt" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
@@ -2908,7 +2925,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="dplyr" />
-          <option name="latestVersion" value="1.1.1" />
+          <option name="latestVersion" value="1.2.0" />
           <option name="name" value="Andromeda" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -3228,7 +3245,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.6.0)" />
-          <option name="latestVersion" value="0.8.10-1" />
+          <option name="latestVersion" value="0.8.12" />
           <option name="name" value="anticlust" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -3804,7 +3821,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.2.0)" />
-          <option name="latestVersion" value="0.5.1" />
+          <option name="latestVersion" value="0.5.2" />
           <option name="name" value="arcgislayers" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -4054,7 +4071,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="1.0.7" />
+          <option name="latestVersion" value="1.0.9" />
           <option name="name" value="argoFloats" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -4127,7 +4144,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="3.4.0" />
+          <option name="latestVersion" value="3.4.2" />
           <option name="name" value="arima2" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -4249,8 +4266,8 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 4.0)" />
-          <option name="latestVersion" value="21.0.0.1" />
+          <option name="depends" value="R (&gt;= 4.1)" />
+          <option name="latestVersion" value="22.0.0" />
           <option name="name" value="arrow" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -4371,7 +4388,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0), tcltk" />
-          <option name="latestVersion" value="1.11" />
+          <option name="latestVersion" value="1.12-1" />
           <option name="name" value="asbio" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -4682,7 +4699,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.0)" />
-          <option name="latestVersion" value="1.4.4" />
+          <option name="latestVersion" value="1.4.5" />
           <option name="name" value="asteRisk" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -6342,7 +6359,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.4), ggplot2 (&gt;= 3.4.0)" />
-          <option name="latestVersion" value="0.8.0" />
+          <option name="latestVersion" value="0.8.1" />
           <option name="name" value="BasketballAnalyzeR" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -6518,12 +6535,6 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 3.5.0)," />
-          <option name="latestVersion" value="0.1.0" />
-          <option name="name" value="bayesassurance" />
-          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
-        </SerializablePackage>
-        <SerializablePackage>
           <option name="latestVersion" value="0.1.0" />
           <option name="name" value="BayesAT" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
@@ -6612,7 +6623,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="1.4" />
+          <option name="latestVersion" value="1.5" />
           <option name="name" value="bayesCureRateModel" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -6817,7 +6828,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="0.3.5" />
+          <option name="latestVersion" value="0.3.6" />
           <option name="name" value="BayesianLasso" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -7089,6 +7100,11 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="latestVersion" value="1.0.1" />
+          <option name="name" value="BayesPower" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
           <option name="latestVersion" value="1.1.3" />
           <option name="name" value="BayesPPD" />
@@ -7131,7 +7147,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="doRNG" />
-          <option name="latestVersion" value="1.0.1" />
+          <option name="latestVersion" value="1.1.1" />
           <option name="name" value="BayesRegDTR" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -7196,6 +7212,12 @@
           <option name="depends" value="R (&gt;= 3.4.0)" />
           <option name="latestVersion" value="0.1.5" />
           <option name="name" value="BayesSenMC" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="depends" value="R (&gt;= 4.1), nimble, ggplot2" />
+          <option name="latestVersion" value="0.1.4" />
+          <option name="name" value="BayesSIM" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -7515,7 +7537,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="2.4.81" />
+          <option name="latestVersion" value="2.4.82" />
           <option name="name" value="BCEA" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -8212,7 +8234,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="0.1.2" />
+          <option name="latestVersion" value="0.1.3" />
           <option name="name" value="betaselectr" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -8548,8 +8570,8 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 2.10)" />
-          <option name="latestVersion" value="0.1.1" />
+          <option name="depends" value="R (&gt;= 4.4.0)" />
+          <option name="latestVersion" value="0.1.2" />
           <option name="name" value="bibliorefer" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -8631,7 +8653,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="0.3.1" />
+          <option name="latestVersion" value="0.3.2" />
           <option name="name" value="bidux" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -8645,6 +8667,12 @@
           <option name="depends" value="R (&gt;= 3.5)" />
           <option name="latestVersion" value="0.2.2" />
           <option name="name" value="BifactorIndicesCalculator" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="depends" value="R (&gt;= 3.1.0)" />
+          <option name="latestVersion" value="0.7.3" />
+          <option name="name" value="bife" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -8945,6 +8973,12 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 4.0), xts, zoo" />
+          <option name="latestVersion" value="4.1.1" />
+          <option name="name" value="bimets" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.0)" />
           <option name="latestVersion" value="1.1.11" />
           <option name="name" value="BimodalIndex" />
@@ -8991,7 +9025,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.0.0)" />
-          <option name="latestVersion" value="0.9.7" />
+          <option name="latestVersion" value="0.9.8" />
           <option name="name" value="binaryRL" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -9266,7 +9300,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.2.2), tcltk, vegan (&gt;= 2.6-8)" />
-          <option name="latestVersion" value="2.17-3" />
+          <option name="latestVersion" value="2.17-4" />
           <option name="name" value="BiodiversityR" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -10091,7 +10125,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="1.21" />
+          <option name="latestVersion" value="1.22" />
           <option name="name" value="blogdown" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -10420,7 +10454,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5)" />
-          <option name="latestVersion" value="0.0.5" />
+          <option name="latestVersion" value="0.0.6" />
           <option name="name" value="bnRep" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -10512,7 +10546,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="1.4.0" />
+          <option name="latestVersion" value="1.5.0" />
           <option name="name" value="boinet" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -11058,7 +11092,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R(&gt;= 3.1.0)" />
-          <option name="latestVersion" value="1.0.9" />
+          <option name="latestVersion" value="1.1.1" />
           <option name="name" value="bpgmm" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -11334,8 +11368,8 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 4.0.0)" />
-          <option name="latestVersion" value="0.8.9" />
+          <option name="depends" value="R (&gt;= 4.1.0)" />
+          <option name="latestVersion" value="0.8.10" />
           <option name="name" value="breathtestcore" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -11705,8 +11739,8 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="0.3.0" />
+          <option name="depends" value="R (&gt;= 4.2.0)" />
+          <option name="latestVersion" value="0.4.0" />
           <option name="name" value="bskyr" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -12253,7 +12287,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.0)" />
-          <option name="latestVersion" value="2.2.13" />
+          <option name="latestVersion" value="2.2.14" />
           <option name="name" value="bWGR" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -12463,8 +12497,8 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 2.4.0)" />
-          <option name="latestVersion" value="1.6-5" />
+          <option name="depends" value="R (&gt;= 2.7.0)" />
+          <option name="latestVersion" value="1.7-0" />
           <option name="name" value="Cairo" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -12776,7 +12810,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="1.3.1" />
+          <option name="latestVersion" value="2.0.0" />
           <option name="name" value="cancerradarr" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -12965,7 +12999,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="1.0.0" />
+          <option name="latestVersion" value="2.0.0" />
           <option name="name" value="carbonpredict" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -13122,7 +13156,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R(&gt;= 3.6.0),stats" />
-          <option name="latestVersion" value="1.1.0" />
+          <option name="latestVersion" value="2.0.0" />
           <option name="name" value="CARM" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -13450,7 +13484,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="1.3" />
+          <option name="latestVersion" value="1.4" />
           <option name="name" value="CatPredi" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -13463,12 +13497,6 @@
         <SerializablePackage>
           <option name="latestVersion" value="2.0.3" />
           <option name="name" value="CatReg" />
-          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
-        </SerializablePackage>
-        <SerializablePackage>
-          <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="1.2.2" />
-          <option name="name" value="catregs" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -14638,7 +14666,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="0.1.7" />
+          <option name="latestVersion" value="0.1.8" />
           <option name="name" value="cfid" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -14876,7 +14904,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="2.0.7" />
+          <option name="latestVersion" value="2.2.2" />
           <option name="name" value="ChannelAttribution" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -15289,7 +15317,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.0)" />
-          <option name="latestVersion" value="1.1.1" />
+          <option name="latestVersion" value="1.2" />
           <option name="name" value="chisquare" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -16187,7 +16215,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.0.0)" />
-          <option name="latestVersion" value="1.1.1" />
+          <option name="latestVersion" value="1.1.2" />
           <option name="name" value="cleanepi" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -16367,7 +16395,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="1.2.4" />
+          <option name="latestVersion" value="1.2.5" />
           <option name="name" value="climate" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -16510,7 +16538,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="1.0.2" />
+          <option name="latestVersion" value="1.1.0" />
           <option name="name" value="clinpubr" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -16614,12 +16642,6 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="0.1.2" />
-          <option name="name" value="clockSim" />
-          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
-        </SerializablePackage>
-        <SerializablePackage>
           <option name="latestVersion" value="1.1" />
           <option name="name" value="clogitboost" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
@@ -16650,7 +16672,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.3.0), ape" />
-          <option name="latestVersion" value="0.1.1" />
+          <option name="latestVersion" value="0.1.2" />
           <option name="name" value="clootl" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -17355,7 +17377,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.6)" />
-          <option name="latestVersion" value="1.4.2" />
+          <option name="latestVersion" value="1.4.3" />
           <option name="name" value="cmsafops" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -17396,8 +17418,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="emulator (&gt;= 1.2-21)" />
-          <option name="latestVersion" value="1.0-7" />
+          <option name="latestVersion" value="1.1-1" />
           <option name="name" value="cmvnorm" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -17695,12 +17716,6 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 3.2.0)" />
-          <option name="latestVersion" value="0.9.6" />
-          <option name="name" value="codebook" />
-          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
-        </SerializablePackage>
-        <SerializablePackage>
           <option name="depends" value="R (&gt;= 2.10)" />
           <option name="latestVersion" value="0.1.8" />
           <option name="name" value="codebookr" />
@@ -17888,7 +17903,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 2.10)" />
-          <option name="latestVersion" value="1.0.2" />
+          <option name="latestVersion" value="1.1.0" />
           <option name="name" value="coglasso" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -17933,7 +17948,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1)" />
-          <option name="latestVersion" value="0.5.0" />
+          <option name="latestVersion" value="0.6.0" />
           <option name="name" value="CohortConstructor" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -18298,7 +18313,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="1.3.0" />
+          <option name="latestVersion" value="1.4.3" />
           <option name="name" value="Colossus" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -18343,7 +18358,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)," />
-          <option name="latestVersion" value="0.9" />
+          <option name="latestVersion" value="0.10" />
           <option name="name" value="cols4all" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -18636,7 +18651,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="4.10.0" />
+          <option name="latestVersion" value="4.10.1" />
           <option name="name" value="compareGroups" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -19134,6 +19149,12 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 4.3)" />
+          <option name="latestVersion" value="0.1.0" />
+          <option name="name" value="confidenceSim" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="latestVersion" value="0.3.2" />
           <option name="name" value="config" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
@@ -19336,7 +19357,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="0.8.0" />
+          <option name="latestVersion" value="0.9.0" />
           <option name="name" value="connectapi" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -19563,6 +19584,12 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 4.1.0)" />
+          <option name="latestVersion" value="0.2.0" />
+          <option name="name" value="contentanalysis" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.0)" />
           <option name="latestVersion" value="0.0.19" />
           <option name="name" value="contentid" />
@@ -19572,6 +19599,11 @@
           <option name="depends" value="R (&gt;= 3.6.0)" />
           <option name="latestVersion" value="3.0.0" />
           <option name="name" value="conText" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="latestVersion" value="1.0.1" />
+          <option name="name" value="contextFind" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -20837,7 +20869,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="1.2.0" />
+          <option name="latestVersion" value="1.2.2" />
           <option name="name" value="cowsay" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -22054,6 +22086,12 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
+          <option name="latestVersion" value="0.1.2" />
+          <option name="name" value="CspStandSegmentation" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="depends" value="R (&gt;= 4.1.0)" />
           <option name="latestVersion" value="0.1.0" />
           <option name="name" value="csquares" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
@@ -22083,7 +22121,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="2023.5.24" />
+          <option name="latestVersion" value="2025.10.27" />
           <option name="name" value="cstidy" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -22402,7 +22440,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="lattice" />
-          <option name="latestVersion" value="0.5.0" />
+          <option name="latestVersion" value="0.5.1" />
           <option name="name" value="Cubist" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -22998,7 +23036,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 2.10)" />
-          <option name="latestVersion" value="2025.3.14" />
+          <option name="latestVersion" value="2025.3.15" />
           <option name="name" value="dabestr" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -23111,7 +23149,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="1.2.0" />
+          <option name="latestVersion" value="1.2.1" />
           <option name="name" value="daiquiri" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -23129,7 +23167,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.0)" />
-          <option name="latestVersion" value="1.0.0" />
+          <option name="latestVersion" value="1.0.1" />
           <option name="name" value="DAISIEprep" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -23159,13 +23197,13 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="1.2.737" />
+          <option name="latestVersion" value="1.2.747" />
           <option name="name" value="daltoolbox" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="1.2.727" />
+          <option name="latestVersion" value="1.2.737" />
           <option name="name" value="daltoolboxdp" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -23517,7 +23555,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1)" />
-          <option name="latestVersion" value="1.0.6" />
+          <option name="latestVersion" value="1.0.7" />
           <option name="name" value="DataMetProcess" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -23762,7 +23800,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5)" />
-          <option name="latestVersion" value="1.3.5" />
+          <option name="latestVersion" value="1.4.0" />
           <option name="name" value="DataVisualizations" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -24711,7 +24749,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="0.0.106" />
+          <option name="latestVersion" value="0.0.107" />
           <option name="name" value="DeepLearningCausal" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -25672,6 +25710,12 @@
           <option name="depends" value="R(&gt;= 2.4.0), MASS, lattice" />
           <option name="latestVersion" value="0.7.6" />
           <option name="name" value="Devore7" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="depends" value="R (&gt;= 4.3.0)" />
+          <option name="latestVersion" value="0.2.6" />
+          <option name="name" value="devRate" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -26955,7 +26999,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1)" />
-          <option name="latestVersion" value="0.1.1" />
+          <option name="latestVersion" value="0.1.4" />
           <option name="name" value="dispersionIndicators" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -27426,6 +27470,12 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 3.5.0)" />
+          <option name="latestVersion" value="0.1.0" />
+          <option name="name" value="DLFM" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="latestVersion" value="1.0.3.1" />
           <option name="name" value="dlib" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
@@ -27497,12 +27547,6 @@
           <option name="depends" value="R (&gt;= 3.5.0), graph, Rgraphviz" />
           <option name="latestVersion" value="2.4.6" />
           <option name="name" value="dlsem" />
-          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
-        </SerializablePackage>
-        <SerializablePackage>
-          <option name="depends" value="R (&gt;= 3.10)" />
-          <option name="latestVersion" value="1.1.1" />
-          <option name="name" value="DLSSM" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -28738,7 +28782,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.6)" />
-          <option name="latestVersion" value="0.1.1" />
+          <option name="latestVersion" value="0.1.2" />
           <option name="name" value="DrugSim2DR" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -29585,6 +29629,12 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 3.2.1)" />
+          <option name="latestVersion" value="1.0.5" />
+          <option name="name" value="dynaSpec" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
           <option name="latestVersion" value="0.1" />
           <option name="name" value="DYNATE" />
@@ -29622,7 +29672,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.0)" />
-          <option name="latestVersion" value="1.1.0" />
+          <option name="latestVersion" value="1.1.1" />
           <option name="name" value="dynConfiR" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -29952,6 +30002,12 @@
           <option name="depends" value="R (&gt;= 3.2.0)" />
           <option name="latestVersion" value="0.1.4" />
           <option name="name" value="easyNCDF" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="depends" value="R (&gt;= 4.1.0)" />
+          <option name="latestVersion" value="1.0.3" />
+          <option name="name" value="easynem" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -30578,8 +30634,8 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 3.4.0)" />
-          <option name="latestVersion" value="0.2.1" />
+          <option name="depends" value="R (&gt;= 4.4.0)" />
+          <option name="latestVersion" value="0.3.0" />
           <option name="name" value="ecoregime" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -30761,6 +30817,12 @@
           <option name="depends" value="R (&gt;= 4.1.0)" />
           <option name="latestVersion" value="1.1.0" />
           <option name="name" value="eda4treeR" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="depends" value="R (&gt;= 4.2.0)" />
+          <option name="latestVersion" value="0.0.5" />
+          <option name="name" value="edar" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -30973,7 +31035,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.4.0)" />
-          <option name="latestVersion" value="0.1.3" />
+          <option name="latestVersion" value="0.1.5" />
           <option name="name" value="educationdata" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -31002,7 +31064,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="1.0.0" />
+          <option name="latestVersion" value="1.0.1" />
           <option name="name" value="EEEA" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -31259,7 +31321,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.2.0)," />
-          <option name="latestVersion" value="0.1.1" />
+          <option name="latestVersion" value="0.2.0" />
           <option name="name" value="EGM" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -31270,8 +31332,8 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 3.5.0), dplyr, tibble" />
-          <option name="latestVersion" value="1.24.2" />
+          <option name="depends" value="R (&gt;= 4.1.0), dplyr, tibble" />
+          <option name="latestVersion" value="1.25.10" />
           <option name="name" value="egor" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -31977,7 +32039,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="1.11.2-8" />
+          <option name="latestVersion" value="2.0.0" />
           <option name="name" value="emmeans" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -32907,7 +32969,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="0.9.9" />
+          <option name="latestVersion" value="1.0.0" />
           <option name="name" value="epocakir" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -34325,6 +34387,12 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 3.3.0)" />
+          <option name="latestVersion" value="2.1.0" />
+          <option name="name" value="excerptr" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="latestVersion" value="1.0.1" />
           <option name="name" value="ExcessMass" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
@@ -35170,8 +35238,14 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 3.5.0)" />
+          <option name="latestVersion" value="0.1.0" />
+          <option name="name" value="FactorCopulaModel" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1)" />
-          <option name="latestVersion" value="0.4.0" />
+          <option name="latestVersion" value="0.5.0" />
           <option name="name" value="factorH" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -35193,8 +35267,8 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="multcomp" />
-          <option name="latestVersion" value="1.2.4" />
+          <option name="depends" value="ggplot2, ggtext, multcomp" />
+          <option name="latestVersion" value="1.3" />
           <option name="name" value="factorplot" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -35276,6 +35350,12 @@
           <option name="depends" value="R (&gt;= 3.5.0)" />
           <option name="latestVersion" value="1.0.0" />
           <option name="name" value="fairadapt" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="depends" value="R (&gt;= 4.1.0)" />
+          <option name="latestVersion" value="0.1.0" />
+          <option name="name" value="fairGNN" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -35419,12 +35499,6 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="2.6" />
-          <option name="name" value="FAMT" />
-          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
-        </SerializablePackage>
-        <SerializablePackage>
           <option name="depends" value="Matrix, ellipse, tcltk" />
           <option name="latestVersion" value="2.3.11" />
           <option name="name" value="fanc" />
@@ -35528,7 +35602,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="0.6.1" />
+          <option name="latestVersion" value="0.7.0" />
           <option name="name" value="FARS" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -35611,7 +35685,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.3)" />
-          <option name="latestVersion" value="0.5.0" />
+          <option name="latestVersion" value="0.5.1" />
           <option name="name" value="fastbeta" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -35852,8 +35926,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="0.6.2" />
+          <option name="latestVersion" value="0.7.0" />
           <option name="name" value="fastml" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -36154,7 +36227,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="1.2" />
+          <option name="latestVersion" value="1.3" />
           <option name="name" value="FBFsearch" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -36285,7 +36358,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="1.3.4" />
+          <option name="latestVersion" value="1.3.5" />
           <option name="name" value="FCPS" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -36564,7 +36637,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0), DatabaseConnector (&gt;= 3.0.0), Andromeda (&gt;= 1.0.0)" />
-          <option name="latestVersion" value="3.11.0" />
+          <option name="latestVersion" value="3.12.0" />
           <option name="name" value="FeatureExtraction" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -36783,7 +36856,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.4.0)" />
-          <option name="latestVersion" value="0.1.1" />
+          <option name="latestVersion" value="0.1.2" />
           <option name="name" value="ffaframework" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -36797,6 +36870,12 @@
           <option name="depends" value="R (&gt;= 3.5.0), utils, stats, rvest, xts, xml2, zoo, plyr" />
           <option name="latestVersion" value="1.1.1" />
           <option name="name" value="FFdownload" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="depends" value="R (&gt;= 4.1)" />
+          <option name="latestVersion" value="0.1.3" />
+          <option name="name" value="ffiec" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -37106,7 +37185,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="0.4.1" />
+          <option name="latestVersion" value="0.5.0" />
           <option name="name" value="filibustr" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -38618,6 +38697,12 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 3.5.0)" />
+          <option name="latestVersion" value="0.1.0" />
+          <option name="name" value="ForCausality" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="latestVersion" value="1.1-4" />
           <option name="name" value="forceplate" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
@@ -38777,8 +38862,8 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 4.3), sf" />
-          <option name="latestVersion" value="2.1.0" />
+          <option name="depends" value="R (&gt;= 4.4), sf" />
+          <option name="latestVersion" value="2.2.0" />
           <option name="name" value="ForestElementsR" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -38941,7 +39026,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.2.0)" />
-          <option name="latestVersion" value="0.2.1" />
+          <option name="latestVersion" value="0.2.2" />
           <option name="name" value="formods" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -39048,7 +39133,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 2.10)" />
-          <option name="latestVersion" value="2.4.1" />
+          <option name="latestVersion" value="2.4.2" />
           <option name="name" value="FossilSim" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -40385,7 +40470,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="0.5.1" />
+          <option name="latestVersion" value="0.5.2" />
           <option name="name" value="FuzzyImputationTest" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -40965,6 +41050,12 @@
           <option name="depends" value="R (&gt;= 2.10)" />
           <option name="latestVersion" value="1.0" />
           <option name="name" value="GANPAdata" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="depends" value="R (&gt;= 3.5.0)" />
+          <option name="latestVersion" value="0.1.6" />
+          <option name="name" value="ganttify" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -42085,12 +42176,6 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 3.1.3), SLOPE" />
-          <option name="latestVersion" value="0.38.3" />
-          <option name="name" value="geneSLOPE" />
-          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
-        </SerializablePackage>
-        <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
           <option name="latestVersion" value="1.4.9" />
           <option name="name" value="GenEst" />
@@ -42912,14 +42997,14 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 2.10)" />
-          <option name="latestVersion" value="0.2.1" />
+          <option name="depends" value="R (&gt;= 3.5.0)" />
+          <option name="latestVersion" value="0.3.0" />
           <option name="name" value="gerda" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.4.0)" />
-          <option name="latestVersion" value="0.1.2" />
+          <option name="latestVersion" value="0.1.3" />
           <option name="name" value="gerefer" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -43550,7 +43635,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5)" />
-          <option name="latestVersion" value="0.3.0" />
+          <option name="latestVersion" value="0.3.2" />
           <option name="name" value="ggDNAvis" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -44349,7 +44434,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="4.0.0" />
+          <option name="latestVersion" value="4.1.0" />
           <option name="name" value="ggsci" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -44710,8 +44795,8 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 2.10)" />
-          <option name="latestVersion" value="1.4.5" />
+          <option name="depends" value="R (&gt;= 4.1.0)" />
+          <option name="latestVersion" value="1.4.6" />
           <option name="name" value="GHCNr" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -45102,7 +45187,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 2.10)" />
-          <option name="latestVersion" value="2.6.2" />
+          <option name="latestVersion" value="2.7" />
           <option name="name" value="gjam" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -45689,7 +45774,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="0.7.4" />
+          <option name="latestVersion" value="0.7.5" />
           <option name="name" value="glyrepr" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -45713,6 +45798,11 @@
         <SerializablePackage>
           <option name="latestVersion" value="4.0.5" />
           <option name="name" value="gmapsdistance" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="latestVersion" value="0.1.2" />
+          <option name="name" value="GMC" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -46652,7 +46742,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="1.1.2" />
+          <option name="latestVersion" value="1.1.3" />
           <option name="name" value="GPTCM" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -47137,6 +47227,12 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 4.1)" />
+          <option name="latestVersion" value="0.1.1" />
+          <option name="name" value="greenSD" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="depends" value="Gmisc (&gt;= 1.0.3), forestplot, R (&gt;= 4.1.0)" />
           <option name="latestVersion" value="2.0.3" />
           <option name="name" value="Greg" />
@@ -47310,7 +47406,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="1.7-6" />
+          <option name="latestVersion" value="1.7-7" />
           <option name="name" value="gridSVG" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -47434,7 +47530,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.5)" />
-          <option name="latestVersion" value="0.3.0" />
+          <option name="latestVersion" value="0.3.1" />
           <option name="name" value="groupedHyperframe" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -48183,6 +48279,12 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 3.5.0)" />
+          <option name="latestVersion" value="0.1.2" />
+          <option name="name" value="GulFM" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="depends" value="R (&gt;= 2.10.0)" />
           <option name="latestVersion" value="1.10-3" />
           <option name="name" value="gumbel" />
@@ -48290,6 +48392,12 @@
         <SerializablePackage>
           <option name="latestVersion" value="1.0.0" />
           <option name="name" value="gwasforest" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="depends" value="mombf" />
+          <option name="latestVersion" value="2.4" />
+          <option name="name" value="GWASinlps" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -48602,8 +48710,8 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 2.10)" />
-          <option name="latestVersion" value="1.0.0" />
+          <option name="depends" value="R (&gt;= 3.5.0)" />
+          <option name="latestVersion" value="1.1.0" />
           <option name="name" value="ham" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -48742,7 +48850,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="1.2.737" />
+          <option name="latestVersion" value="1.2.747" />
           <option name="name" value="harbinger" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -49237,7 +49345,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="0.1.2" />
+          <option name="latestVersion" value="0.1.3" />
           <option name="name" value="hdMTD" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -49332,6 +49440,11 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="latestVersion" value="0.2.3" />
+          <option name="name" value="hdtg" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="latestVersion" value="1.0.0" />
           <option name="name" value="hdthreshold" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
@@ -49394,7 +49507,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="0.1.0" />
+          <option name="latestVersion" value="0.2.0" />
           <option name="name" value="healthmotionR" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -49671,6 +49784,12 @@
         <SerializablePackage>
           <option name="latestVersion" value="1.0.1" />
           <option name="name" value="HEssRNA" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="depends" value="R (&gt;= 3.5.0)" />
+          <option name="latestVersion" value="1.0" />
+          <option name="name" value="hetcorFS" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -50249,6 +50368,12 @@
           <option name="depends" value="R (&gt;= 3.5)" />
           <option name="latestVersion" value="0.63.1" />
           <option name="name" value="HiResTEC" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="depends" value="R (&gt;= 3.6)" />
+          <option name="latestVersion" value="0.1.0" />
+          <option name="name" value="hirisplexr" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -50866,6 +50991,12 @@
           <option name="depends" value="data.table, stats, graphics" />
           <option name="latestVersion" value="1.0.0" />
           <option name="name" value="HPLB" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="depends" value="R (&gt;= 2.10)" />
+          <option name="latestVersion" value="1.0.0" />
+          <option name="name" value="HPZoneAPI" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -51664,12 +51795,6 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="0.2.0" />
-          <option name="name" value="hypsoLoop" />
-          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
-        </SerializablePackage>
-        <SerializablePackage>
           <option name="depends" value="R (&gt;= 2.10)" />
           <option name="latestVersion" value="1.0.0" />
           <option name="name" value="hyreg2" />
@@ -51715,7 +51840,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.0)" />
-          <option name="latestVersion" value="0.1.6" />
+          <option name="latestVersion" value="0.1.7" />
           <option name="name" value="I14Y" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -52149,7 +52274,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.3.0), ggplot2, plotly" />
-          <option name="latestVersion" value="1.6.7" />
+          <option name="latestVersion" value="1.7.0" />
           <option name="name" value="iCellR" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -52836,7 +52961,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="methods, R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="2.2.0" />
+          <option name="latestVersion" value="2.2.1" />
           <option name="name" value="igraph" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -53100,7 +53225,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.1.0)" />
-          <option name="latestVersion" value="2.1.2" />
+          <option name="latestVersion" value="2.1.3" />
           <option name="name" value="imagine" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -53172,6 +53297,12 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 4.1.0)" />
+          <option name="latestVersion" value="0.1.1" />
+          <option name="name" value="imfapi" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="depends" value="R (&gt;= 2.10)" />
           <option name="latestVersion" value="0.1.0" />
           <option name="name" value="ImFoR" />
@@ -53191,12 +53322,6 @@
         <SerializablePackage>
           <option name="latestVersion" value="0.1.4" />
           <option name="name" value="imgrec" />
-          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
-        </SerializablePackage>
-        <SerializablePackage>
-          <option name="depends" value="R (&gt;= 2.10)" />
-          <option name="latestVersion" value="0.1.0" />
-          <option name="name" value="ImHD" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -53781,7 +53906,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.0)" />
-          <option name="latestVersion" value="1.0.11" />
+          <option name="latestVersion" value="1.0.12" />
           <option name="name" value="iNEXT.3D" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -53948,6 +54073,12 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 3.6.0)" />
+          <option name="latestVersion" value="0.1.0" />
+          <option name="name" value="infotest" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="latestVersion" value="1.2.0.1" />
           <option name="name" value="infotheo" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
@@ -54064,7 +54195,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="1.1.1" />
+          <option name="latestVersion" value="1.2.0" />
           <option name="name" value="ino" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -54268,6 +54399,11 @@
           <option name="depends" value="R (&gt;= 3.0.0), grid" />
           <option name="latestVersion" value="1.6" />
           <option name="name" value="IntegratedJM" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="latestVersion" value="0.1.0" />
+          <option name="name" value="inteli" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -54663,7 +54799,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="0.1.1" />
+          <option name="latestVersion" value="0.2.0" />
           <option name="name" value="inverseRegex" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -55217,7 +55353,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 2.10)" />
-          <option name="latestVersion" value="0.1.4" />
+          <option name="latestVersion" value="0.1.5" />
           <option name="name" value="IRon" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -55599,12 +55735,12 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="6.7" />
+          <option name="latestVersion" value="6.8" />
           <option name="name" value="IsoplotR" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="6.7" />
+          <option name="latestVersion" value="6.8" />
           <option name="name" value="IsoplotRgui" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -55704,7 +55840,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1)" />
-          <option name="latestVersion" value="1.3.0" />
+          <option name="latestVersion" value="1.3.1" />
           <option name="name" value="IssueTrackeR" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -55722,6 +55858,12 @@
           <option name="depends" value="R(&gt;= 3.6), shinyBS(&gt;= 0.61), shinyWidgets(&gt;= 0.4.3)" />
           <option name="latestVersion" value="1.7" />
           <option name="name" value="iSTATS" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="depends" value="R (&gt;= 4.1.0)" />
+          <option name="latestVersion" value="1.0.0" />
+          <option name="name" value="iSTAY" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -56284,7 +56426,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="0.1.2" />
+          <option name="latestVersion" value="0.1.3" />
           <option name="name" value="Jcvrisk" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -57189,8 +57331,8 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 3.6), SingleCellExperiment" />
-          <option name="latestVersion" value="1.0.1" />
+          <option name="depends" value="R (&gt;= 4.1), SingleCellExperiment" />
+          <option name="latestVersion" value="1.0.2" />
           <option name="name" value="karyotapR" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -58035,12 +58177,6 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt; 3.5.0)" />
-          <option name="latestVersion" value="0.6.1" />
-          <option name="name" value="knitrdata" />
-          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
-        </SerializablePackage>
-        <SerializablePackage>
           <option name="latestVersion" value="1.1.1" />
           <option name="name" value="knitrProgressBar" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
@@ -58408,6 +58544,12 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 2.10)" />
+          <option name="latestVersion" value="1.0" />
+          <option name="name" value="ksm" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="depends" value="R(&gt;= 3.0.2)" />
           <option name="latestVersion" value="0.1.2" />
           <option name="name" value="ksNN" />
@@ -58545,8 +58687,8 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 2.10)" />
-          <option name="latestVersion" value="0.3.1" />
+          <option name="depends" value="R (&gt;= 4.1.0)" />
+          <option name="latestVersion" value="0.4.0" />
           <option name="name" value="L1centrality" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -58801,7 +58943,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 2.15.0), rLakeAnalyzer (&gt;= 1.4)" />
-          <option name="latestVersion" value="1.5.5" />
+          <option name="latestVersion" value="1.5.6" />
           <option name="name" value="LakeMetabolizer" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -58948,6 +59090,11 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="latestVersion" value="0.1.0" />
+          <option name="name" value="lang" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.3.0)" />
           <option name="latestVersion" value="1.3.3" />
           <option name="name" value="Langevin" />
@@ -59058,6 +59205,12 @@
           <option name="depends" value="R (&gt;= 4.1.0), ArgentinAPI, BrazilDataAPI, ChileDataAPI, ColombiAPI, PeruAPIs" />
           <option name="latestVersion" value="0.1.0" />
           <option name="name" value="Latamverse" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="depends" value="R (&gt;= 3.5.3)" />
+          <option name="latestVersion" value="1.0.0" />
+          <option name="name" value="latbias" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -59190,7 +59343,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.0)" />
-          <option name="latestVersion" value="1.8.1" />
+          <option name="latestVersion" value="1.8.2" />
           <option name="name" value="lava" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -59677,7 +59830,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 2.10)" />
-          <option name="latestVersion" value="0.6.2" />
+          <option name="latestVersion" value="0.6.3" />
           <option name="name" value="leaflet.minicharts" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -59725,6 +59878,11 @@
           <option name="depends" value="R (&gt;= 3.1.0), leaflet (&gt;= 2.0.0)" />
           <option name="latestVersion" value="0.2.0" />
           <option name="name" value="leaftime" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="latestVersion" value="0.1.0" />
+          <option name="name" value="leakr" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -59864,7 +60022,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="6.5.1" />
+          <option name="latestVersion" value="6.6.0" />
           <option name="name" value="lefko3" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -60207,7 +60365,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.4.0), methods" />
-          <option name="latestVersion" value="1.2.4" />
+          <option name="latestVersion" value="1.2.5" />
           <option name="name" value="lgpr" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -60224,7 +60382,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="0.2.1" />
+          <option name="latestVersion" value="0.2.2" />
           <option name="name" value="lgrExtra" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -60838,8 +60996,8 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 4.0), shiny, utils, parallel, doParallel, foreach" />
-          <option name="latestVersion" value="3.0.5" />
+          <option name="depends" value="R (&gt;= 4.0), ggplot2, future, future.apply" />
+          <option name="latestVersion" value="3.1.0" />
           <option name="name" value="LipidMS" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -60919,7 +61077,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.1.2)" />
-          <option name="latestVersion" value="0.9.1" />
+          <option name="latestVersion" value="0.10.0" />
           <option name="name" value="listenv" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -60951,7 +61109,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.2.0)" />
-          <option name="latestVersion" value="0.7" />
+          <option name="latestVersion" value="0.8" />
           <option name="name" value="litedown" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -62252,7 +62410,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="1.2.1" />
+          <option name="latestVersion" value="1.2.2" />
           <option name="name" value="lpda" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -62396,6 +62554,11 @@
           <option name="depends" value="Matrix, R (&gt;= 3.1)" />
           <option name="latestVersion" value="0.1.0" />
           <option name="name" value="LRMF3" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="latestVersion" value="1.0.0" />
+          <option name="name" value="LRQVB" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -62809,7 +62972,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="0.5.0" />
+          <option name="latestVersion" value="0.5.1" />
           <option name="name" value="luz" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -63056,7 +63219,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="1.0.0" />
+          <option name="latestVersion" value="1.0.1" />
           <option name="name" value="MADMMplasso" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -63096,7 +63259,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="0.6.3" />
+          <option name="latestVersion" value="0.7.0" />
           <option name="name" value="maestro" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -63522,7 +63685,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="0.4.3" />
+          <option name="latestVersion" value="1.0.0" />
           <option name="name" value="mantis" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -63744,8 +63907,8 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 3.1.2)" />
-          <option name="latestVersion" value="1.0.5" />
+          <option name="depends" value="R (&gt;= 4.1.0)" />
+          <option name="latestVersion" value="1.0.6" />
           <option name="name" value="MapperAlgo" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -65077,7 +65240,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5)" />
-          <option name="latestVersion" value="1.1" />
+          <option name="latestVersion" value="1.1.1" />
           <option name="name" value="mclink" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -65095,7 +65258,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.0)" />
-          <option name="latestVersion" value="6.1.1" />
+          <option name="latestVersion" value="6.1.2" />
           <option name="name" value="mclust" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -65316,7 +65479,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="0.1.1" />
+          <option name="latestVersion" value="0.2.0" />
           <option name="name" value="mcptools" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -67282,7 +67445,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 2.10)" />
-          <option name="latestVersion" value="1.3-1" />
+          <option name="latestVersion" value="1.3-2" />
           <option name="name" value="mhurdle" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -67491,7 +67654,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="1.15.0" />
+          <option name="latestVersion" value="1.16.0" />
           <option name="name" value="microeco" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -67601,7 +67764,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="0.1-3" />
+          <option name="latestVersion" value="0.1-4" />
           <option name="name" value="micsr" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -67722,7 +67885,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.6.0), manynet (&gt;= 1.0.5), autograph (&gt;= 0.4.0)" />
-          <option name="latestVersion" value="1.5.2" />
+          <option name="latestVersion" value="1.5.3" />
           <option name="name" value="migraph" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -67774,7 +67937,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="1.6.2" />
+          <option name="latestVersion" value="1.7.0" />
           <option name="name" value="mikropml" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -67910,7 +68073,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="0.1.0" />
+          <option name="latestVersion" value="0.2.0" />
           <option name="name" value="mini007" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -68017,6 +68180,12 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 4.1.0)" />
+          <option name="latestVersion" value="1.0.0" />
+          <option name="name" value="minorparties" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="latestVersion" value="1.2-4" />
           <option name="name" value="minpack.lm" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
@@ -68072,7 +68241,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="0.1.1" />
+          <option name="latestVersion" value="0.1.2" />
           <option name="name" value="mintyr" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -68266,7 +68435,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.1.0)," />
-          <option name="latestVersion" value="0.1.0" />
+          <option name="latestVersion" value="0.2.0" />
           <option name="name" value="missalpha" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -68300,7 +68469,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="1.5" />
+          <option name="latestVersion" value="1.6.1" />
           <option name="name" value="missForest" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -68403,7 +68572,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.3.0)" />
-          <option name="latestVersion" value="0.7.5" />
+          <option name="latestVersion" value="0.7.6" />
           <option name="name" value="misty" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -68804,6 +68973,12 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 3.5.0)" />
+          <option name="latestVersion" value="0.1.0" />
+          <option name="name" value="mKBO" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="depends" value="R(&gt;= 4.0.0)" />
           <option name="latestVersion" value="0.5" />
           <option name="name" value="MKclass" />
@@ -69036,7 +69211,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.3.0)" />
-          <option name="latestVersion" value="3.4.0" />
+          <option name="latestVersion" value="3.5.1" />
           <option name="name" value="mlflow" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -69359,8 +69534,8 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="mlr3 (&gt;= 1.0.1), mlr3pipelines (&gt;= 0.6.0), torch (&gt;= 0.15.0), R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="0.3.1" />
+          <option name="depends" value="mlr3 (&gt;= 1.0.1), mlr3pipelines (&gt;= 0.6.0), torch (&gt;= 0.16.2), R (&gt;= 3.5.0)" />
+          <option name="latestVersion" value="0.3.2" />
           <option name="name" value="mlr3torch" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -69453,7 +69628,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="basefun (&gt;= 1.2-1), variables (&gt;= 1.1-0)" />
-          <option name="latestVersion" value="1.7-0" />
+          <option name="latestVersion" value="1.7-1" />
           <option name="name" value="mlt" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -69885,7 +70060,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.0)," />
-          <option name="latestVersion" value="1.6.64" />
+          <option name="latestVersion" value="1.13.1" />
           <option name="name" value="MoBPS" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -70141,6 +70316,12 @@
           <option name="depends" value="stats, stats4" />
           <option name="latestVersion" value="0.2-24" />
           <option name="name" value="modeltools" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="depends" value="R (&gt;= 4.1.0)" />
+          <option name="latestVersion" value="0.1.2" />
+          <option name="name" value="modeltuning" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -70572,7 +70753,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.0)" />
-          <option name="latestVersion" value="0.1.8" />
+          <option name="latestVersion" value="0.1.9" />
           <option name="name" value="moocore" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -70637,12 +70818,6 @@
           <option name="depends" value="psych, gplots, grid, readr" />
           <option name="latestVersion" value="2.0.0" />
           <option name="name" value="MOQA" />
-          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
-        </SerializablePackage>
-        <SerializablePackage>
-          <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="0.9.7" />
-          <option name="name" value="moranajp" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -75768,8 +75943,8 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 4.0.0), rjags (&gt;= 4-6)" />
-          <option name="latestVersion" value="0.1.0" />
+          <option name="depends" value="R (&gt;= 4.0.0)" />
+          <option name="latestVersion" value="0.1.1" />
           <option name="name" value="NMADTA" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -76504,7 +76679,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.4.0)" />
-          <option name="latestVersion" value="0.13.1" />
+          <option name="latestVersion" value="0.13.5" />
           <option name="name" value="novelqualcodes" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -76550,7 +76725,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.1.0)" />
-          <option name="latestVersion" value="0.2.1" />
+          <option name="latestVersion" value="0.2.3" />
           <option name="name" value="nparMD" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -77036,7 +77211,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1)" />
-          <option name="latestVersion" value="0.0.6" />
+          <option name="latestVersion" value="0.1.0" />
           <option name="name" value="ntfy" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -77099,7 +77274,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="2.0.1" />
+          <option name="latestVersion" value="2.0.2" />
           <option name="name" value="nuggets" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -77669,7 +77844,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.3.0), stats (&gt;= 3.0.0), graphics (&gt;= 3.0.0), base(&gt;= 3.0.0)" />
-          <option name="latestVersion" value="1.6.3" />
+          <option name="latestVersion" value="1.7.3" />
           <option name="name" value="odr" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -77946,7 +78121,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.3.0), R6, data.table, Matrix" />
-          <option name="latestVersion" value="1.3.2" />
+          <option name="latestVersion" value="1.4.0" />
           <option name="name" value="OmicFlow" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -78014,7 +78189,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="0.5.0" />
+          <option name="latestVersion" value="0.6.0" />
           <option name="name" value="omock" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -78557,6 +78732,12 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 4.1.0)" />
+          <option name="latestVersion" value="0.1.1" />
+          <option name="name" value="openesm" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="latestVersion" value="0.1.0" />
           <option name="name" value="openFDA" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
@@ -78709,13 +78890,13 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.3.0)" />
-          <option name="latestVersion" value="4.2.8" />
+          <option name="latestVersion" value="4.2.8.1" />
           <option name="name" value="openxlsx" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="1.20" />
+          <option name="latestVersion" value="1.21" />
           <option name="name" value="openxlsx2" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -80720,6 +80901,11 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="latestVersion" value="1.0.0" />
+          <option name="name" value="PanelSelect" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="latestVersion" value="0.1.2.1" />
           <option name="name" value="panelsummary" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
@@ -80841,7 +81027,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.0.0)" />
-          <option name="latestVersion" value="3.5.0" />
+          <option name="latestVersion" value="3.5.1" />
           <option name="name" value="ParallelLogger" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -81370,7 +81556,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="8.1.0" />
+          <option name="latestVersion" value="9.0.0" />
           <option name="name" value="pathling" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -81417,7 +81603,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="1.4.3" />
+          <option name="latestVersion" value="1.4.4" />
           <option name="name" value="PatientProfiles" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -82434,7 +82620,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.2)" />
-          <option name="latestVersion" value="2.8.2" />
+          <option name="latestVersion" value="2.9.0" />
           <option name="name" value="pedtools" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -82588,6 +82774,12 @@
           <option name="depends" value="R(&gt;= 3.5.0)" />
           <option name="latestVersion" value="0.1.1" />
           <option name="name" value="penfa" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="depends" value="R (&gt;= 3.5.0)" />
+          <option name="latestVersion" value="0.1.0" />
+          <option name="name" value="PenguinR" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -82967,8 +83159,8 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 3.5.0)," />
-          <option name="latestVersion" value="0.1.1" />
+          <option name="depends" value="R (&gt;= 4.1.0)" />
+          <option name="latestVersion" value="0.2.0" />
           <option name="name" value="peruflorads43" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -83118,7 +83310,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="1.0.1" />
+          <option name="latestVersion" value="1.0.2" />
           <option name="name" value="pgKDEsphere" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -83653,7 +83845,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="0.3.5" />
+          <option name="latestVersion" value="0.7.4" />
           <option name="name" value="photon" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -84553,12 +84745,6 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="1.0.1" />
-          <option name="name" value="planningML" />
-          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
-        </SerializablePackage>
-        <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
           <option name="latestVersion" value="0.6.2" />
           <option name="name" value="planr" />
@@ -84610,6 +84796,11 @@
           <option name="depends" value="R (&gt;= 3.1.2)" />
           <option name="latestVersion" value="0.1.6" />
           <option name="name" value="Plasmidprofiler" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="latestVersion" value="0.1.3" />
+          <option name="name" value="plasso" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -84684,6 +84875,12 @@
           <option name="depends" value="R (&gt;= 4.1.0), rms, Matrix, stats, utils" />
           <option name="latestVersion" value="1.9" />
           <option name="name" value="pleio" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="depends" value="R (&gt;= 2.10)" />
+          <option name="latestVersion" value="0.1.0" />
+          <option name="name" value="pleioh2g" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -85703,7 +85900,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5), dplyr (&gt;= 1.0)," />
-          <option name="latestVersion" value="0.3" />
+          <option name="latestVersion" value="0.5" />
           <option name="name" value="PolicyPortfolios" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -85754,8 +85951,8 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 4.0), SuperLearner" />
-          <option name="latestVersion" value="1.5" />
+          <option name="depends" value="R (&gt;= 4.1), SuperLearner" />
+          <option name="latestVersion" value="1.6.0" />
           <option name="name" value="polle" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -86126,7 +86323,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="0.1.0.1" />
+          <option name="latestVersion" value="1.0.0" />
           <option name="name" value="PopComm" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -86326,7 +86523,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="0.1.3" />
+          <option name="latestVersion" value="0.1.4" />
           <option name="name" value="PortfolioTesteR" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -86354,7 +86551,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="0.1.0" />
+          <option name="latestVersion" value="0.1.1" />
           <option name="name" value="poseticDataAnalysis" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -86560,7 +86757,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5)" />
-          <option name="latestVersion" value="1.0.1" />
+          <option name="latestVersion" value="1.0.2" />
           <option name="name" value="power.transform" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -87097,7 +87294,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="0.1.0" />
+          <option name="latestVersion" value="0.2.0" />
           <option name="name" value="precisePlacement" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -87236,7 +87433,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="0.4" />
+          <option name="latestVersion" value="0.5" />
           <option name="name" value="PredPsych" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -87553,7 +87750,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="1.0.2" />
+          <option name="latestVersion" value="1.0.3" />
           <option name="name" value="priceR" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -87714,8 +87911,8 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 3.6.0)" />
-          <option name="latestVersion" value="1.1.1" />
+          <option name="depends" value="R (&gt;= 4.1.0)" />
+          <option name="latestVersion" value="1.2.0" />
           <option name="name" value="priorsense" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -87988,13 +88185,18 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="latestVersion" value="1.0" />
+          <option name="name" value="ProduceR" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="depends" value="R (&gt;= 2.15.3)" />
           <option name="latestVersion" value="1.1.0" />
           <option name="name" value="productivity" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="0.1.1" />
+          <option name="latestVersion" value="0.1.2" />
           <option name="name" value="productplots" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -88155,8 +88357,14 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 4.1.0)" />
+          <option name="latestVersion" value="1.0.6" />
+          <option name="name" value="projoint" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.6.0)" />
-          <option name="latestVersion" value="2.9.0" />
+          <option name="latestVersion" value="2.9.1" />
           <option name="name" value="projpred" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -88200,7 +88408,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="1.4.0" />
+          <option name="latestVersion" value="1.5.0" />
           <option name="name" value="promises" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -88268,7 +88476,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="1.0.1" />
+          <option name="latestVersion" value="1.0.3" />
           <option name="name" value="propertee" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -88312,7 +88520,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="1.3.1" />
+          <option name="latestVersion" value="1.3.2" />
           <option name="name" value="PROreg" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -88515,7 +88723,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="0.4" />
+          <option name="latestVersion" value="0.5" />
           <option name="name" value="proxirr" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -88578,7 +88786,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.3.0)" />
-          <option name="latestVersion" value="1.0.1" />
+          <option name="latestVersion" value="1.0.2" />
           <option name="name" value="PRTree" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -88776,7 +88984,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="1.0.5" />
+          <option name="latestVersion" value="1.0.6" />
           <option name="name" value="psidread" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -88925,7 +89133,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="1.0.2" />
+          <option name="latestVersion" value="2.0.1" />
           <option name="name" value="psvmSDR" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -89142,7 +89350,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="0.1.0" />
+          <option name="latestVersion" value="0.2.0" />
           <option name="name" value="ptvalue" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -89186,8 +89394,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 3.6.0)" />
-          <option name="latestVersion" value="2.1.5" />
+          <option name="latestVersion" value="2.1.6" />
           <option name="name" value="PubChemR" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -93148,7 +93355,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.4.0)" />
-          <option name="latestVersion" value="1.5.1" />
+          <option name="latestVersion" value="1.5.2" />
           <option name="name" value="rbmi" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -93165,7 +93372,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="1.1.0" />
+          <option name="latestVersion" value="3.0.0" />
           <option name="name" value="RBNZ" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -94463,7 +94670,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="0.1.3" />
+          <option name="latestVersion" value="0.2.0" />
           <option name="name" value="rdav" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -94495,6 +94702,12 @@
           <option name="depends" value="R (&gt;= 3.4.0)" />
           <option name="latestVersion" value="0.1.1" />
           <option name="name" value="rddi" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="depends" value="AER, np" />
+          <option name="latestVersion" value="2.0.2" />
+          <option name="name" value="rddtools" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -94895,7 +95108,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="1.0.1" />
+          <option name="latestVersion" value="1.0.3" />
           <option name="name" value="readepi" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -95027,8 +95240,8 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="0.1.2" />
+          <option name="depends" value="R (&gt;= 4.3.0)" />
+          <option name="latestVersion" value="0.2.0" />
           <option name="name" value="readtextgrid" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -95404,7 +95617,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="2.11.3" />
+          <option name="latestVersion" value="2.11.4" />
           <option name="name" value="redcapAPI" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -95509,7 +95722,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.0.0)" />
-          <option name="latestVersion" value="0.1.0" />
+          <option name="latestVersion" value="0.1.1" />
           <option name="name" value="redistverse" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -95639,7 +95852,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="0.4.1" />
+          <option name="latestVersion" value="0.4.2" />
           <option name="name" value="reformulas" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -96049,7 +96262,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="0.4" />
+          <option name="latestVersion" value="0.4.1" />
           <option name="name" value="ReliaPlotR" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -96158,7 +96371,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0), foreach" />
-          <option name="latestVersion" value="0.1.0" />
+          <option name="latestVersion" value="1.1.0" />
           <option name="name" value="REMixed" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -96931,7 +97144,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5)" />
-          <option name="latestVersion" value="1.43.0" />
+          <option name="latestVersion" value="1.44.0" />
           <option name="name" value="reticulate" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -98750,12 +98963,6 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 4.2)" />
-          <option name="latestVersion" value="0.9-2.3" />
-          <option name="name" value="rlibkriging" />
-          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
-        </SerializablePackage>
-        <SerializablePackage>
           <option name="depends" value="methods, stats, utils, R (&gt;= 3.5)" />
           <option name="latestVersion" value="2.2.1" />
           <option name="name" value="rliger" />
@@ -99271,7 +99478,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="gmp (&gt;= 0.6-1), R (&gt;= 3.6.0)" />
-          <option name="latestVersion" value="1.1-1" />
+          <option name="latestVersion" value="1.1-2" />
           <option name="name" value="Rmpfr" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -99855,7 +100062,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R(&gt;= 3.2.0)" />
-          <option name="latestVersion" value="1.2-4" />
+          <option name="latestVersion" value="1.2-5" />
           <option name="name" value="robmixglm" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -100284,6 +100491,11 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="latestVersion" value="0.1.3" />
+          <option name="name" value="roclab" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.0.0)" />
           <option name="latestVersion" value="0.2.3" />
           <option name="name" value="roclang" />
@@ -100648,6 +100860,12 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 3.5.0)" />
+          <option name="latestVersion" value="0.0.1" />
+          <option name="name" value="RootscanR" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="depends" value="iterators, foreach, parallel, doParallel, inflection" />
           <option name="latestVersion" value="1.2.5" />
           <option name="name" value="RootsExtremaInflections" />
@@ -100751,8 +100969,8 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="methods, DBI (&gt;= 0.2-5)" />
-          <option name="latestVersion" value="1.3-1.1" />
+          <option name="depends" value="R (&gt;= 4.4), methods, DBI (&gt;= 0.2-5)" />
+          <option name="latestVersion" value="1.5-1" />
           <option name="name" value="ROracle" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -101066,7 +101284,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="2.1.1" />
+          <option name="latestVersion" value="2.1.2" />
           <option name="name" value="rPDBapi" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -101881,7 +102099,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="1.5.1" />
+          <option name="latestVersion" value="1.6.0" />
           <option name="name" value="rsconnect" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -101949,6 +102167,11 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="latestVersion" value="1.0.2.1" />
+          <option name="name" value="rSDR" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="latestVersion" value="1.3" />
           <option name="name" value="RSE" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
@@ -101957,6 +102180,12 @@
           <option name="depends" value="R (&gt;= 2.10), hommel (&gt;= 1.4), ggplot2" />
           <option name="latestVersion" value="2.1.2" />
           <option name="name" value="rSEA" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="depends" value="R (&gt;= 4.1)" />
+          <option name="latestVersion" value="1.0.0" />
+          <option name="name" value="Rsearch" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -102531,7 +102760,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="3.0.0" />
+          <option name="latestVersion" value="3.0.2" />
           <option name="name" value="rsynthbio" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -102717,12 +102946,6 @@
           <option name="depends" value="R (&gt;= 4.0)" />
           <option name="latestVersion" value="0.0.11" />
           <option name="name" value="rtide" />
-          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
-        </SerializablePackage>
-        <SerializablePackage>
-          <option name="depends" value="R (&gt;= 3.6), GenomicRanges, GenomeInfoDb" />
-          <option name="latestVersion" value="2.1.0" />
-          <option name="name" value="RTIGER" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -103338,7 +103561,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1-0)" />
-          <option name="latestVersion" value="1.2-1" />
+          <option name="latestVersion" value="1.3-0" />
           <option name="name" value="RweaveExtra" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -104182,6 +104405,12 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 3.5)" />
+          <option name="latestVersion" value="0.3.0" />
+          <option name="name" value="samplex" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="latestVersion" value="1.2.1" />
           <option name="name" value="samplezoo" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
@@ -104772,7 +105001,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 2.10)" />
-          <option name="latestVersion" value="0.0.1-17" />
+          <option name="latestVersion" value="0.0.1-18" />
           <option name="name" value="sc2sc" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -105467,6 +105696,11 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="latestVersion" value="0.1.2" />
+          <option name="name" value="scov" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="latestVersion" value="1.1.1" />
           <option name="name" value="SCperf" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
@@ -105785,6 +106019,12 @@
           <option name="depends" value="R (&gt;= 3.5.0)" />
           <option name="latestVersion" value="0.1.1" />
           <option name="name" value="SDAResources" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="depends" value="R (&gt;= 4.2.0)" />
+          <option name="latestVersion" value="1.0.5" />
+          <option name="name" value="sdbuildR" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -106474,7 +106714,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0), Cyclops (&gt;= 3.6.0), DatabaseConnector (&gt;= 6.0.0), Andromeda (&gt;= 1.0.0)" />
-          <option name="latestVersion" value="6.1.0" />
+          <option name="latestVersion" value="6.1.1" />
           <option name="name" value="SelfControlledCaseSeries" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -106716,6 +106956,11 @@
           <option name="depends" value="R (&gt;= 3.5.0)" />
           <option name="latestVersion" value="1.5.5" />
           <option name="name" value="SEMsens" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="latestVersion" value="0.1.0" />
+          <option name="name" value="SEMsensitivity" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -107093,7 +107338,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1)" />
-          <option name="latestVersion" value="1.0.1" />
+          <option name="latestVersion" value="1.1.1" />
           <option name="name" value="SEQTaRget" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -107121,7 +107366,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="4.5" />
+          <option name="latestVersion" value="4.5.1" />
           <option name="name" value="Sequential" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -107293,7 +107538,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.0.0), methods, SeuratObject (&gt;= 5.0.2)" />
-          <option name="latestVersion" value="5.3.0" />
+          <option name="latestVersion" value="5.3.1" />
           <option name="name" value="Seurat" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -107747,7 +107992,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.0.2)" />
-          <option name="latestVersion" value="1.0-1" />
+          <option name="latestVersion" value="1.0-2" />
           <option name="name" value="shapeR" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -109189,7 +109434,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.0), ggplot2" />
-          <option name="latestVersion" value="0.7.0" />
+          <option name="latestVersion" value="1.0.0" />
           <option name="name" value="simaerep" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -109760,7 +110005,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="1.1.4" />
+          <option name="latestVersion" value="1.1.5" />
           <option name="name" value="simRestore" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -110182,12 +110427,6 @@
           <option name="depends" value="R (&gt;= 4.1.0)" />
           <option name="latestVersion" value="1.5.3-2" />
           <option name="name" value="sits" />
-          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
-        </SerializablePackage>
-        <SerializablePackage>
-          <option name="depends" value="R (&gt;= 4.0.0)" />
-          <option name="latestVersion" value="1.0.1" />
-          <option name="name" value="sivirep" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -110681,7 +110920,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="1.0.1" />
+          <option name="latestVersion" value="1.1.0" />
           <option name="name" value="SLOPE" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -110695,6 +110934,11 @@
           <option name="depends" value="R (&gt;= 3.5.0)" />
           <option name="latestVersion" value="1.0.1" />
           <option name="name" value="SLOS" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="latestVersion" value="0.0.2" />
+          <option name="name" value="SlotLim" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -111108,7 +111352,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.0.2), greybox (&gt;= 2.0.2)" />
-          <option name="latestVersion" value="4.3.0" />
+          <option name="latestVersion" value="4.3.1" />
           <option name="name" value="smooth" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -111119,7 +111363,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.0.0)" />
-          <option name="latestVersion" value="0.0.15" />
+          <option name="latestVersion" value="0.0.17" />
           <option name="name" value="smoothemplik" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -111402,6 +111646,12 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 4.0.0)" />
+          <option name="latestVersion" value="0.1.0" />
+          <option name="name" value="snirh.lab" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.0.0), stats" />
           <option name="latestVersion" value="1.1" />
           <option name="name" value="snn" />
@@ -111630,6 +111880,12 @@
           <option name="depends" value="R (&gt;= 3.5.0)" />
           <option name="latestVersion" value="0.5.1" />
           <option name="name" value="socialrisk" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="depends" value="R (&gt;= 4.2)" />
+          <option name="latestVersion" value="0.1.6" />
+          <option name="name" value="socialSim" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -112052,12 +112308,6 @@
         <SerializablePackage>
           <option name="latestVersion" value="0.5.0" />
           <option name="name" value="sortable" />
-          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
-        </SerializablePackage>
-        <SerializablePackage>
-          <option name="depends" value="R (&gt;= 2.10)" />
-          <option name="latestVersion" value="1.7.0" />
-          <option name="name" value="SortedEffects" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -113192,7 +113442,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0), rJava (&gt;= 1.0-0), methods, utils" />
-          <option name="latestVersion" value="0.4-5" />
+          <option name="latestVersion" value="0.4-6" />
           <option name="name" value="spcosa" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -113240,6 +113490,11 @@
           <option name="depends" value="R (&gt;= 4.0.0), stringr" />
           <option name="latestVersion" value="0.0.5" />
           <option name="name" value="spdesign" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
+          <option name="latestVersion" value="0.1.0" />
+          <option name="name" value="spdgp" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
@@ -114480,7 +114735,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="0.1" />
+          <option name="latestVersion" value="0.2" />
           <option name="name" value="srcpkgs" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -114605,7 +114860,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="1.8.2" />
+          <option name="latestVersion" value="1.8.4" />
           <option name="name" value="SSBtools" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -115007,7 +115262,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.0.0)" />
-          <option name="latestVersion" value="0.1-6" />
+          <option name="latestVersion" value="0.1-7" />
           <option name="name" value="stablelearner" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -116430,7 +116685,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="0.9.0" />
+          <option name="latestVersion" value="0.9.1" />
           <option name="name" value="StreamCatTools" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -116949,11 +117204,6 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="0.7.2" />
-          <option name="name" value="summclust" />
-          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
-        </SerializablePackage>
-        <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5)" />
           <option name="latestVersion" value="2.0.0" />
           <option name="name" value="SUMMER" />
@@ -117339,6 +117589,11 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="latestVersion" value="0.1.0" />
+          <option name="name" value="survC" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="depends" value="survival" />
           <option name="latestVersion" value="1.0-3" />
           <option name="name" value="survC1" />
@@ -117370,7 +117625,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="0.6.0" />
+          <option name="latestVersion" value="0.6.3" />
           <option name="name" value="survdnn" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -118056,6 +118311,12 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 4.1.0)" />
+          <option name="latestVersion" value="1.1.0" />
+          <option name="name" value="svytest" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="depends" value="R (&gt;= 2.10)" />
           <option name="latestVersion" value="1.0.1" />
           <option name="name" value="svyVarSel" />
@@ -118362,7 +118623,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5)" />
-          <option name="latestVersion" value="0.1.1" />
+          <option name="latestVersion" value="0.1.2" />
           <option name="name" value="symphony" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -118480,7 +118741,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 2.10)" />
-          <option name="latestVersion" value="1.1.0" />
+          <option name="latestVersion" value="1.1.1" />
           <option name="name" value="SynthETIC" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -118721,6 +118982,12 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 3.5.0)" />
+          <option name="latestVersion" value="0.1.0" />
+          <option name="name" value="tabler" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="depends" value="R (&gt;= 2.10)" />
           <option name="latestVersion" value="0.1.5" />
           <option name="name" value="tablerDash" />
@@ -118773,7 +119040,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1)" />
-          <option name="latestVersion" value="0.5.3" />
+          <option name="latestVersion" value="0.5.4" />
           <option name="name" value="tabr" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -119064,8 +119331,8 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 4.0), lava (&gt;= 1.7.0)" />
-          <option name="latestVersion" value="0.5" />
+          <option name="depends" value="R (&gt;= 4.1)" />
+          <option name="latestVersion" value="0.6" />
           <option name="name" value="targeted" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -119478,7 +119745,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="0.1.2" />
+          <option name="latestVersion" value="0.2.0" />
           <option name="name" value="TDIagree" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -119683,7 +119950,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.1.0)" />
-          <option name="latestVersion" value="3.0.1" />
+          <option name="latestVersion" value="3.0.2" />
           <option name="name" value="telegram.bot" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -120745,6 +121012,12 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 2.3.1), stats,forecast, tseries, TSSVM" />
+          <option name="latestVersion" value="0.1.0" />
+          <option name="name" value="THETASVM" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="latestVersion" value="0.4-2" />
           <option name="name" value="thgenetics" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
@@ -121207,7 +121480,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.3.0)" />
-          <option name="latestVersion" value="1.12.2" />
+          <option name="latestVersion" value="1.13.1" />
           <option name="name" value="tidyHeatmap" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -121303,7 +121576,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1)" />
-          <option name="latestVersion" value="0.3.1" />
+          <option name="latestVersion" value="0.4.0" />
           <option name="name" value="tidynorm" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -121638,7 +121911,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1)" />
-          <option name="latestVersion" value="0.7.2" />
+          <option name="latestVersion" value="0.7.3" />
           <option name="name" value="tikatuwq" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -121853,7 +122126,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.6.0)" />
-          <option name="latestVersion" value="0.2" />
+          <option name="latestVersion" value="0.2.1" />
           <option name="name" value="tind" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -121942,7 +122215,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="0.15.0" />
+          <option name="latestVersion" value="0.15.1" />
           <option name="name" value="tinytable" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -122555,7 +122828,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.6.0)" />
-          <option name="latestVersion" value="0.2.0" />
+          <option name="latestVersion" value="0.3.0" />
           <option name="name" value="topiclabels" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -122659,7 +122932,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="0.16.1" />
+          <option name="latestVersion" value="0.16.3" />
           <option name="name" value="torch" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -123015,7 +123288,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="3.4.5.1" />
+          <option name="latestVersion" value="3.5.0" />
           <option name="name" value="tractor.base" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -124517,7 +124790,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1.0)" />
-          <option name="latestVersion" value="1.2.737" />
+          <option name="latestVersion" value="1.2.747" />
           <option name="name" value="tspredit" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -124781,7 +125054,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="0.1.3" />
+          <option name="latestVersion" value="0.1.4" />
           <option name="name" value="tugboat" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -125482,7 +125755,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="1.0.2" />
+          <option name="latestVersion" value="2.0.0" />
           <option name="name" value="UKFE" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -126030,7 +126303,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.6.0)" />
-          <option name="latestVersion" value="0.0.4" />
+          <option name="latestVersion" value="0.0.5" />
           <option name="name" value="upset.hp" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -126647,8 +126920,8 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="0.1.0" />
+          <option name="depends" value="R (&gt;= 4.3.0)" />
+          <option name="latestVersion" value="0.2.0" />
           <option name="name" value="vandalico" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -126927,7 +127200,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="1.1.0" />
+          <option name="latestVersion" value="1.1.6" />
           <option name="name" value="VBel" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -127391,7 +127664,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.6)" />
-          <option name="latestVersion" value="0.2.5" />
+          <option name="latestVersion" value="0.2.6" />
           <option name="name" value="vetiver" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -128050,7 +128323,7 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
-          <option name="latestVersion" value="0.1.1" />
+          <option name="latestVersion" value="0.2.0" />
           <option name="name" value="vntrs" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -128459,6 +128732,11 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="latestVersion" value="1.2.1" />
+          <option name="name" value="W4MRUtils" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="depends" value="R (&gt;= 2.10)" />
           <option name="latestVersion" value="1.0" />
           <option name="name" value="WA" />
@@ -128818,6 +129096,12 @@
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
         <SerializablePackage>
+          <option name="depends" value="R (&gt;= 3.5)" />
+          <option name="latestVersion" value="0.2.6" />
+          <option name="name" value="waves" />
+          <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
+        </SerializablePackage>
+        <SerializablePackage>
           <option name="depends" value="Matrix, R (&gt;= 2.10)" />
           <option name="latestVersion" value="0.1.4" />
           <option name="name" value="WaveSampling" />
@@ -128900,7 +129184,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 4.1)" />
-          <option name="latestVersion" value="1.0.1" />
+          <option name="latestVersion" value="1.0.2" />
           <option name="name" value="wbwdi" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -130675,7 +130959,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.2.0)" />
-          <option name="latestVersion" value="0.53" />
+          <option name="latestVersion" value="0.54" />
           <option name="name" value="xfun" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -130806,7 +131090,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.6.0)" />
-          <option name="latestVersion" value="1.4.0" />
+          <option name="latestVersion" value="1.4.1" />
           <option name="name" value="xml2" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -131360,7 +131644,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.3.0)" />
-          <option name="latestVersion" value="1.0.0" />
+          <option name="latestVersion" value="1.1.0" />
           <option name="name" value="z22" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>
@@ -131447,7 +131731,7 @@
         </SerializablePackage>
         <SerializablePackage>
           <option name="depends" value="R (&gt;= 3.5.0)" />
-          <option name="latestVersion" value="0.2.3" />
+          <option name="latestVersion" value="0.3.1" />
           <option name="name" value="ZEP" />
           <option name="repoUrl" value="https://cloud.r-project.org/src/contrib" />
         </SerializablePackage>

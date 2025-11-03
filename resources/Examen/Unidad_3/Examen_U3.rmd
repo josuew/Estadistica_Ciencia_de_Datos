@@ -16,6 +16,8 @@ theme: flatly          # (Opcional) Cambia el tema visual
 # Preparacion de datos
 ```{r}
 library(readxl)
+library(corrplot)
+library(car)
 ```
 ```{r}
 marginacion <- read_excel("/Users/jaureperro/PycharmProjects/Estadistica_Ciencia_de_Datos/data/IMM_2020.xlsx", sheet = "IMM_2020")
@@ -33,9 +35,128 @@ marginacion
 # Mostrar el rango, rango intercuantılico, media, mediana y desviacion estandar de las
 # nueve variables porcentuales (ANALF, SBASC, OVSDE, OVSEE, OVSAE, OVPT,
 # VHAC, PL.5000, PO2SM) de cada uno de las 32 entidades federativas.
+
 ```{r}
 
-res <- aggregate(cbind(ANALF, SBASC) ~ NOM_ENT, FUN = mean, data = marginacion)
+funciones <- function(x) {
+  c(rango = diff(range(x)), iqr = IQR(x), media = mean(x), mediana = median(x), desviacion_estandar = sd(x))
+}
+
+res <- aggregate(cbind(ANALF, SBASC, OVSDE, OVSEE, OVSAE, OVPT, VHAC, PL.5000, PO2SM) ~ NOM_ENT, FUN = funciones, data = marginacion)
 res
 
+```
+
+
+# Generar un grafico de correlacion considerando las variables ANALF, SBASC, OVSDE,
+# OVSEE, OVSAE, OVPT, VHAC, PL.5000, PO2SM. Discutir lo observado e interpretar.
+
+```{r}
+#Obtenemos el dataframe con los valores de las variables
+marginacion_filtered <- marginacion[, c("ANALF", "SBASC", "OVSDE", "OVSEE", "OVSAE", "OVPT", "VHAC", "PL.5000", "PO2SM")]
+
+# Matriz de correlacion - Pearson
+matriz_correlacion <- round(cor(marginacion_filtered), 2)
+matriz_correlacion # Valores de la matriz de correlación
+
+# Grafico de correlación
+corrplot(matriz_correlacion)
+```
+
+De lo anterior podemos mencionar que viendo la matriz de correlacion no contamos con numeros negativos lo que indica que todas las variables tienen relacion positiva entre si, lo que indica que si una variable aumenta la otra aumenta.
+
+Al observar el diagrama de correlación correspondiente a la variable ANALF (porcentaje de población de 15 años o más analfabeta), se aprecia una correlación positiva significativa con las variables SBASC (porcentaje de poblacion de 15 años o más sin educación básica), OVPT (porcentaje de ocupantes en viviendas particulares habitadas con piso de tierra) y VHAC (porcentaje de viviendas particulares con hacimiento), con coeficientes de 0.78, 0.64 y 0.66, respectivamente.
+
+Esto indica que a medida que aumenta el porcentaje de población sin educación básica, también incrementa el número de personas analfabetas, lo cual es coherente con la relación directa entre el acceso a la educación y el nivel de alfabetización.
+
+Asimismo, la correlación positiva entre ANALF y las variables OVPT y VHAC sugiere que en los contextos donde existe una mayor proporción de personas analfabetas, también tiende a haber más viviendas con condiciones precarias, como pisos de tierra o situaciones de hacinamiento.
+
+Por otra parte, se observa que la variable SBASC (población sin educación básica) presenta una fuerte correlación positiva con la variable PO2SM (porcentaje de población ocupada con ingresos de hasta dos salarios mínimos) de 0.70.
+
+Esta relación indica que en los municipios o entidades donde existe un mayor porcentaje de población con bajo nivel educativo, también tiende a concentrarse una mayor proporción de trabajadores con ingresos bajos. En otras palabras, la falta de educación básica se asocia con menores oportunidades laborales y salarios reducidos.
+
+Por otra parte, se observa que la variable OVSDE (porcentaje de ocupantes en viviendas particulares habitadas sin drenaje ni excusado) presenta una correlación positiva de 0.53 con la variable OVSEE (porcentaje de ocupantes en viviendas particulares habitadas sin energía eléctrica).
+
+Esta relación sugiere que las viviendas que carecen de drenaje y excusado suelen también presentar carencias en el acceso a servicios básicos como la energía eléctrica, lo que refleja una coincidencia de condiciones de rezago habitacional.
+
+En cuanto a la variable OVSAE (porcentaje de ocupantes en viviendas particulares habitadas sin agua entubada), se observan niveles de correlación débiles a moderados, con valores que oscilan entre 0.19 y 0.39 respecto a las demás variables analizadas.
+
+Esto indica que, aunque la carencia de agua entubada puede estar relacionada con otras formas de rezago habitacional o social, dicha relación no es tan fuerte como la observada entre otras variables de servicios básicos.
+
+Otra variable relevante es PL.5000 (porcentaje de población que vive en localidades menores a 5,000 habitantes). En este caso, se observa una correlación positiva con diversas variables de rezago social, entre ellas ANALF (0.45), SBASC (0.60) y PO2SM (0.58).
+
+Estos valores indican que en las localidades con menor número de habitantes tienden a concentrarse mayores proporciones de población analfabeta, personas sin educación básica y trabajadores con ingresos de hasta dos salarios mínimos. En otras palabras, las comunidades más pequeñas muestran una mayor presencia de condiciones de vulnerabilidad educativa y económica, lo cual refleja la desigualdad territorial entre zonas urbanas y rurales.
+
+
+# Realizar grafico de densidad del Indice de marginacion normalizado (IM N2020) para
+# las entidades de Nuevo Leon, Durango, Jalisco, Veracruz y, Chiapas. ¿Que se puede
+# concluir respecto a lo observado en los graficos?
+
+```{r}
+filtro_estados <- marginacion$NOM_ENT %in% c("Nuevo León", "Durango", "Jalisco", "Veracruz de Ignacio de la Llave", "Chiapas")
+marginacion_estados <- marginacion[filtro_estados,]
+marginacion_estados <- marginacion_estados[order(marginacion_estados$NOM_ENT),]
+
+table(marginacion_estados$CVE_ENT)
+
+aggregate(IMN_2020 ~ NOM_ENT, FUN = length, data = marginacion_estados)
+
+cols <- c("blue", "red", "green", "orange", "purple")
+densityPlot(IMN_2020 ~ as.factor(NOM_ENT),
+            data = marginacion_estados,
+            col = cols,
+            main = "Distribución del Índice de Marginación Normalizado (IMN_2020)",
+            xlab = "Índice de Marginación Normalizado (IMN_2020)",
+            ylab = "Densidad",
+            legend = FALSE)
+legend("topleft",
+       legend = unique(marginacion_estados$NOM_ENT),
+       title = "Entidad Federativa",
+       col = cols,
+       lwd = 2,
+       cex = 0.8)
+
+```
+
+Chiapas presenta la distribución más desplazada hacia la izquierda, con un pico principal alrededor de 0.83. Esto indica que la mayoría de sus municipios presentan altos niveles de marginación, siendo la entidad con mayor marginación promedio entre las analizadas.
+
+Veracruz muestra una distribución similar a la de Chiapas, aunque ligeramente más concentrada hacia valores cercanos a 0.82 y 0.87. Esto sugiere que también enfrenta niveles de marginación altos, aunque con una menor intensidad que Chiapas.
+
+Además, se observa que la distribución de Veracruz es bimodal, lo que indica la presencia de dos grupos de municipios con diferentes condiciones socioeconómicas: uno con mayor marginación y otro con menor marginación.
+
+Durango tiene su pico alrededor de 0.87, lo que refleja que la mayoría de sus municipios presentan niveles de marginación intermedios, con algunos municipios más rezagados y otros con mejores condiciones.
+
+Jalisco y Nuevo León concentran sus distribuciones hacia la derecha del eje, con valores cercanos a 0.9 y superiores. Esto indica que son los estados con menores niveles de marginación, es decir, mejores condiciones socioeconómicas. En particular, Jalisco presenta una distribución más concentrada, lo que sugiere menor desigualdad interna entre sus municipios.
+
+Nuevo León, al igual que Veracruz, presenta una distribución bimodal, lo que indica la presencia de dos grupos de municipios con diferentes condiciones socioeconómicas: uno con marginación baja y otro con marginación muy baja.
+
+Esto sugiere que, aunque el estado en general presenta buenas condiciones socioeconómicas, existen diferencias internas leves entre sus municipios.
+
+# Generar una tabla que resuma de las 32 entidades las siguientes cantidades: total de
+# poblacion consideradas en cada una de las nueve variables que son base del
+# Indice de Marginacion
+```{r}
+
+marginacion_poblacion <- marginacion
+marginacion_poblacion$ANALF_QTY <- round((marginacion_poblacion$POB_TOT * marginacion_poblacion$ANALF) / 100)
+marginacion_poblacion$SBASC_QTY <- (marginacion_poblacion$POB_TOT * marginacion_poblacion$SBASC) / 100
+marginacion_poblacion$OVSDE_QTY <- (marginacion_poblacion$POB_TOT * marginacion_poblacion$OVSDE) / 100
+marginacion_poblacion$OVSEE_QTY <- (marginacion_poblacion$POB_TOT * marginacion_poblacion$OVSEE) / 100
+marginacion_poblacion$OVSAE_QTY <- (marginacion_poblacion$POB_TOT * marginacion_poblacion$OVSAE) / 100
+marginacion_poblacion$OVPT_QTY <- (marginacion_poblacion$POB_TOT * marginacion_poblacion$OVPT) / 100
+marginacion_poblacion$VHAC_QTY <- (marginacion_poblacion$POB_TOT * marginacion_poblacion$VHAC) / 100
+marginacion_poblacion$PL.5000_QTY <- (marginacion_poblacion$POB_TOT * marginacion_poblacion$PL.5000) / 100
+marginacion_poblacion$PO2SM_QTY <- (marginacion_poblacion$POB_TOT * marginacion_poblacion$PO2SM) / 100
+marginacion_poblacion[, c(1, 2, 5, 6, 18, 7, 19, 8, 20, 9, 21, 10,22, 11,23,12,24,13,25,14,26)]
+
+aggregate(cbind(POB_TOT,
+                ANALF_QTY,
+                SBASC_QTY,
+                OVSDE_QTY,
+                OVSEE_QTY,
+                OVSAE_QTY,
+                OVPT_QTY,
+                VHAC_QTY,
+                PL.5000_QTY,
+                PO2SM_QTY) ~ NOM_ENT, FUN = sum, data = marginacion_poblacion) # 2.13 ags repecto al total de la poblacion
 ```
