@@ -20,7 +20,7 @@ library(corrplot)
 library(car)
 ```
 ```{r}
-marginacion <- read_excel("/Users/jaureperro/PycharmProjects/Estadistica_Ciencia_de_Datos/data/IMM_2020.xlsx", sheet = "IMM_2020")
+marginacion <- read_excel("C:\\Users\\a0487048\\Documents\\TI Josue Documents\\Projects\\Python\\Estadistica_Ciencia_de_Datos\\data\\IMM_2020.xlsx", sheet = "IMM_2020")
 sapply(marginacion, class)
 ```
 
@@ -93,6 +93,9 @@ Estos valores indican que en las localidades con menor número de habitantes tie
 # concluir respecto a lo observado en los graficos?
 
 ```{r}
+# Set encoding
+Sys.setlocale("LC_CTYPE", "en_US.UTF-8") # Windows
+
 filtro_estados <- marginacion$NOM_ENT %in% c("Nuevo León", "Durango", "Jalisco", "Veracruz de Ignacio de la Llave", "Chiapas")
 marginacion_estados <- marginacion[filtro_estados,]
 marginacion_estados <- marginacion_estados[order(marginacion_estados$NOM_ENT),]
@@ -165,11 +168,14 @@ aggregate(cbind(POB_TOT,
 [//]  # (Utilizando Boxplots, comparar el Índice de Marginación de los estados de Chiapas,)
 [//]  # (Guerrero, Nuevo León, Tamaulipas y Durango. Describir lo observado.)
 ```{r}
-filtro_estados <- marginacion_poblacion$NOM_ENT %in% c("Chiapas", "Guerrero", "Nuevo León", "Tamaulipas", "Durango")
-marginacion_estados <- marginacion_poblacion[filtro_estados,]
-table(marginacion_estados$NOM_ENT)
+# Set encoding
+Sys.setlocale("LC_CTYPE", "en_US.UTF-8") # Windows
+filtro_estados <- marginacion$NOM_ENT %in% c("Chiapas", "Guerrero", "Nuevo León", "Tamaulipas", "Durango")
+marginacion_estados <- marginacion[filtro_estados,]
 
-boxplot(IM_2020 ~ NOM_ENT,
+marginacion_estados[marginacion_estados$NOM_ENT %in% c("Durango"),]
+
+boxplot(IMN_2020 ~ NOM_ENT,
         data = marginacion_estados,
         main = "Distribución del Índice de Marginación",
         xlab = "Entidades Federativas",
@@ -178,3 +184,12 @@ boxplot(IM_2020 ~ NOM_ENT,
 
 
 ```
+
+A partir del gráfico de cajas podemos observar que Guerrero es la entidad federativa con el mayor índice de marginación. Esto se evidencia tanto en la posición de la mediana como en el tamaño de la caja, que reflejan una mayor dispersión y un nivel de marginación alto en la mayoría de su población.
+
+Por el contrario, Nuevo León presenta el índice de marginación más bajo (cercano a 1) en comparación con las demás entidades. Esto sugiere que la población del estado goza de mejores condiciones en educación, vivienda, ingresos, servicios básicos y ubicación geográfica.
+
+En el caso de Durango, se observa un índice de marginación predominantemente bajo, aunque existen zonas con niveles medios y altos. Esto se aprecia tanto en la mediana como en la amplitud de la caja. Asimismo, destacan algunos valores atípicos, entre los cuales se encuentra el municipio de Mezquital, con un índice de marginación de 0.44, considerado extremadamente alto en comparación con el resto del estado.
+
+Finalmente, Tamaulipas se posiciona como el segundo estado con menor índice de marginación. Esto se puede observar en el tercer cuartil del gráfico, donde la mediana se sitúa alrededor de 0.88. La mayoría de la población presenta niveles de marginación bajos o muy bajos, aunque existen excepciones en algunos municipios con índices de marginación más altos, como San Nicolás (0.68), Bustamante (0.75) y Miquihuana (0.79).
+
