@@ -147,7 +147,7 @@ marginacion_poblacion$OVPT_QTY <- (marginacion_poblacion$POB_TOT * marginacion_p
 marginacion_poblacion$VHAC_QTY <- (marginacion_poblacion$POB_TOT * marginacion_poblacion$VHAC) / 100
 marginacion_poblacion$PL.5000_QTY <- (marginacion_poblacion$POB_TOT * marginacion_poblacion$PL.5000) / 100
 marginacion_poblacion$PO2SM_QTY <- (marginacion_poblacion$POB_TOT * marginacion_poblacion$PO2SM) / 100
-marginacion_poblacion[, c(1, 2, 5, 6, 18, 7, 19, 8, 20, 9, 21, 10,22, 11,23,12,24,13,25,14,26)]
+marginacion_poblacion[, c(1, 2, 5, 6, 18, 7, 19, 8, 20, 9, 21, 10, 22, 11, 23, 12, 24, 13, 25, 14, 26)]
 
 aggregate(cbind(POB_TOT,
                 ANALF_QTY,
@@ -159,4 +159,22 @@ aggregate(cbind(POB_TOT,
                 VHAC_QTY,
                 PL.5000_QTY,
                 PO2SM_QTY) ~ NOM_ENT, FUN = sum, data = marginacion_poblacion) # 2.13 ags repecto al total de la poblacion
+```
+
+
+[//]  # (Utilizando Boxplots, comparar el Índice de Marginación de los estados de Chiapas,)
+[//]  # (Guerrero, Nuevo León, Tamaulipas y Durango. Describir lo observado.)
+```{r}
+filtro_estados <- marginacion_poblacion$NOM_ENT %in% c("Chiapas", "Guerrero", "Nuevo León", "Tamaulipas", "Durango")
+marginacion_estados <- marginacion_poblacion[filtro_estados,]
+table(marginacion_estados$NOM_ENT)
+
+boxplot(IM_2020 ~ NOM_ENT,
+        data = marginacion_estados,
+        main = "Distribución del Índice de Marginación",
+        xlab = "Entidades Federativas",
+        ylab = "Índice de Marginación",
+        col = c("red", "blue","green","pink","cyan"))
+
+
 ```
