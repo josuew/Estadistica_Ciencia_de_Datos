@@ -3,12 +3,12 @@ title: "Estadística y Probabilidad Aplicada"
 author: "Josue Emmanuel Jauregui Arvilla"
 date: "1 de Noviembre de 2025"
 output:
-html_document:
-toc: true          # Activa la tabla de contenido
-toc_depth: 3       # Niveles de encabezados que se mostrarán (##, ###, etc.)
-toc_float: true    # Hace que el índice flote en la parte lateral (HTML interactivo)
-number_sections: true  # Numera las secciones del documento
-theme: flatly          # (Opcional) Cambia el tema visual
+  html_document:
+    toc: true          # Activa la tabla de contenido
+    toc_depth: 3       # Niveles de encabezados que se mostrarán (##, ###, etc.)
+    toc_float: true    # Hace que el índice flote en la parte lateral (HTML interactivo)
+    number_sections: true  # Numera las secciones del documento
+    theme: flatly          # (Opcional) Cambia el tema visual
 ---
 
 # Introduccion
@@ -180,7 +180,7 @@ boxplot(IMN_2020 ~ NOM_ENT,
         main = "Distribución del Índice de Marginación",
         xlab = "Entidades Federativas",
         ylab = "Índice de Marginación",
-        col = c("red", "blue","green","pink","cyan"))
+        col = c("red", "blue", "green", "pink", "cyan"))
 
 
 ```
@@ -193,3 +193,26 @@ En el caso de Durango, se observa un índice de marginación predominantemente b
 
 Finalmente, Tamaulipas se posiciona como el segundo estado con menor índice de marginación. Esto se puede observar en el tercer cuartil del gráfico, donde la mediana se sitúa alrededor de 0.88. La mayoría de la población presenta niveles de marginación bajos o muy bajos, aunque existen excepciones en algunos municipios con índices de marginación más altos, como San Nicolás (0.68), Bustamante (0.75) y Miquihuana (0.79).
 
+[//]: # El 30% de un determinado pueblo ve un concurso que hay en television. Desde el
+[//]: # concurso se llama por telefono a 10 personas del pueblo elegida al azar. Determinar la
+[//]: # probabilidad que, de las 10 personas elegidas:
+[//]: # a) Mas de ocho personas este viendo el programa
+[//]: # b) Al menos una persona de las diez este viendo el programa
+
+```{r}
+
+p <- 0.3 # 30% de las personas VEN el concurso
+n <- 10 # 10 personas elegidas al azar
+
+# P(X > 8) | p = 0.3, n = 10
+# P(X > 8) = 1 - P(X <= 8)
+# Si lower.tail = FALSE calcula hasta X, en este caso seria q <= 8 si lo dejo en TRUE, si es FALSE hace el complemento
+# 1 - pbinom(q = 8, size = n, prob = p, lower.tail = TRUE)
+pbinom(q = 8, size = n, prob = p, lower.tail = FALSE)
+
+# P(X >= 1) | p = 0.3, n = 10
+# P(X >= 1) = 1 - P(X < 1)
+# 1-pbinom(q = 0, size = n, prob = p, lower.tail = TRUE)
+pbinom(q = 0, size = n, prob = p, lower.tail = FALSE)
+
+```
