@@ -229,6 +229,35 @@ de encontrar dos celulas en las cuadriculas observadas? Despues de haber muestre
 400 cuadrıculas y contado la cantidad de celulas de levadura en cada una de ellas, se
 obtuvo la siguiente tabla de frecuencias:
 
+(a) Calcular el valor esperado de celulas por cuadrıcula E(X)
+(b) ¿Cual es la probabilidad de encontrar dos celulas en las cuadriculas observadas?
+(c) Calcular la probabilidad de que los conteos de celulas se encuentren entre 3 y 7.
+
+Cantidad de celulas por cuadrıcula Cantidad de cuadriculas observadas
+0                                  75
+1                                  103
+2                                  121
+3                                  54
+4                                  30
+5                                  13
+6                                   2
+7                                   1
+8                                   0
+
+
 ```{r}
+
+# Valor esperado
+sum(0 * 75,
+    1*103,
+    2*121,
+    3*54,
+    4*30,
+    5*13,
+    6*2,
+    7*1,
+    8*0) / 9
+
+
 
 ```
