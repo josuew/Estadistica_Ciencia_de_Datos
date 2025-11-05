@@ -204,15 +204,31 @@ Finalmente, Tamaulipas se posiciona como el segundo estado con menor índice de 
 p <- 0.3 # 30% de las personas VEN el concurso
 n <- 10 # 10 personas elegidas al azar
 
+# Valor esperado
+n * p # 3 personas ven el concurso
+
 # P(X > 8) | p = 0.3, n = 10
 # P(X > 8) = 1 - P(X <= 8)
 # Si lower.tail = FALSE calcula hasta X, en este caso seria q <= 8 si lo dejo en TRUE, si es FALSE hace el complemento
 # 1 - pbinom(q = 8, size = n, prob = p, lower.tail = TRUE)
 pbinom(q = 8, size = n, prob = p, lower.tail = FALSE)
+# La probabilidad de que mas de 8 personas vean el programa de las 10 es de 0.014%
 
 # P(X >= 1) | p = 0.3, n = 10
 # P(X >= 1) = 1 - P(X < 1)
 # 1-pbinom(q = 0, size = n, prob = p, lower.tail = TRUE)
 pbinom(q = 0, size = n, prob = p, lower.tail = FALSE)
+# La probabilidad de que al menos de las 10 personas que ven el programa es de 97.17%
+
+```
+
+Se estudia la distribucion de celulas de levadura en 400 cuadrıculas de un hemacitometro.
+Este es un aparato semejante al utilizado para hacer los recuentos de las celulas sanguıneas
+y de otras estructuras microscopicas suspendidas en lıquidos. ¿Cual es la probabilidad
+de encontrar dos celulas en las cuadriculas observadas? Despues de haber muestreado
+400 cuadrıculas y contado la cantidad de celulas de levadura en cada una de ellas, se
+obtuvo la siguiente tabla de frecuencias:
+
+```{r}
 
 ```
