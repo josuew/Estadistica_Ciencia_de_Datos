@@ -3,12 +3,12 @@ title: "Estadística y Probabilidad Aplicada"
 author: "Josue Emmanuel Jauregui Arvilla"
 date: "1 de Noviembre de 2025"
 output:
-  html_document:
-    toc: true          # Activa la tabla de contenido
-    toc_depth: 3       # Niveles de encabezados que se mostrarán (##, ###, etc.)
-    toc_float: true    # Hace que el índice flote en la parte lateral (HTML interactivo)
-    number_sections: true  # Numera las secciones del documento
-    theme: flatly          # (Opcional) Cambia el tema visual
+html_document:
+toc: true          # Activa la tabla de contenido
+toc_depth: 3       # Niveles de encabezados que se mostrarán (##, ###, etc.)
+toc_float: true    # Hace que el índice flote en la parte lateral (HTML interactivo)
+number_sections: true  # Numera las secciones del documento
+theme: flatly          # (Opcional) Cambia el tema visual
 ---
 
 # Introduccion
@@ -20,7 +20,8 @@ library(corrplot)
 library(car)
 ```
 ```{r}
-marginacion <- read_excel("C:\\Users\\a0487048\\Documents\\TI Josue Documents\\Projects\\Python\\Estadistica_Ciencia_de_Datos\\data\\IMM_2020.xlsx", sheet = "IMM_2020")
+# marginacion <- read_excel("C:\\Users\\a0487048\\Documents\\TI Josue Documents\\Projects\\Python\\Estadistica_Ciencia_de_Datos\\data\\IMM_2020.xlsx", sheet = "IMM_2020")
+marginacion <- read_excel("/Users/jaureperro/PycharmProjects/Estadistica_Ciencia_de_Datos/data/IMM_2020.xlsx", sheet = "IMM_2020")
 sapply(marginacion, class)
 ```
 
@@ -248,16 +249,39 @@ Cantidad de celulas por cuadrıcula Cantidad de cuadriculas observadas
 ```{r}
 
 # Valor esperado
-sum(0 * 75,
-    1*103,
-    2*121,
-    3*54,
-    4*30,
-    5*13,
-    6*2,
-    7*1,
-    8*0) / 9
+celulas <- 0:8
+cuadriculas <- c(75, 103, 121, 54, 30, 13, 2, 1, 1)
 
+
+# Aqui obtenemos el valor esperado, esto lo veo como la pregunta, si elijo una cuadricula al azar, cuantas celulas podria encontrar en promedio
+valor_esperado <- sum(celulas * cuadriculas) / sum(cuadriculas)
+valor_esperado # con esto podriamos decir que podemos encontrar entre 1 y 2 celulas en promedio
+
+# ¿Cual es la probabilidad de encontrar dos celulas en las cuadriculas observadas?
+# P (X = 2)
+exp(-valor_esperado) * (valor_esperado^2) / (2 * 1)
+
+# la probabilidad de encontrar 2 celulas es del 26.77 %
+
+# Calcular la probabilidad de que los conteos de celulas se encuentren entre 3 y 7.
+celulas_3 <- (exp(-valor_esperado) * (valor_esperado^3) / (3 * 2 * 1))
+celulas_4 <- (exp(-valor_esperado) * (valor_esperado^4) / (4 * 3 * 2 * 1))
+celulas_5 <- (exp(-valor_esperado) * (valor_esperado^5) / (5 * 4 * 3 * 2 * 1))
+celulas_6 <- (exp(-valor_esperado) * (valor_esperado^6) / (6 * 5 * 4 * 3 * 2 * 1))
+celulas_7 <- (exp(-valor_esperado) * (valor_esperado^7) / (7 * 6 * 5 * 4 * 3 * 2 * 1))
+sum(c(celulas_3,celulas_4,celulas_5,celulas_6,celulas_7))
+# 26.81 %
 
 
 ```
+
+La longitud X de ciertos tornillos es una variable aleatoria con distribucion normal de
+media 30mm y desviacion tıpica 0.2mm. Se aceptan como validos aquellos que cumplen
+29.5mm < X < 30.4mm. Calcular las siguientes probabilidades:
+
+(a) Tornillos no aceptables por cortos
+(b) Tornillos no aceptables por largos
+(c) Tornillos no v´alidos
+(d) ¿Cu´al es la probabilidad que de una muestra de 15 tornillos entre 13 y 15 tornillos
+resulten v´alidos?
+
