@@ -281,7 +281,68 @@ media 30mm y desviacion tıpica 0.2mm. Se aceptan como validos aquellos que cump
 
 (a) Tornillos no aceptables por cortos
 (b) Tornillos no aceptables por largos
-(c) Tornillos no v´alidos
+(c) Tornillos no validos
 (d) ¿Cu´al es la probabilidad que de una muestra de 15 tornillos entre 13 y 15 tornillos
-resulten v´alidos?
+resulten validos?
 
+
+# X = longitud X de ciertos tornillos
+P (X < 29.5)
+
+
+P (X > 30.4)
+
+P (X < 29.5 & X > 30.4)
+
+```{r}
+# P(X < 29.5)
+pnorm(29.5, mean = 30, sd = 0.2)
+
+
+pnorm(30.4, mean = 30, sd = 0.2, lower.tail = FALSE)
+
+# P (29.5 <= X <= 30.4)
+1 - (pnorm(30.4, mean = 30, sd = 0.2) - pnorm(29.5, mean = 30, sd = 0.2))
+
+
+pbinom(q = 15, size = 15, prob = 0.9710402) - pbinom(q = 13, size = 15, prob = 0.9710402)
+```
+
+Se tiene conocido por estudios previos que el tiempo de vida util de computadoras
+personales de cierta marca sigue una distribucion N (1000,20) dıas.
+
+(a) ¿A partir de cuantas horas se espera que fallen mınimo el 95% de las computadoras?
+
+(b) La garantıa determina que se reemplazara una computadora si dura sin fallar menos
+de 800 dıas. Determinar cual es la probabilidad de que reemplacen los equipos a
+cierto cliente.
+
+(c) Dado un lote de 20 computadoras, ¿cual es numero esperado de computadoras que
+se regresen?
+
+(d) ¿Cual es la probabilidad de que se regresen entre una y dos computadoras de un
+lote de 30 computadoras?
+```{r}
+# media de fallo de 1000 dias con un desviacion de 20 dias
+# P (X > ? | mu = 1000, sigma = 20) = 0.95
+
+dias_fallo_95 <- qnorm(0.95, mean = 1000, sd = 20)
+
+horas_fallo_95 <- dias_fallo_95 * 24
+horas_fallo_95
+
+prob_reemplazo <- pnorm(800, mean = 1000, sd = 20)
+prob_reemplazo
+
+prob_reemplazo * 100
+
+20 * prob_reemplazo
+
+# d
+p_fallo <- pnorm(800, mean = 1000, sd = 20)
+p_fallo
+prob_entre_1_y_2 <- pbinom(2, size = n, prob = p_fallo) - pbinom(0, size = n, prob = p_fallo)
+prob_entre_1_y_2
+prob_entre_1_y_2 * 100
+
+```
