@@ -3,68 +3,94 @@ title: "Estadística y Probabilidad Aplicada"
 author: "Josue Emmanuel Jauregui Arvilla"
 date: "1 de Noviembre de 2025"
 output:
-html_document:
-toc: true          # Activa la tabla de contenido
-toc_depth: 3       # Niveles de encabezados que se mostrarán (##, ###, etc.)
-toc_float: true    # Hace que el índice flote en la parte lateral (HTML interactivo)
-number_sections: true  # Numera las secciones del documento
-theme: flatly          # (Opcional) Cambia el tema visual
+  html_document:
+    toc: true          # Activa la tabla de contenido
+    toc_depth: 3       # Niveles de encabezados que se mostrarán (##, ###, etc.)
+    toc_float: true    # Hace que el índice flote en la parte lateral (HTML interactivo)
+    number_sections: true  # Numera las secciones del documento
+    theme: flatly          # (Opcional) Cambia el tema visual
 ---
 
-# Introduccion
+# Introducción
+El siguiente reporte técnico presenta un análisis de los datos de marginación municipal correspondientes al año 2020, publicados por el Consejo Nacional de Población (CONAPO). En este estudio se aplican diversas medidas de tendencia central y de dispersión con el propósito de identificar cuáles estados y municipios presentan mayores o menores niveles de vulnerabilidad social. Además, se incluyen ejercicios de distribución de probabilidad que permiten estimar la ocurrencia de eventos favorables dentro de un espacio determinado.
 
-# Preparacion de datos
+# Preparación de datos
 ```{r}
+
+# Librería para cargar archivos excel
 library(readxl)
+
+# Librería para generar gráficos de correlación
 library(corrplot)
+
+# Librería para generar gráficos de caja
 library(car)
 ```
 ```{r}
-# marginacion <- read_excel("C:\\Users\\a0487048\\Documents\\TI Josue Documents\\Projects\\Python\\Estadistica_Ciencia_de_Datos\\data\\IMM_2020.xlsx", sheet = "IMM_2020")
-marginacion <- read_excel("/Users/jaureperro/PycharmProjects/Estadistica_Ciencia_de_Datos/data/IMM_2020.xlsx", sheet = "IMM_2020")
-sapply(marginacion, class)
+# marginacion <- read_excel("C:\\Users\\a0487048\\Documents\\TI Josue Documents\\Projects\\Python\\Estadistica_Ciencia_de_Datos\\data\\IMM_2020.xlsx", sheet = "IMM_2020") # Archivo si corre en Windows
+marginacion <- read_excel("/Users/jaureperro/PycharmProjects/Estadistica_Ciencia_de_Datos/data/IMM_2020.xlsx", sheet = "IMM_2020") # Archivo si corre en Mac OS
+sapply(marginacion, class) # Obtenemos los tipos de datos de cada columna
 ```
 
+Con base en los tipos de datos de cada columna, se observa que las variables "CVE_ENT" y "CVE_MUN" son de tipo character, lo que indica que contienen cadenas de texto. Sin embargo, para su correcto tratamiento y análisis numérico, es necesario convertirlas al tipo numérico mediante una transformación de datos.
+
 ```{r}
-marginacion$CVE_ENT <- as.numeric(marginacion$CVE_ENT)
-marginacion$CVE_MUN <- as.numeric(marginacion$CVE_MUN)
+marginacion$CVE_ENT <- as.numeric(marginacion$CVE_ENT) # Conversión CVE_ENT
+marginacion$CVE_MUN <- as.numeric(marginacion$CVE_MUN) # Conversión CVE_MUN
 table(marginacion$CVE_ENT) # Cantidad de municipios por entidad
 marginacion
 ```
 
+# Análisis de tendencia central y dispersión
 
-# Mostrar el rango, rango intercuantılico, media, mediana y desviacion estandar de las
-# nueve variables porcentuales (ANALF, SBASC, OVSDE, OVSEE, OVSAE, OVPT,
-# VHAC, PL.5000, PO2SM) de cada uno de las 32 entidades federativas.
+Una vez verificado que la base de datos contiene correctamente las 32 entidades federativas y el número total de municipios correspondiente, se procede a realizar el análisis de tendencia central (media y mediana) y de dispersión (desviación estándar) sobre las variables: ANALF, SBASC, OVSDE, OVSEE, OVSAE, OVPT, VHAC, PL.5000 y PO2SM.
+
+A continuación, se presenta una tabla con el significado de cada variable, la cual servirá de referencia para los análisis posteriores.
+
+ANALF - Porcentaje de población de 15 años o más analfabeta <br>
+SBASC - Porcentaje de población de 15 años o más sin educación básica <br>
+OVSDE - Porcentaje de ocupantes en viviendas particulares habitadas sin drenaje ni excusado<br>
+OVSEE - Porcentaje de ocupantes en viviendas particulares habitadas sin energía eléctrica<br>
+OVSAE - Porcentaje de ocupantes en viviendas particulares habitadas sin agua entubada<br>
+OVPT - Porcentaje de ocupantes en viviendas particulares habitadas con piso de tierra<br>
+VHAC - Porcentaje de viviendas particulares con hacinamiento<br>
+PL.5000 - Porcentaje de población que vive en localidades menores a 5 000 habitantes<br>
+PO2SM - Porcentaje de población ocupada con ingresos de hasta 2 salarios mínimos<br>
+IM_2020 - Índice de marginación, 2020<br>
+IMN_2020 - Índice de marginación normalizado, 2020<br>
+
 
 ```{r}
 
-funciones <- function(x) {
+# Función para obtener el rango, rango intercuantílico, media, mediana y la desviación estándar de cada variables mencionadas anteriormente
+medidas <- function(x) {
   c(rango = diff(range(x)), iqr = IQR(x), media = mean(x), mediana = median(x), desviacion_estandar = sd(x))
 }
 
-res <- aggregate(cbind(ANALF, SBASC, OVSDE, OVSEE, OVSAE, OVPT, VHAC, PL.5000, PO2SM) ~ NOM_ENT, FUN = funciones, data = marginacion)
-res
+resultado <- aggregate(cbind(ANALF, SBASC, OVSDE, OVSEE, OVSAE, OVPT, VHAC, PL.5000, PO2SM) ~ NOM_ENT, FUN = medidas, data = marginacion)
+resultado
 
 ```
 
+# Análisis de gráfico de correlación
 
-# Generar un grafico de correlacion considerando las variables ANALF, SBASC, OVSDE,
-# OVSEE, OVSAE, OVPT, VHAC, PL.5000, PO2SM. Discutir lo observado e interpretar.
+Para analizar cómo se relacionan las variables entre sí, se genera un gráfico de correlación que permite visualizar el grado y la dirección de asociación entre las variables ANALF, SBASC, OVSDE, OVSEE, OVSAE, OVPT, VHAC, PL.5000 y PO2SM.
 
 ```{r}
-#Obtenemos el dataframe con los valores de las variables
+#Obtenemos el dataframe con las variables deseadas
 marginacion_filtered <- marginacion[, c("ANALF", "SBASC", "OVSDE", "OVSEE", "OVSAE", "OVPT", "VHAC", "PL.5000", "PO2SM")]
 
 # Matriz de correlacion - Pearson
-matriz_correlacion <- round(cor(marginacion_filtered), 2)
+# Creamos la matriz de correlación
+matriz_correlacion <- cor(marginacion_filtered)
+matriz_correlacion <- round(matriz_correlacion, 2) # Se redujo la tabla de decimales a solo 2 decimales para que sea más fácil de leer
 matriz_correlacion # Valores de la matriz de correlación
 
-# Grafico de correlación
+# Generemos gráfico de correlación
 corrplot(matriz_correlacion)
 ```
 
-De lo anterior podemos mencionar que viendo la matriz de correlacion no contamos con numeros negativos lo que indica que todas las variables tienen relacion positiva entre si, lo que indica que si una variable aumenta la otra aumenta.
+A partir de la matriz de correlación, se observa que no existen valores negativos, lo cual indica que todas las variables presentan una relación positiva entre sí. Esto significa que, en general, cuando una variable aumenta, las demás tienden a aumentar también.
 
 Al observar el diagrama de correlación correspondiente a la variable ANALF (porcentaje de población de 15 años o más analfabeta), se aprecia una correlación positiva significativa con las variables SBASC (porcentaje de poblacion de 15 años o más sin educación básica), OVPT (porcentaje de ocupantes en viviendas particulares habitadas con piso de tierra) y VHAC (porcentaje de viviendas particulares con hacimiento), con coeficientes de 0.78, 0.64 y 0.66, respectivamente.
 
@@ -88,24 +114,31 @@ Otra variable relevante es PL.5000 (porcentaje de población que vive en localid
 
 Estos valores indican que en las localidades con menor número de habitantes tienden a concentrarse mayores proporciones de población analfabeta, personas sin educación básica y trabajadores con ingresos de hasta dos salarios mínimos. En otras palabras, las comunidades más pequeñas muestran una mayor presencia de condiciones de vulnerabilidad educativa y económica, lo cual refleja la desigualdad territorial entre zonas urbanas y rurales.
 
+# Gráfico de correlación del Índice de Marginación Normalizado
 
-# Realizar grafico de densidad del Indice de marginacion normalizado (IM N2020) para
-# las entidades de Nuevo Leon, Durango, Jalisco, Veracruz y, Chiapas. ¿Que se puede
-# concluir respecto a lo observado en los graficos?
+A continuación, se genera un gráfico de correlación utilizando la variable IMN_2020, que representa el Índice de Marginación Normalizado para cada municipio.
+
+Es importante recordar que este índice toma valores entre 0 y 1, donde los valores más cercanos a 1 indican mayor marginación y los cercanos a 0 menor marginación.
+
+El análisis se enfoca únicamente en los municipios pertenecientes a los estados de Nuevo León, Durango, Jalisco, Veracruz y Chiapas, con el objetivo de comparar su comportamiento y relación en términos de marginación.
+
 
 ```{r}
 # Set encoding
 Sys.setlocale("LC_CTYPE", "en_US.UTF-8") # Windows
 
+#Filtro entidades federativas de Nuevo León, Durango, Jalisco, Veracruz y Chiapas
 filtro_estados <- marginacion$NOM_ENT %in% c("Nuevo León", "Durango", "Jalisco", "Veracruz de Ignacio de la Llave", "Chiapas")
 marginacion_estados <- marginacion[filtro_estados,]
+
+# Ordenan los valores por entidad federativa
 marginacion_estados <- marginacion_estados[order(marginacion_estados$NOM_ENT),]
+aggregate(IMN_2020 ~ NOM_ENT, FUN = length, data = marginacion_estados) # Obtenemos la cantidad de municipios de cada estado para verificar que obtenemos la información de las entidadas deseadas
 
-table(marginacion_estados$CVE_ENT)
-
-aggregate(IMN_2020 ~ NOM_ENT, FUN = length, data = marginacion_estados)
-
+# Asignamos colores para cada entidad federativa
 cols <- c("blue", "red", "green", "orange", "purple")
+
+# Generamos el gráfico de densidad en base al Índice de Marginación Normalizado vs Entidad Federativa
 densityPlot(IMN_2020 ~ as.factor(NOM_ENT),
             data = marginacion_estados,
             col = cols,
@@ -136,13 +169,18 @@ Nuevo León, al igual que Veracruz, presenta una distribución bimodal, lo que i
 
 Esto sugiere que, aunque el estado en general presenta buenas condiciones socioeconómicas, existen diferencias internas leves entre sus municipios.
 
-# Generar una tabla que resuma de las 32 entidades las siguientes cantidades: total de
-# poblacion consideradas en cada una de las nueve variables que son base del
-# Indice de Marginacion
+# Tabla resumen de las 32 entidades federativas
+
+A continuación, se presenta una tabla que resume las 32 entidades federativas en función de cada una de las nueve variables (ANALF, SBASC, OVSDE, OVSEE, OVSAE, OVPT, VHAC, PL.5000 y PO2SM), las cuales constituyen la base del Índice de Marginación.
+
+
 ```{r}
 
+# Obtenemos la tabla de marginación
 marginacion_poblacion <- marginacion
-marginacion_poblacion$ANALF_QTY <- round((marginacion_poblacion$POB_TOT * marginacion_poblacion$ANALF) / 100)
+
+# Se crea una columna nueva de cada variable de intéres vs su población actual de cada municipio
+marginacion_poblacion$ANALF_QTY <- (marginacion_poblacion$POB_TOT * marginacion_poblacion$ANALF) / 100
 marginacion_poblacion$SBASC_QTY <- (marginacion_poblacion$POB_TOT * marginacion_poblacion$SBASC) / 100
 marginacion_poblacion$OVSDE_QTY <- (marginacion_poblacion$POB_TOT * marginacion_poblacion$OVSDE) / 100
 marginacion_poblacion$OVSEE_QTY <- (marginacion_poblacion$POB_TOT * marginacion_poblacion$OVSEE) / 100
@@ -151,8 +189,11 @@ marginacion_poblacion$OVPT_QTY <- (marginacion_poblacion$POB_TOT * marginacion_p
 marginacion_poblacion$VHAC_QTY <- (marginacion_poblacion$POB_TOT * marginacion_poblacion$VHAC) / 100
 marginacion_poblacion$PL.5000_QTY <- (marginacion_poblacion$POB_TOT * marginacion_poblacion$PL.5000) / 100
 marginacion_poblacion$PO2SM_QTY <- (marginacion_poblacion$POB_TOT * marginacion_poblacion$PO2SM) / 100
+
+# Se muestra junto a cada variable de interés su cantidad correspondiente respecto a la población total,
 marginacion_poblacion[, c(1, 2, 5, 6, 18, 7, 19, 8, 20, 9, 21, 10, 22, 11, 23, 12, 24, 13, 25, 14, 26)]
 
+# Realizamos la suma de las cantidades de cada entidad
 aggregate(cbind(POB_TOT,
                 ANALF_QTY,
                 SBASC_QTY,
@@ -166,16 +207,19 @@ aggregate(cbind(POB_TOT,
 ```
 
 
-[//]  # (Utilizando Boxplots, comparar el Índice de Marginación de los estados de Chiapas,)
-[//]  # (Guerrero, Nuevo León, Tamaulipas y Durango. Describir lo observado.)
+# Diagrama de caja
+
+A continuación, se presenta un diagrama de cajas que permite comparar el Índice de Marginación entre los estados de Chiapas, Guerrero, Nuevo León, Tamaulipas y Durango.
+
 ```{r}
 # Set encoding
 Sys.setlocale("LC_CTYPE", "en_US.UTF-8") # Windows
+
+# Filtrado de estados
 filtro_estados <- marginacion$NOM_ENT %in% c("Chiapas", "Guerrero", "Nuevo León", "Tamaulipas", "Durango")
 marginacion_estados <- marginacion[filtro_estados,]
 
-marginacion_estados[marginacion_estados$NOM_ENT %in% c("Durango"),]
-
+# Generación de diagrama de boxplot
 boxplot(IMN_2020 ~ NOM_ENT,
         data = marginacion_estados,
         main = "Distribución del Índice de Marginación",
@@ -194,48 +238,67 @@ En el caso de Durango, se observa un índice de marginación predominantemente b
 
 Finalmente, Tamaulipas se posiciona como el segundo estado con menor índice de marginación. Esto se puede observar en el tercer cuartil del gráfico, donde la mediana se sitúa alrededor de 0.88. La mayoría de la población presenta niveles de marginación bajos o muy bajos, aunque existen excepciones en algunos municipios con índices de marginación más altos, como San Nicolás (0.68), Bustamante (0.75) y Miquihuana (0.79).
 
-[//]: # El 30% de un determinado pueblo ve un concurso que hay en television. Desde el
-[//]: # concurso se llama por telefono a 10 personas del pueblo elegida al azar. Determinar la
-[//]: # probabilidad que, de las 10 personas elegidas:
-[//]: # a) Mas de ocho personas este viendo el programa
-[//]: # b) Al menos una persona de las diez este viendo el programa
+# Distribuciones de probabilidad
+
+A continuación, se realizará un análisis de algunos ejercicios de probabilidad, con el objetivo de ilustrar la aplicación de las distribuciones de Bernoulli, Poisson y Binomial.
+
+# Función de probabilidad binomial
+
+El 30% de un determinado pueblo ve un concurso que hay en televisión. Desde el
+concurso se llama por teléfono a 10 personas del pueblo elegidas al azar. Determinar la
+probabilidad que, de las 10 personas elegidas:
+
+a) Más de ocho personas este viendo el programa
+
+La probabilidad de que más de 8 personas vean el programa de las 10 es de 0.014%
 
 ```{r}
 
 p <- 0.3 # 30% de las personas VEN el concurso
 n <- 10 # 10 personas elegidas al azar
 
-# Valor esperado
-n * p # 3 personas ven el concurso
-
 # P(X > 8) | p = 0.3, n = 10
 # P(X > 8) = 1 - P(X <= 8)
 # Si lower.tail = FALSE calcula hasta X, en este caso seria q <= 8 si lo dejo en TRUE, si es FALSE hace el complemento
 # 1 - pbinom(q = 8, size = n, prob = p, lower.tail = TRUE)
 pbinom(q = 8, size = n, prob = p, lower.tail = FALSE)
-# La probabilidad de que mas de 8 personas vean el programa de las 10 es de 0.014%
+
+# Obtenemos el porcentaje de probabilidad
+pbinom(q = 8, size = n, prob = p, lower.tail = FALSE) * 100
+
+
+```
+
+b) Al menos una persona de las diez este viendo el programa
+
+La probabilidad de que al menos una persona vea el programa de las 10 es de 97.17%
+
+```{r}
+
+p <- 0.3 # 30% de las personas VEN el concurso
+n <- 10 # 10 personas elegidas al azar
 
 # P(X >= 1) | p = 0.3, n = 10
 # P(X >= 1) = 1 - P(X < 1)
 # 1-pbinom(q = 0, size = n, prob = p, lower.tail = TRUE)
 pbinom(q = 0, size = n, prob = p, lower.tail = FALSE)
+
 # La probabilidad de que al menos de las 10 personas que ven el programa es de 97.17%
+pbinom(q = 0, size = n, prob = p, lower.tail = FALSE) * 100
 
 ```
 
-Se estudia la distribucion de celulas de levadura en 400 cuadrıculas de un hemacitometro.
-Este es un aparato semejante al utilizado para hacer los recuentos de las celulas sanguıneas
-y de otras estructuras microscopicas suspendidas en lıquidos. ¿Cual es la probabilidad
-de encontrar dos celulas en las cuadriculas observadas? Despues de haber muestreado
-400 cuadrıculas y contado la cantidad de celulas de levadura en cada una de ellas, se
-obtuvo la siguiente tabla de frecuencias:
+# Distribución de Poisson
 
-(a) Calcular el valor esperado de celulas por cuadrıcula E(X)
-(b) ¿Cual es la probabilidad de encontrar dos celulas en las cuadriculas observadas?
-(c) Calcular la probabilidad de que los conteos de celulas se encuentren entre 3 y 7.
+Se estudia la distribución de células de levadura en 400 cuadrículas de un hemacitómetro.
+Este es un aparato semejante al utilizado para hacer los recuentos de las células sanguíneas
+y de otras estructuras microscópicas suspendidas en líquidos. ¿Cuál es la probabilidad
+de encontrar dos células en las cuadrículas observadas? Después de haber muestreado
+400 cuadrículas y contado la cantidad de células de levadura en cada una de ellas, se
+obtuvo la siguiente tabla de frecuencias:<br>
 
-Cantidad de celulas por cuadrıcula Cantidad de cuadriculas observadas
-0                                  75
+Cantidad de células por cuadrícula\tCantidad de cuadrículas observadas<br>
+0\t75<br>
 1                                  103
 2                                  121
 3                                  54
@@ -245,6 +308,9 @@ Cantidad de celulas por cuadrıcula Cantidad de cuadriculas observadas
 7                                   1
 8                                   0
 
+(a) Calcular el valor esperado de células por cuadrícula E(X)
+
+Si tomamos una cuadrícula al azar, podriamos encontrar en promedio entre 1 y 2 células por cuadricula (valor esperado 1.79 células por cuadricula)
 
 ```{r}
 
@@ -252,46 +318,103 @@ Cantidad de celulas por cuadrıcula Cantidad de cuadriculas observadas
 celulas <- 0:8
 cuadriculas <- c(75, 103, 121, 54, 30, 13, 2, 1, 1)
 
-
-# Aqui obtenemos el valor esperado, esto lo veo como la pregunta, si elijo una cuadricula al azar, cuantas celulas podria encontrar en promedio
+# Aqui obtenemos el valor esperado, esto lo veo como la pregunta, si elijo una cuadrícula al azar, cuántas células podría encontrar en promedio
 valor_esperado <- sum(celulas * cuadriculas) / sum(cuadriculas)
-valor_esperado # con esto podriamos decir que podemos encontrar entre 1 y 2 celulas en promedio
+valor_esperado
 
-# ¿Cual es la probabilidad de encontrar dos celulas en las cuadriculas observadas?
-# P (X = 2)
-exp(-valor_esperado) * (valor_esperado^2) / (2 * 1)
 
-# la probabilidad de encontrar 2 celulas es del 26.77 %
+```
 
-# Calcular la probabilidad de que los conteos de celulas se encuentren entre 3 y 7.
+(b) ¿Cual es la probabilidad de encontrar dos celulas en las cuadriculas observadas?
+
+La probabilidad de encontrar dos celulas en una cuadricula observada es del 26.77 %
+
+```{r}
+# Valor esperado
+celulas <- 0:8
+cuadriculas <- c(75, 103, 121, 54, 30, 13, 2, 1, 1)
+
+valor_esperado <- sum(celulas * cuadriculas) / sum(cuadriculas)
+
+# Aplicamos la fórmula de Poisson
+# ø = valor_esperado
+# P(X = k) = (e^-ø * ø^k) / !k
+resultado <- exp(-valor_esperado) * (valor_esperado^2) / (2 * 1)
+
+resultado * 100
+```
+
+(c) Calcular la probabilidad de que los conteos de celulas se encuentren entre 3 y 7.
+
+La probabilidad de que los conteos de celulas se encuentren entre 3 y 7 es del 26.81 % en una cuadrícula
+
+```{r}
+
+# Valor esperado
+celulas <- 0:8
+cuadriculas <- c(75, 103, 121, 54, 30, 13, 2, 1, 1)
+
+valor_esperado <- sum(celulas * cuadriculas) / sum(cuadriculas)
+
+# Obtenemos las probabilidades desde la célula 3 hasta la 7 y después los sumamos
+# P(3 ≤ X ≤ 7)
 celulas_3 <- (exp(-valor_esperado) * (valor_esperado^3) / (3 * 2 * 1))
 celulas_4 <- (exp(-valor_esperado) * (valor_esperado^4) / (4 * 3 * 2 * 1))
 celulas_5 <- (exp(-valor_esperado) * (valor_esperado^5) / (5 * 4 * 3 * 2 * 1))
 celulas_6 <- (exp(-valor_esperado) * (valor_esperado^6) / (6 * 5 * 4 * 3 * 2 * 1))
 celulas_7 <- (exp(-valor_esperado) * (valor_esperado^7) / (7 * 6 * 5 * 4 * 3 * 2 * 1))
-sum(c(celulas_3,celulas_4,celulas_5,celulas_6,celulas_7))
-# 26.81 %
 
+prob_suma <- sum(c(celulas_3,celulas_4,celulas_5,celulas_6,celulas_7))
 
+# Probabilidad de que el conteo de las celulas sea entre 3 y 7 celulas
+prob_suma * 100
 ```
 
-La longitud X de ciertos tornillos es una variable aleatoria con distribucion normal de
-media 30mm y desviacion tıpica 0.2mm. Se aceptan como validos aquellos que cumplen
+# Distribución de Bernoulli
+
+La longitud X de ciertos tornillos es una variable aleatoria con distribución normal de
+media 30mm y desviación típica 0.2mm. Se aceptan como válidos aquellos que cumplen
 29.5mm < X < 30.4mm. Calcular las siguientes probabilidades:
 
 (a) Tornillos no aceptables por cortos
+
+La probabilidad de que los tornillos no sean aceptables por cortos es del 0.62%
+
+```{r}
+
+# P(X < 29.5)
+# Obtenemos la probabilidad acumulada de 29.5
+pnorm(29.5, mean = 30, sd = 0.2, lower.tail = TRUE)
+
+# Porcentaje de probabilidad
+pnorm(29.5, mean = 30, sd = 0.2, lower.tail = TRUE) * 100
+
+```
+
 (b) Tornillos no aceptables por largos
+
+La probabilidad de que los tornillos no sean aceptables por largos es del 2.27%
+
+```{r}
+
+# P(X > 30.4)
+# 1 - pnorm(30.4, mean = 30, sd = 0.2, lower.tail = TRUE)
+# Obtenemos la probabilidad acumulada complementaria de 30.4
+pnorm(30.4, mean = 30, sd = 0.2, lower.tail = FALSE)
+
+# Porcentaje de probabilidad
+pnorm(30.4, mean = 30, sd = 0.2, lower.tail = FALSE) * 100
+
+```
+
 (c) Tornillos no validos
-(d) ¿Cu´al es la probabilidad que de una muestra de 15 tornillos entre 13 y 15 tornillos
+(d) ¿Cuál es la probabilidad que de una muestra de 15 tornillos entre 13 y 15 tornillos
 resulten validos?
 
 
 # X = longitud X de ciertos tornillos
 P (X < 29.5)
-
-
 P (X > 30.4)
-
 P (X < 29.5 & X > 30.4)
 
 ```{r}
