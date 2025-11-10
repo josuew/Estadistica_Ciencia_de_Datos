@@ -2373,73 +2373,162 @@ prob_suma &lt;- sum(c(celulas_3,celulas_4,celulas_5,celulas_6,celulas_7))
 prob_suma * 100</code></pre>
 <pre><code>## [1] 26.8153</code></pre>
 </div>
-<div id="distribución-de-bernoulli" class="section level1" number="11">
-<h1><span class="header-section-number">11</span> Distribución de
-Bernoulli</h1>
+<div id="distribución-normal" class="section level1" number="11">
+<h1><span class="header-section-number">11</span> Distribución
+Normal</h1>
 <p>La longitud X de ciertos tornillos es una variable aleatoria con
 distribución normal de media 30mm y desviación típica 0.2mm. Se aceptan
 como válidos aquellos que cumplen 29.5mm &lt; X &lt; 30.4mm. Calcular
 las siguientes probabilidades:</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>Tornillos no aceptables por cortos</p></li>
-<li><p>Tornillos no aceptables por largos</p></li>
-<li><p>Tornillos no validos</p></li>
-<li><p>¿Cu´al es la probabilidad que de una muestra de 15 tornillos
-entre 13 y 15 tornillos resulten validos?</p></li>
+<li>Tornillos no aceptables por cortos</li>
 </ol>
-</div>
-<div id="x-longitud-x-de-ciertos-tornillos" class="section level1" number="12">
-<h1><span class="header-section-number">12</span> X = longitud X de
-ciertos tornillos</h1>
-<p>P (X &lt; 29.5) P (X &gt; 30.4) P (X &lt; 29.5 &amp; X &gt; 30.4)</p>
+<p>La probabilidad de que los tornillos no sean aceptables por cortos es
+del 0.62%</p>
 <pre class="r"><code># P(X &lt; 29.5)
-pnorm(29.5, mean = 30, sd = 0.2)</code></pre>
+# Obtenemos la probabilidad acumulada de 29.5
+pnorm(29.5, mean = 30, sd = 0.2, lower.tail = TRUE)</code></pre>
 <pre><code>## [1] 0.006209665</code></pre>
-<pre class="r"><code>pnorm(30.4, mean = 30, sd = 0.2, lower.tail = FALSE)</code></pre>
-<pre><code>## [1] 0.02275013</code></pre>
-<pre class="r"><code># P (29.5 &lt;= X &lt;= 30.4)
-1 - (pnorm(30.4, mean = 30, sd = 0.2) - pnorm(29.5, mean = 30, sd = 0.2))</code></pre>
-<pre><code>## [1] 0.0289598</code></pre>
-<pre class="r"><code>pbinom(q = 15, size = 15, prob = 0.9710402) - pbinom(q = 13, size = 15, prob = 0.9710402)</code></pre>
-<pre><code>## [1] 0.9313917</code></pre>
-<p>Se tiene conocido por estudios previos que el tiempo de vida util de
-computadoras personales de cierta marca sigue una distribucion N
-(1000,20) dıas.</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>¿A partir de cuantas horas se espera que fallen mınimo el 95% de
-las computadoras?</p></li>
-<li><p>La garantıa determina que se reemplazara una computadora si dura
-sin fallar menos de 800 dıas. Determinar cual es la probabilidad de que
-reemplacen los equipos a cierto cliente.</p></li>
-<li><p>Dado un lote de 20 computadoras, ¿cual es numero esperado de
-computadoras que se regresen?</p></li>
-<li><p>¿Cual es la probabilidad de que se regresen entre una y dos
-computadoras de un lote de 30 computadoras?</p></li>
+<pre class="r"><code># Porcentaje de probabilidad
+pnorm(29.5, mean = 30, sd = 0.2, lower.tail = TRUE) * 100</code></pre>
+<pre><code>## [1] 0.6209665</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Tornillos no aceptables por largos</li>
 </ol>
+<p>La probabilidad de que los tornillos no sean aceptables por largos es
+del 2.27%</p>
+<pre class="r"><code># P(X &gt; 30.4)
+# 1 - pnorm(30.4, mean = 30, sd = 0.2, lower.tail = TRUE)
+# Obtenemos la probabilidad acumulada complementaria de 30.4
+pnorm(30.4, mean = 30, sd = 0.2, lower.tail = FALSE)</code></pre>
+<pre><code>## [1] 0.02275013</code></pre>
+<pre class="r"><code># Porcentaje de probabilidad
+pnorm(30.4, mean = 30, sd = 0.2, lower.tail = FALSE) * 100</code></pre>
+<pre><code>## [1] 2.275013</code></pre>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Tornillos no validos</li>
+</ol>
+<p>La probabilidad de que los tornillos no sean válidos es del 2.89%</p>
+<pre class="r"><code># P (X &lt; 29.5 | X &gt; 30.4)
+prob_valido &lt;- pnorm(30.4, mean = 30, sd = 0.2) - pnorm(29.5, mean = 30, sd = 0.2)
+
+# Obtenemos el complemento de los tornillos validos
+prob_no_valido &lt;- 1 - prob_valido
+
+# Porcentaje de probabilidad
+prob_no_valido * 100</code></pre>
+<pre><code>## [1] 2.89598</code></pre>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>¿Cuál es la probabilidad que de una muestra de 15 tornillos entre 13
+y 15 tornillos resulten válidos?</li>
+</ol>
+<p>Para este ejercicio se hace una distribución binomial porque se habla
+de una cantidad de tornillos y de cuantos de ellos son válidos, por ello
+se toma la probabilidad válida de los tornillos, tomando lo anterior
+podemos decir que es del 99.14%</p>
+<pre class="r"><code># En el inciso pasado obtuvimos la probabilidad de que un tornillo sea válido
+prob_valido &lt;- pnorm(30.4, mean = 30, sd = 0.2) - pnorm(29.5, mean = 30, sd = 0.2) #0.9710402
+prob_valido</code></pre>
+<pre><code>## [1] 0.9710402</code></pre>
+<pre class="r"><code># Tomamos el acumulado de 15 tornillos - 12 tornillos (esto porque queremos 13,14,15 por ello empieza del 12) y lo restante es la probabilidad válida de los tornillos
+prob_muestra &lt;- pbinom(q = 15, size = 15, prob = prob_valido) -
+                pbinom(q = 12, size = 15, prob = prob_valido)
+
+# Porcentaje de la muestra
+prob_muestra * 100</code></pre>
+<pre><code>## [1] 99.14903</code></pre>
+</div>
+<div id="distribución-de-probabilidad-binomial" class="section level1" number="12">
+<h1><span class="header-section-number">12</span> Distribución de
+probabilidad Binomial</h1>
+<p>Se tiene conocido por estudios previos que el tiempo de vida útil de
+computadoras personales de cierta marca sigue una distribución N
+(1000,20) días.</p>
+<ol style="list-style-type: lower-alpha">
+<li>¿A partir de cuántas horas se espera que fallen mínimo el 95% de las
+computadoras?</li>
+</ol>
+<p>A partir de 24,789.53 (24,790 redondeadas) horas el 95% de las
+computadoras van a fallar</p>
 <pre class="r"><code># media de fallo de 1000 dias con un desviacion de 20 dias
 # P (X &gt; ? | mu = 1000, sigma = 20) = 0.95
-
-dias_fallo_95 &lt;- qnorm(0.95, mean = 1000, sd = 20)
-
-horas_fallo_95 &lt;- dias_fallo_95 * 24
-horas_fallo_95</code></pre>
+dias_para_fallo &lt;- qnorm(0.95, mean = 1000, sd = 20)
+dias_para_fallo # 1032.89 días</code></pre>
+<pre><code>## [1] 1032.897</code></pre>
+<pre class="r"><code># Como queremos obtener horas lo multiplicamos por 24, ya que un dia equivale a 24 horas
+horas_para_fallo &lt;- dias_para_fallo * 24
+horas_para_fallo</code></pre>
 <pre><code>## [1] 24789.53</code></pre>
-<pre class="r"><code>prob_reemplazo &lt;- pnorm(800, mean = 1000, sd = 20)
+<ol start="2" style="list-style-type: lower-alpha">
+<li>La garantía determina que se reemplazará una computadora si dura sin
+fallar menos de 800 días. Determinar cuál es la probabilidad de que
+reemplacen los equipos a cierto cliente.</li>
+</ol>
+<p>La probabilidad de que se reemplacen los equipos a cierto cliente es
+de 7.619853e-22, es decir, practicamente 0% de las computadoras
+fallarían antes de 800 días</p>
+<pre class="r"><code># Obtenemos la probabilidad de que una computadora falle antes de 800 días
+prob_reemplazo &lt;- pnorm(800, mean = 1000, sd = 20)
 prob_reemplazo</code></pre>
 <pre><code>## [1] 7.619853e-24</code></pre>
-<pre class="r"><code>prob_reemplazo * 100</code></pre>
+<pre class="r"><code># Porcentaje de probabilidad de que una computadora falle antes de 800 días
+prob_reemplazo * 100</code></pre>
 <pre><code>## [1] 7.619853e-22</code></pre>
-<pre class="r"><code>20 * prob_reemplazo</code></pre>
-<pre><code>## [1] 1.523971e-22</code></pre>
-<pre class="r"><code># d
-p_fallo &lt;- pnorm(800, mean = 1000, sd = 20)
-p_fallo</code></pre>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Dado un lote de 20 computadoras, ¿cuál es número esperado de
+computadoras que se regresen?</li>
+</ol>
+<p>El número esperado de computadoras que se regresen es de
+1.523971e^-22, prácticamente</p>
+<pre class="r"><code># Obtenemos la probabilidad de que una computadora falle antes de 800 días
+valor_esperado &lt;- pnorm(800, mean = 1000, sd = 20)
+valor_esperado</code></pre>
 <pre><code>## [1] 7.619853e-24</code></pre>
-<pre class="r"><code>prob_entre_1_y_2 &lt;- pbinom(2, size = n, prob = p_fallo) - pbinom(0, size = n, prob = p_fallo)
-prob_entre_1_y_2</code></pre>
-<pre><code>## [1] 0</code></pre>
-<pre class="r"><code>prob_entre_1_y_2 * 100</code></pre>
-<pre><code>## [1] 0</code></pre>
+<pre class="r"><code># Tomando en cuenta que es un lote de 20 computadoras
+# E = n * p
+20 * valor_esperado</code></pre>
+<pre><code>## [1] 1.523971e-22</code></pre>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>¿Cuál es la probabilidad de que se regresen entre una y dos
+computadoras de un lote de 30 computadoras?</li>
+</ol>
+<p>La probabilidad de que se regresen entre una y dos computadoras de un
+lote de 30 computadoras es de 2.285956e^-20%</p>
+<pre class="r"><code># Obtenemos la probabilidad de que una computadora falle antes de 800 días
+valor_esperado &lt;- pnorm(800, mean = 1000, sd = 20)
+
+# Distribución Binomial
+# P(1 ≤ X ≤ 2)
+
+n &lt;- 30 # lote computadoras
+
+# 30! / 1! * (30 - 1)
+k &lt;- 1
+computadora_formas_1 &lt;- factorial(n) / (factorial(k) * factorial(n-k)) # 30 formas de elegir 1 computadora que sea defectuosa
+
+# 30! / 2! * (30 - 2)!
+k &lt;- 2
+computadora_formas_2 &lt;- factorial(n) / (factorial(k) * factorial(n-k)) # 435 formas de elegir 2 computadoras que sean defectuosas
+
+# Fórmula de cálculo de probabilidades
+# (n p) = cantidad de combinaciones posibles
+# p = valor esperado
+# (n p) * (p ^ k) * (1 - p) ^ (n - k)
+k &lt;- 1
+prob_1 &lt;- computadora_formas_1 * (valor_esperado ^ k) * (1 - valor_esperado) ^ (n-k)
+prob_1 # 2.285956e-22</code></pre>
+<pre><code>## [1] 2.285956e-22</code></pre>
+<pre class="r"><code>k &lt;- 2
+prob_2 &lt;- computadora_formas_2 * (valor_esperado ^ k) * (1 - valor_esperado) ^ (n-k)
+prob_2 # 2.525704e-44</code></pre>
+<pre><code>## [1] 2.525704e-44</code></pre>
+<pre class="r"><code># Sumamos las probabilidades de 1 y 2 computadoras
+prob_final &lt;- sum(prob_1 + prob_2)
+prob_final</code></pre>
+<pre><code>## [1] 2.285956e-22</code></pre>
+<pre class="r"><code># Porcentaje de probabilidad
+prob_final * 100</code></pre>
+<pre><code>## [1] 2.285956e-20</code></pre>
 </div>
 
 

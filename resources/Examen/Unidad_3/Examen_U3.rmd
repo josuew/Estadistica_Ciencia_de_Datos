@@ -346,7 +346,7 @@ resultado * 100
 
 (c) Calcular la probabilidad de que los conteos de celulas se encuentren entre 3 y 7.
 
-La probabilidad de que los conteos de celulas se encuentren entre 3 y 7 es del 26.81 % en una cuadrícula
+La probabilidad de que los conteos de celulas se encuentren entre 3 y 7 es del 26.81% en una cuadrícula
 
 ```{r}
 
@@ -358,19 +358,38 @@ valor_esperado <- sum(celulas * cuadriculas) / sum(cuadriculas)
 
 # Obtenemos las probabilidades desde la célula 3 hasta la 7 y después los sumamos
 # P(3 ≤ X ≤ 7)
-celulas_3 <- (exp(-valor_esperado) * (valor_esperado^3) / (3 * 2 * 1))
-celulas_4 <- (exp(-valor_esperado) * (valor_esperado^4) / (4 * 3 * 2 * 1))
-celulas_5 <- (exp(-valor_esperado) * (valor_esperado^5) / (5 * 4 * 3 * 2 * 1))
-celulas_6 <- (exp(-valor_esperado) * (valor_esperado^6) / (6 * 5 * 4 * 3 * 2 * 1))
-celulas_7 <- (exp(-valor_esperado) * (valor_esperado^7) / (7 * 6 * 5 * 4 * 3 * 2 * 1))
 
+# Función de probabilidad de Poisson
+# e ^ (-p) * (p ^ k) / k!
+
+# 3 células
+k <- 3
+celulas_3 <- (exp(-valor_esperado) * (valor_esperado^k) / factorial(k))
+
+# 4 células
+k <- 4
+celulas_4 <- (exp(-valor_esperado) * (valor_esperado^k) / factorial(k))
+
+# 5 células
+k <- 5
+celulas_5 <- (exp(-valor_esperado) * (valor_esperado^k) / factorial(k))
+
+# 6 células
+k <- 6
+celulas_6 <- (exp(-valor_esperado) * (valor_esperado^k) / factorial(k))
+
+# 7 células
+k <- 7
+celulas_7 <- (exp(-valor_esperado) * (valor_esperado^k) / factorial(k))
+
+# Probabilidades de que el conteo células sea entre 3 y 7
 prob_suma <- sum(c(celulas_3,celulas_4,celulas_5,celulas_6,celulas_7))
 
-# Probabilidad de que el conteo de las celulas sea entre 3 y 7 celulas
+# Porcentaje de Probabilidad de que el conteo de las células sea entre 3 y 7
 prob_suma * 100
 ```
 
-# Distribución de Bernoulli
+# Distribución Normal
 
 La longitud X de ciertos tornillos es una variable aleatoria con distribución normal de
 media 30mm y desviación típica 0.2mm. Se aceptan como válidos aquellos que cumplen
@@ -408,64 +427,148 @@ pnorm(30.4, mean = 30, sd = 0.2, lower.tail = FALSE) * 100
 ```
 
 (c) Tornillos no validos
-(d) ¿Cuál es la probabilidad que de una muestra de 15 tornillos entre 13 y 15 tornillos
-resulten validos?
 
-
-# X = longitud X de ciertos tornillos
-P (X < 29.5)
-P (X > 30.4)
-P (X < 29.5 & X > 30.4)
+La probabilidad de que los tornillos no sean válidos es del 2.89%
 
 ```{r}
-# P(X < 29.5)
-pnorm(29.5, mean = 30, sd = 0.2)
 
+# P (X < 29.5 | X > 30.4)
+prob_valido <- pnorm(30.4, mean = 30, sd = 0.2) - pnorm(29.5, mean = 30, sd = 0.2)
 
-pnorm(30.4, mean = 30, sd = 0.2, lower.tail = FALSE)
+# Obtenemos el complemento de los tornillos validos
+prob_no_valido <- 1 - prob_valido
 
-# P (29.5 <= X <= 30.4)
-1 - (pnorm(30.4, mean = 30, sd = 0.2) - pnorm(29.5, mean = 30, sd = 0.2))
+# Porcentaje de probabilidad
+prob_no_valido * 100
 
-
-pbinom(q = 15, size = 15, prob = 0.9710402) - pbinom(q = 13, size = 15, prob = 0.9710402)
 ```
 
-Se tiene conocido por estudios previos que el tiempo de vida util de computadoras
-personales de cierta marca sigue una distribucion N (1000,20) dıas.
+(d) ¿Cuál es la probabilidad que de una muestra de 15 tornillos entre 13 y 15 tornillos
+resulten válidos?
 
-(a) ¿A partir de cuantas horas se espera que fallen mınimo el 95% de las computadoras?
+Para este ejercicio se hace una distribución binomial porque se habla de una cantidad de tornillos y de cuantos
+de ellos son válidos, por ello se toma la probabilidad válida de los tornillos, tomando lo anterior podemos decir
+que es del 99.14%
 
-(b) La garantıa determina que se reemplazara una computadora si dura sin fallar menos
-de 800 dıas. Determinar cual es la probabilidad de que reemplacen los equipos a
-cierto cliente.
+```{r}
 
-(c) Dado un lote de 20 computadoras, ¿cual es numero esperado de computadoras que
-se regresen?
+# En el inciso pasado obtuvimos la probabilidad de que un tornillo sea válido
+prob_valido <- pnorm(30.4, mean = 30, sd = 0.2) - pnorm(29.5, mean = 30, sd = 0.2) #0.9710402
+prob_valido
 
-(d) ¿Cual es la probabilidad de que se regresen entre una y dos computadoras de un
-lote de 30 computadoras?
+# Tomamos el acumulado de 15 tornillos - 12 tornillos (esto porque queremos 13,14,15 por ello empieza del 12) y lo restante es la probabilidad válida de los tornillos
+prob_muestra <- pbinom(q = 15, size = 15, prob = prob_valido) -
+                pbinom(q = 12, size = 15, prob = prob_valido)
+
+# Porcentaje de la muestra
+prob_muestra * 100
+
+```
+
+# Distribución de probabilidad Binomial
+
+Se tiene conocido por estudios previos que el tiempo de vida útil de computadoras
+personales de cierta marca sigue una distribución N (1000,20) días.
+
+(a) ¿A partir de cuántas horas se espera que fallen mínimo el 95% de las computadoras?
+
+A partir de 24,789.53 (24,790 redondeadas) horas el 95% de las computadoras van a fallar
+
 ```{r}
 # media de fallo de 1000 dias con un desviacion de 20 dias
 # P (X > ? | mu = 1000, sigma = 20) = 0.95
+dias_para_fallo <- qnorm(0.95, mean = 1000, sd = 20)
+dias_para_fallo # 1032.89 días
 
-dias_fallo_95 <- qnorm(0.95, mean = 1000, sd = 20)
+# Como queremos obtener horas lo multiplicamos por 24, ya que un dia equivale a 24 horas
+horas_para_fallo <- dias_para_fallo * 24
+horas_para_fallo
 
-horas_fallo_95 <- dias_fallo_95 * 24
-horas_fallo_95
+```
 
+(b) La garantía determina que se reemplazará una computadora si dura sin fallar menos
+de 800 días. Determinar cuál es la probabilidad de que reemplacen los equipos a
+cierto cliente.
+
+La probabilidad de que se reemplacen los equipos a cierto cliente es de 7.619853e-22, es decir,
+practicamente 0% de las computadoras fallarían antes de 800 días
+
+```{r}
+
+# Obtenemos la probabilidad de que una computadora falle antes de 800 días
 prob_reemplazo <- pnorm(800, mean = 1000, sd = 20)
 prob_reemplazo
 
+# Porcentaje de probabilidad de que una computadora falle antes de 800 días
 prob_reemplazo * 100
 
-20 * prob_reemplazo
+```
 
-# d
-p_fallo <- pnorm(800, mean = 1000, sd = 20)
-p_fallo
-prob_entre_1_y_2 <- pbinom(2, size = n, prob = p_fallo) - pbinom(0, size = n, prob = p_fallo)
-prob_entre_1_y_2
-prob_entre_1_y_2 * 100
+(c) Dado un lote de 20 computadoras, ¿cuál es número esperado de computadoras que
+se regresen?
+
+El número esperado de computadoras que se regresen es de 1.523971e^-22, prácticamente
+
+```{r}
+
+# Obtenemos la probabilidad de que una computadora falle antes de 800 días
+valor_esperado <- pnorm(800, mean = 1000, sd = 20)
+valor_esperado
+
+# Tomando en cuenta que es un lote de 20 computadoras
+# E = n * p
+20 * valor_esperado
+
+```
+
+(d) ¿Cuál es la probabilidad de que se regresen entre una y dos computadoras de un
+lote de 30 computadoras?
+
+La probabilidad de que se regresen entre una y dos computadoras de un lote de 30 computadoras es de 2.285956e^-20%
+
+```{r}
+
+
+# Obtenemos la probabilidad de que una computadora falle antes de 800 días
+valor_esperado <- pnorm(800, mean = 1000, sd = 20)
+
+# Distribución Binomial
+# P(1 ≤ X ≤ 2)
+
+n <- 30 # lote computadoras
+
+# Fórmula de combinación
+# n! / k! * (n - k)!
+
+# 1 computadora
+# 30! / 1! * (30 - 1)!
+k <- 1
+computadora_formas_1 <- factorial(n) / (factorial(k) * factorial(n-k)) # 30 formas de elegir 1 computadora que sea defectuosa
+
+# 2 computadoras
+# 30! / 2! * (30 - 2)!
+k <- 2
+computadora_formas_2 <- factorial(n) / (factorial(k) * factorial(n-k)) # 435 formas de elegir 2 computadoras que sean defectuosas
+
+# Fórmula de cálculo de probabilidades
+# (n p) = cantidad de combinaciones posibles
+# p = valor esperado
+# (n p) * (p ^ k) * (1 - p) ^ (n - k)
+k <- 1
+prob_1 <- computadora_formas_1 * (valor_esperado ^ k) * (1 - valor_esperado) ^ (n-k)
+prob_1 # 2.285956e-22
+
+k <- 2
+prob_2 <- computadora_formas_2 * (valor_esperado ^ k) * (1 - valor_esperado) ^ (n-k)
+prob_2 # 2.525704e-44
+
+# Sumamos las probabilidades de 1 y 2 computadoras
+prob_final <- sum(prob_1 + prob_2)
+prob_final
+
+# Porcentaje de probabilidad
+prob_final * 100
+
+
 
 ```
