@@ -23,7 +23,7 @@ library(readxl)
 # Librería para generar gráficos de correlación
 library(corrplot)
 
-# Librería para generar gráficos de caja
+# Librería para generar gráficos de densidad
 library(car)
 ```
 ```{r}
