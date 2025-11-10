@@ -588,11 +588,11 @@ computadora_formas_2 <- factorial(n) / (factorial(k) * factorial(n-k)) # 435 for
 # (n p) * (p ^ k) * (1 - p) ^ (n - k)
 k <- 1
 prob_1 <- computadora_formas_1 * (valor_esperado ^ k) * (1 - valor_esperado) ^ (n-k)
-prob_1 # 2.285956e-22
+# prob_1 # 2.285956e-22
 
 k <- 2
 prob_2 <- computadora_formas_2 * (valor_esperado ^ k) * (1 - valor_esperado) ^ (n-k)
-prob_2 # 2.525704e-44
+# prob_2 # 2.525704e-44
 
 # Sumamos las probabilidades de 1 y 2 computadoras
 prob_final <- sum(prob_1 + prob_2)

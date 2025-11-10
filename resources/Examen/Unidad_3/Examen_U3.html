@@ -2620,13 +2620,13 @@ computadora_formas_2 &lt;- factorial(n) / (factorial(k) * factorial(n-k)) # 435 
 # (n p) * (p ^ k) * (1 - p) ^ (n - k)
 k &lt;- 1
 prob_1 &lt;- computadora_formas_1 * (valor_esperado ^ k) * (1 - valor_esperado) ^ (n-k)
-prob_1 # 2.285956e-22</code></pre>
-<pre><code>## [1] 2.285956e-22</code></pre>
-<pre class="r"><code>k &lt;- 2
+# prob_1 # 2.285956e-22
+
+k &lt;- 2
 prob_2 &lt;- computadora_formas_2 * (valor_esperado ^ k) * (1 - valor_esperado) ^ (n-k)
-prob_2 # 2.525704e-44</code></pre>
-<pre><code>## [1] 2.525704e-44</code></pre>
-<pre class="r"><code># Sumamos las probabilidades de 1 y 2 computadoras
+# prob_2 # 2.525704e-44
+
+# Sumamos las probabilidades de 1 y 2 computadoras
 prob_final &lt;- sum(prob_1 + prob_2)
 prob_final</code></pre>
 <pre><code>## [1] 2.285956e-22</code></pre>
