@@ -2258,7 +2258,7 @@ altos, como San Nicolás (0.68), Bustamante (0.75) y Miquihuana
 probabilidad</h1>
 <p>A continuación, se realizará un análisis de algunos ejercicios de
 probabilidad, con el objetivo de ilustrar la aplicación de las
-distribuciones de Bernoulli, Poisson y Binomial.</p>
+distribuciones de Poisson, Binomial, etc…</p>
 </div>
 <div id="función-de-probabilidad-binomial" class="section level1" number="9">
 <h1><span class="header-section-number">9</span> Función de probabilidad
@@ -2312,8 +2312,88 @@ encontrar dos células en las cuadrículas observadas? Después de haber
 muestreado 400 cuadrículas y contado la cantidad de células de levadura
 en cada una de ellas, se obtuvo la siguiente tabla de
 frecuencias:<br></p>
-<p>Cantidad de células por cuadrículade cuadrículas observadas<br>
-05<br> 1 103 2 121 3 54 4 30 5 13 6 2 7 1 8 0</p>
+<table>
+<tr>
+<th>
+Cantidad de células por cuadrícula
+</th>
+<th>
+Cantidad de cuadrículas observadas
+</th>
+</tr>
+<tr>
+<td>
+0
+</td>
+<td>
+75
+</td>
+</tr>
+<tr>
+<td>
+1
+</td>
+<td>
+103
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+121
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+54
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+30
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+13
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+1
+</td>
+</tr>
+</table>
 <ol style="list-style-type: lower-alpha">
 <li>Calcular el valor esperado de células por cuadrícula E(X)</li>
 </ol>
@@ -2352,7 +2432,7 @@ resultado * 100</code></pre>
 entre 3 y 7.</li>
 </ol>
 <p>La probabilidad de que los conteos de celulas se encuentren entre 3 y
-7 es del 26.81 % en una cuadrícula</p>
+7 es del 26.81% en una cuadrícula</p>
 <pre class="r"><code># Valor esperado
 celulas &lt;- 0:8
 cuadriculas &lt;- c(75, 103, 121, 54, 30, 13, 2, 1, 1)
@@ -2361,15 +2441,34 @@ valor_esperado &lt;- sum(celulas * cuadriculas) / sum(cuadriculas)
 
 # Obtenemos las probabilidades desde la célula 3 hasta la 7 y después los sumamos
 # P(3 ≤ X ≤ 7)
-celulas_3 &lt;- (exp(-valor_esperado) * (valor_esperado^3) / (3 * 2 * 1))
-celulas_4 &lt;- (exp(-valor_esperado) * (valor_esperado^4) / (4 * 3 * 2 * 1))
-celulas_5 &lt;- (exp(-valor_esperado) * (valor_esperado^5) / (5 * 4 * 3 * 2 * 1))
-celulas_6 &lt;- (exp(-valor_esperado) * (valor_esperado^6) / (6 * 5 * 4 * 3 * 2 * 1))
-celulas_7 &lt;- (exp(-valor_esperado) * (valor_esperado^7) / (7 * 6 * 5 * 4 * 3 * 2 * 1))
 
+# Función de probabilidad de Poisson
+# e ^ (-p) * (p ^ k) / k!
+
+# 3 células
+k &lt;- 3
+celulas_3 &lt;- (exp(-valor_esperado) * (valor_esperado^k) / factorial(k))
+
+# 4 células
+k &lt;- 4
+celulas_4 &lt;- (exp(-valor_esperado) * (valor_esperado^k) / factorial(k))
+
+# 5 células
+k &lt;- 5
+celulas_5 &lt;- (exp(-valor_esperado) * (valor_esperado^k) / factorial(k))
+
+# 6 células
+k &lt;- 6
+celulas_6 &lt;- (exp(-valor_esperado) * (valor_esperado^k) / factorial(k))
+
+# 7 células
+k &lt;- 7
+celulas_7 &lt;- (exp(-valor_esperado) * (valor_esperado^k) / factorial(k))
+
+# Probabilidades de que el conteo células sea entre 3 y 7
 prob_suma &lt;- sum(c(celulas_3,celulas_4,celulas_5,celulas_6,celulas_7))
 
-# Probabilidad de que el conteo de las celulas sea entre 3 y 7 celulas
+# Porcentaje de Probabilidad de que el conteo de las células sea entre 3 y 7
 prob_suma * 100</code></pre>
 <pre><code>## [1] 26.8153</code></pre>
 </div>
@@ -2502,10 +2601,15 @@ valor_esperado &lt;- pnorm(800, mean = 1000, sd = 20)
 
 n &lt;- 30 # lote computadoras
 
-# 30! / 1! * (30 - 1)
+# Fórmula de combinación
+# n! / k! * (n - k)!
+
+# 1 computadora
+# 30! / 1! * (30 - 1)!
 k &lt;- 1
 computadora_formas_1 &lt;- factorial(n) / (factorial(k) * factorial(n-k)) # 30 formas de elegir 1 computadora que sea defectuosa
 
+# 2 computadoras
 # 30! / 2! * (30 - 2)!
 k &lt;- 2
 computadora_formas_2 &lt;- factorial(n) / (factorial(k) * factorial(n-k)) # 435 formas de elegir 2 computadoras que sean defectuosas

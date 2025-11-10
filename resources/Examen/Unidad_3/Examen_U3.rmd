@@ -240,7 +240,7 @@ Finalmente, Tamaulipas se posiciona como el segundo estado con menor índice de 
 
 # Distribuciones de probabilidad
 
-A continuación, se realizará un análisis de algunos ejercicios de probabilidad, con el objetivo de ilustrar la aplicación de las distribuciones de Bernoulli, Poisson y Binomial.
+A continuación, se realizará un análisis de algunos ejercicios de probabilidad, con el objetivo de ilustrar la aplicación de las distribuciones de Poisson, Binomial, etc...
 
 # Función de probabilidad binomial
 
@@ -297,16 +297,48 @@ de encontrar dos células en las cuadrículas observadas? Después de haber mues
 400 cuadrículas y contado la cantidad de células de levadura en cada una de ellas, se
 obtuvo la siguiente tabla de frecuencias:<br>
 
-Cantidad de células por cuadrícula\tCantidad de cuadrículas observadas<br>
-0\t75<br>
-1                                  103
-2                                  121
-3                                  54
-4                                  30
-5                                  13
-6                                   2
-7                                   1
-8                                   0
+<table>
+    <tr>
+        <th>Cantidad de células por cuadrícula</th>
+        <th>Cantidad de cuadrículas observadas</th>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>75</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>103</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>121</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>54</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>30</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>13</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>1</td>
+    </tr>
+</table>
 
 (a) Calcular el valor esperado de células por cuadrícula E(X)
 
